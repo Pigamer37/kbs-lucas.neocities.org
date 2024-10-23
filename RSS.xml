@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<channel>
+    <title>KB's Lair</title>
+    <image>
+      <url>https://kbs-lucas.neocities.org/images/favicon.png</url>
+      <title>KB's Lair</title>
+      <link>https://kbs-lucas.neocities.org</link>
+    </image>
+    <link>https://kbs-lucas.neocities.org/</link>
+    <atom:link href="https://kbs-lucas.neocities.org/RSS.xml" rel="self" type="application/rss+xml"/>
+    <description>A personal website where I talk about personal topics, electronics and robotics, music, etc. Made from scratch</description>
+    <category>Personal</category>
+    <category>Electronics</category>
+    <category>Robotics</category>
+    <category>Music</category>
+    <language>en-us</language>
+    <docs>https://www.rssboard.org/rss-specification</docs>
+    <!--RFC 2822 - https://timestampgenerator.com/-->
+    <lastBuildDate>
+      Mon, 07 Oct 2024 08:23:51 +0000
+    </lastBuildDate>
+    <pubDate>Mon, 07 Oct 2024 08:23:51 +0000</pubDate>
+    <ttl>60</ttl>
+    
+    <item>
+        <title>Dungeon Meshi Review</title>
+        <link>https://kbs-lucas.neocities.org/posts/Dungeon_Meshi_Review</link>
+        <description>My experience with Dungeon Meshi S1 and how I was pleasantly surprised by a constant tide of creativity (with a spoiler free section)</description>
+        <content:encoded><![CDATA[
+        <h1><span style="color: red;"><strong>NO SPOILER</strong></span> section: What is <cite>Dungeon Meshi</cite>?</h1>
+          <p>I just finished the first season of <cite>Dungeon Meshi</cite> <time datetime="2024-10-03">(03/10/2024)</time>, and wow, what a series. What we got for now it's about half of the story, but just this was absolutely fantastic.</p>
+          <p><cite>Dungeon Meshi</cite> (or <cite>Delicious in Dungeon</cite>) is a medieval fantasy anime, which sets itself appart immediately with it's premise: our protagonists must <strong>eat</strong> the monsters they encounter in the dungeon to survive. It's not like this is something everybody does on this universe, quite the contrary!</p>
+          <figure class="inside-p-right" style="width: clamp(300px, 45vi, 100%)">
+          <img decoding="async" class="center" title="Dungeon Meshi Chapter 1: page 17" src="https://cm.blazefast.co/73/13/73130b1221794648b122b9581af11939.jpg" alt="Page 17 of Dungeon Meshi Chapter 1">
+          <figcaption>One of the first pages of the <cite>Dungeon Meshi</cite> manga, explaining the concept</figcaption>
+          </figure>
+          <p>This by itself would have made for a very original story, where we would have been surprised by the iventive ways to cook fantasy beings we all know and love, like golems, ghosts, mandrakes, basilisks, cockatrices, kelpies, etc. and some brand new monsters too, but also all the intricacies of the dungeon ecosystem, accompanied by studio Trigger's beautiful animation, which from what I've seen closely resembles the manga's style; Also, the universe is not framed in a <em>video-gamy</em> way, referencing <abbr title="Health/Hit Points">HP</abbr> or <abbr title="Experience">XP</abbr>, but in a realistic way. It's more like <cite>Lord of the Rings</cite> than <cite>Sword Art Online</cite> in that way, which feels fresh in anime, at least for me. However, that's not all of what Ryōko Kui (I found <a href="https://nisiryu.blogspot.com/" target="_blank">her blog</a>) has in store for us. The reason why they adopt this peculiar habit eventually becomes very central, with both the monster cooking and the actual subyacent plot being paralell driving forces, especially a few episodes in.</p>
+          <p>In the first few minutes (or pages) we see Laios (who is the leader of the group) watching in fear as his sister Falin succumbs to a red dragon. This event leaves him and the rest of the party in a pretty bad state, both mentally and economically, because most of their equipment gets lost in the process of retreating. The premise of the show is caused by this lack of money, and therefore food, while they try to get back into the deep levels of the dungeon to rescue Falin before it's too late. Little by little, the main gang members' relationships, memories and past are revealed to us, fleshing them and Falin out (even when she is offscreen). Most of the anime is very bubbly, funny and cutesy, but around episode 12 a more visceral side shows up, which I didn't expect, but I'm all for it. Without getting into spoiler territory, there's some light gore and body horror.</p>
+          <p>If any of this got your attention, please go consume (pun absolutely intended) this great piece of media, be it via manga or anime. At the time of writing, just the first season of the series has been released, and it adapts about half of the manga's chapters from what I've read. I found <a href="https://dungeon-meshi.online/" target="_blank">this website</a> where you can start reading the manga, which is finished. In fact, I might start doing that myself, because waiting for the second season to come out seem too long to wait. In fact, one of my close friends has already read the manga and it's eager for me to finish it to talk about the whole thing freely. And about the anime, I just can direct you to <a href="https://www.netflix.com/es-en/title/81564899" target="_blank">Netflix</a> because they hold exclusive rights to it at the moment, unless you want to sail the high sea... *wink wink*</p>
+          <p>Now let's dive into spoilers for the first season. From here onwards I'm assuming you've watched the first season or read until chapter 52 (this is what the first season of the anime adapts, to my knowledge). (In the original article, the next section is hidden until you click on it to prevent spoilers) Click below to reveal.</p>
+          <details style="clear:both;"><summary><h2 style="display: inline;">SPOILER SECTION</h2> (click to see)</summary>
+            <p>Wasn't that awesome? Did you expect Falin to be dead? Did you expect Marcille to use black blood magic to get her back? Did you expect her to become a FREACKING BIRD DRAGON HUMAN HYBRID??? I certainly didn't. I fully expected the series to be a silly good time until episode 12, like I said. Also, all the backstory between Marcille and Falin(? They're so cute! I loved all the ways they prepared monsters and explained the mechanics of the dungeon and the magic system. I liked Izutsumi, her situation paralelling that of Falin's, although I didn't like how cold and surly she was for all this season. Hopefully she warms up a little to the party.</p>
+            <p>With the last episode fresh on my mind, I'm eager to see the golden lion, the mad mage and to see if the implications of cannibalism do come true and work to separate Falin's soul from th dragon's.</p>
+          </details>
+        ]]> </content:encoded>
+        <pubDate>Mon, 07 Oct 2024 08:23:51 +0000</pubDate>
+        <category>Personal</category>
+        <category>Anime</category>
+        <category>Media</category>
+        <guid>https://kbs-lucas.neocities.org/posts/Dungeon_Meshi_Review</guid>
+    </item>
+    <item>
+        <title>My monthly playlist KB Radio (FM)</title>
+        <link>https://kbs-lucas.neocities.org/posts/Monthly_playlist_KB_FM</link>
+        <description>An explanation on the monthly music playlist concept and some of this month's content</description>
+        <content:encoded><![CDATA[
+        <h1>I present to you: <span style="color: red;"><strong>my monthly playlist, KB Radio (FM)</strong></span></h1>
+          <p>Have you ever wanted to know what a seasoned music listener (currently my main playlist spans 2270 songs) finds during a month? Well, here you go:</p>
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/42w2GD51boaQrw7it78z7G?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          <p>Because the above is a live view of the playlist, you might see a different version of it depending on when you are reading this. And that's exactly the gimmick! Each month, I collect all of the music I discovered the previous month. For example, today I have to update it so it contains September's discoveries.</p>
+          <p>I love getting to hear new music, specially if it's from loved ones or good friends. I'm always asking them to send me whatever song it's playing from their library so I can listen to it later, and in times when music hunting is a bit slow, I usually ask for recommendations directly. It's one of the ways I get to know someone. You may not know me (or want to know me) personally, but you may want to hear new music and see if you like it. That's what this playlist is for.</p>
+          <p>I try to listen to everything I come across, regardless of genre. This will sometimes result in incoherent listening sessions for my friends XD, but I think it's trully rewarding. Each genre is very diverse, so even if you think you don't like one, in my experience there's always some artist or album that breaks this tendency. I obviously have my preferences, like everybody else. I love rock and metal, so those and all their subgenres (like nu-metal, grunge, punk, djent, etc.) will likely be present in most instances of this playlist. I also love indie, funk, rap and phonk, but as I said, sometimes you'll get wildcards in there like salsa, jazz, cumbia, hyperpop... expect the unexpected.</p>
+          <p>Speaking about this month's instance now, we have some unexpected artists if you are not versed in metal culture, Linkin Park and Poppy:</p>
+          <h2>Linkin Park's back!</h2>
+          <p>Linkin Park's return to action was teased for a short time before playing live and making a livestream of the event. That same day, they released the live gig's opener <a class="Spotify" href="https://open.spotify.com/track/2PnlsTsOTLE5jnBnNe2K0A?si=3242f641bf0d4ca7" target="_blank"><cite>The Emptiness Machine</cite></a>, the first single with their new vocalist: Emily Armstrong. Let's adress the elephant in the room: no one will be able to substitute previous vocalist Chester Bennington. However, I don't think Linkin Park is trying to do that, and neither should fans. I think they are trying to make a new chapter, honoring the past material and making new music. Speaking of which, I was pleasantly surprised by the new singer and drummer, they nailed the old songs and had great stage pressence. I also loved the new singles, <cite>The Emptiness Machine</cite>'s drum and bass groove and amazing screams where stuck on loop on mine and some friend's earphones. Try listening to the bridge and ending chorus without getting goosebumps. <a class="Spotify" href="https://open.spotify.com/track/3fgehc497TFqKH1zBL2YNK?si=78c87b7cb728422f" target="_blank"><cite>Heavy is the crown</cite></a> was unveiled as the <i>League of Legends Esports (Worlds)</i> song, and I also like it, even if I like the first one more. Both of these tracks will be featured in their upcoming album and are present in this month playlist.</p>
+          <h2>Poppy? The <i>I'm Poppy</i> Poppy???</h2>
+          <p>Yeah. You may know Poppy from her weird run on YouTube making liminal and sureal videos making it look like she was an android. She has carried that creativity into her music, which started following that concept, but quickly deviated into a more emotinal direction, now focused on metal and industrial styles mixed with electronic music. Her previous album, Zig, was very unique and I thoroughly liked it. The artist has recently made colaborations with Bad Omens <cite>(<a class="Spotify" href="https://open.spotify.com/track/2WtFbotxC95UD2r1RzE036?si=80f6a5e7b6cd49c8" target="_blank">V.A.N</a>)</cite> and Knocked Loose <cite>(<a class="Spotify" href="https://open.spotify.com/track/6PXYOVPBzO3xojFhQAvmde?si=be6141133c7949c5" target="_blank">Suffocate</a>)</cite>, and has appeared in a Spiritbox gig. She has unique style, not only instrumentally but vocally. She can do the softest singing, robotic (almost talking) verses, powerfully belted choruses and gut wrenching screams (in the best way possible), and sometimes even in the same song. Her screaming style is very characteristic too, high pitched but aggressive. You can always tell if it's Poppy screaming. She has released a new single off of what it seems to be a new album, called <a class="Spotify" href="https://open.spotify.com/track/27g7prKPpfUtaPOBjO1hQ1?si=3215bcf65a594135" target="_blank"><cite>they're all around us</cite></a>, and I consider it an absolute banger.</p>
+          <h2>Other noteworthy stuff</h2>
+          <p>Also included in this instance is the new Childish Gambino's new single <a class="Spotify" href="https://open.spotify.com/track/3uC4r2daXertBxxc8BpbbN?si=1abe5f30620c4f10" target="_blank"><cite>Lithonia</cite></a>, which to my knowledge is his first dip into rock. It's more of an indie-rock style, using a piano-<wbr/>like synth and soft, catchy back-up vocals. I also discovered Rolo Tomassi, I have to dip my toes into their catalogue, but they seem like a nice discovery. One of my favourite bands, Sexy Zebras, released their new single <a class="Spotify" href="https://open.spotify.com/track/3uC4r2daXertBxxc8BpbbN?si=1abe5f30620c4f10" target="_blank"><cite>Mañana no existe</cite></a>, a spanish rock song which overall message is <i>Carpe Diem</i>. Gaming rap-<wbr/>rock-<wbr/>pop trio Starbomb is brewing a <a class="Spotify" href="https://open.spotify.com/prerelease/1vHzziIw74SuvKhE6Am83Q?si=e83e89b5ff8c419b" target="_blank">new album</a>, and it has a confirmed release date of <time datetime="2024-10-25">October 25th, 2024</time>. They have released two singles so far, and I didn't <strong>love</strong> <a class="Spotify" href="https://open.spotify.com/track/0DH6xKuXR5ZQkeAEWtZtsi?si=8a7fae8ce62540ca" target="_blank"><cite>Pokémon Smash or Pass</cite></a>, but <a class="Spotify" href="https://open.spotify.com/track/5M6LqY0MXpKwPo9uakkfIq?si=f79b0fba9e9d415a" target="_blank"><cite>Nintendo Online's Greatest Announcement</cite></a> was great (pun intended). Finally, I got into Clown Core. Mixing metal (especially djent or groove metal), jazz and honks, they are weird, I know, but if you shed your prejudice and take a <strong>real</strong> and <strong>unbiased</strong> listen, it may be one of the most interesting musical experiences you'll ever get. <a class="Spotify" href="https://open.spotify.com/track/7L5T0IutG8MyDnucOVccdU?si=0327066932424000" target="_blank"><cite>Infinite Realm of Incomprehensible Suffering</cite></a> is a soothing jazzy pop track, very straightforward, don't let the name fool you, it may serve as a normal introduction to the duo. I imagine it played on an elevator or as a witing tone for a call center. <a class="Spotify" href="https://open.spotify.com/track/2mlh8fBK1wFPW5PgHYCjbN?si=50c93f9d62854b00" target="_blank"><cite>Flat Earth</cite></a> starts the shenanigans.</p>
+          <p>Did I win you over? Do you want to take a peek at some of the stuff I mentioned? <a class="Spotify" href="https://open.spotify.com/playlist/42w2GD51boaQrw7it78z7G?si=JKJcvopvSxiNFFNqQ5PHJQ" target="_blank">Here's a link to the playlist</a>. Enjoy!</p>
+        ]]> </content:encoded>
+        <pubDate>Tue, 01 Oct 2024 14:00:10 +0000</pubDate>
+        <category>Personal</category>
+        <category>Music</category>
+        <guid>https://kbs-lucas.neocities.org/posts/Monthly_playlist_KB_FM</guid>
+    </item>
+    <item>
+        <title>Update 1</title>
+        <link>https://kbs-lucas.neocities.org/posts/Update_1_19-09-2024</link>
+        <description>First post on this site! Explaining my situation and future plans.</description>
+        <content:encoded><![CDATA[
+        <p><span style="color: red;"><strong>I just (yesterday) presented mi Final Degree Project!!</strong></span><br>
+          I'm so happy I finally can really call myself an engineer! I finally have time to do many things I put in the back burner because of uni (although I'm already working for a big spanish engineering company 😎🤓, so I have some obligations still): from catching up on series, anime, videogames, books... to making some personal projects like learning how to build this website (and doing it) or making a device for drumkits that lights <abbr title="Light Emitting Diode">LEDs</abbr> up on impact. Yeah, I play the drums, I forgot to mention. I think I will create a section on this site dedicated to my musical ventures (mainly the bands I'm on at the moment and the ones I've been part of &quot;historically&quot;).</p>
+          <aside><details><summary><strong>Brief techical aside:</strong></summary>
+          I plan on using piezoelectric sensors, LEDs and some microcontroller. I have an Arduino Mega and some STM32 board named Discovery or something, I can't quite remember the name. I'm planning on using interruptions as the main sensor mechanism, because a drumkit usually has more than one drum (I won't light up cymbals) and seems like an intuitive way to do it, rather than polling for each sensor's signal. I've been told that Arduino boards' interruption systems are kinda... meh. Too slow, blocking execution while changing context, so I'll have to try with the Mega (maybe they were refering to just the Arduino UNO(? ), because I've already used interruptions on the other board and I know they work very nicely. I plan on documenting the process here, so be ready!
+          </details></aside>
+          <p>I am so pumped to be &quot;free&quot;. Sometimes academics, specially in <abbr title="Science, Technology, Engineering and Maths">STEM</abbr> fields can be very taxing. In my case, the type of learning some teachers want from you is not compatible with how my brain works, at least in my uni. I need to understand the problem, not memorize the solution. I need to know <em>why</em> im doing something, and if I do, that solution usually comes naturally then. I don't know if I'm making any sense XD. Maybe next year I will think about doing a Masters degree, I've heard is more specialized, but not as taxing. We'll see, I guess.<br>
+          Anyways, as I said, I'm going to &quot;take control&quot; of my free time again. I'm so excited.</p>
+          <p><abbr title="Post Scriptum">P.S.</abbr>: Thanks again (and forever) to everyone who made that part of my life bearable. Family, friends, coleagues... You know who you are! 😉</p>
+        ]]> </content:encoded>
+        <!--RFC 2822 - https://timestampgenerator.com/-->
+        <pubDate>Thu, 19 Sep 2024 11:05:28 +0200</pubDate>
+        <category>Personal</category>
+        <category>Electronics</category>
+        <category>Robotics</category>
+        <guid>https://kbs-lucas.neocities.org/posts/Update_1_19-09-2024</guid>
+    </item>
+
+</channel>
+</rss>

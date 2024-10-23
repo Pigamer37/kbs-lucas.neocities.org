@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Update 1 | KB</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A personal website made from scratch" />
+<!-- Social media stuff -->
+    <meta property="og:title" content="KB's Website" />
+    <meta property="og:description" content="A personal website made from scratch" />
+    <meta property="og:image" content="https://kbs-lucas.neocities.org/images/twitter_preview.png" />
+    <meta property="og:image:alt" content="Preview image" />
+    
+    <meta name="twitter:title" content="KB's Page" />
+    <meta name="twitter:description" content="A personal website made from scratch" />
+    <meta name="twitter:url" content="https://kbs-lucas.neocities.org/?src=twitter" />
+    <meta name="twitter:image:src" content="https://kbs-lucas.neocities.org/images/twitter_preview.png" />
+    <meta name="twitter:image:alt" content="27 different home appliances" />
+    <meta name="twitter:creator" content="@KBs__Lucas" />
+    <meta name="twitter:site" content="@KBs__Lucas" />
+<!-- Social media end -->
+    <!-- <link rel="stylesheet" src="styles.css" /> -->
+    <link href="/window.css" rel="stylesheet" type="text/css" media="all">
+    <meta name="theme-color" content="#ff9933" />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="alternate" href="https://kbs-lucas.neocities.org/es-posts/Actualizacin_1_19-09-2024" hreflang="es-ES" />
+    <link rel="canonical" href="https://kbs-lucas.neocities.org/posts/Update_1_19-09-2024" />
+    <link rel="manifest" href="/mlwmanifest.json" />
+  </head>
+  <body>
+    <header>
+      <!-- Navigation Window -->
+      <nav class="window" id="navigation" role="menubar" tabindex="0">
+        <div class="title-bar">
+          <span class="title" role="heading">Site Content Navigation</span>
+          <div class="buttons">
+            <button tabindex="-1">_</button>
+            <button tabindex="-1">&#x26F6;</button>
+            <button tabindex="-1">✕</button>
+          </div>
+        </div>
+        <div class="content">
+          <ul role="list">
+            <!-- <a href="#reg">Register</a> -->
+            <li><a href="/index.html" role="menuitem" tabindex="0" style="margin: 1ch">Home</a>
+            <li><a href="/es.html" role="menuitem" tabindex="0" style="margin: 1ch">Página en Español</a>
+            <li><a href="/posts.html" role="menuitem" tabindex="0" style="margin: 1ch">Posts</a>
+            <li><a href="/socials.html" role="menuitem" tabindex="0" style="margin: 1ch">Socials/Contact</a>
+            <li><a href="/about.html" role="menuitem" tabindex="0" style="margin: 1ch">About</a>
+            <li><a href="#footer" role="menuitem" tabindex="0" style="margin: 1ch">More Info</a>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+    <h1 style="display: flex; justify-content: center;">KB's first article!</h1>
+      <article class="window">
+        <div class="title-bar">
+          <span class="title" role="heading">Update 1 <time datetime="2024-09-19">(19/09/2024)</time> (yes, I'm using dd/MM/yyyy notation)</span>
+          <div class="buttons">
+            <button tabindex="-1">_</button>
+            <button tabindex="-1">&#x26F6;</button>
+            <button tabindex="-1">✕</button>
+          </div>
+          </div>
+        <div class="content">
+          <p><span style="color: red;"><strong>I just (yesterday) presented mi Final Degree Project!!</strong></span><br>
+          I'm so happy I finally can really call myself an engineer! I finally have time to do many things I put in the back burner because of uni (although I'm already working for a big spanish engineering company 😎🤓, so I have some obligations still): from catching up on series, anime, videogames, books... to making some personal projects like learning how to build this website (and doing it) or making a device for drumkits that lights <abbr title="Light Emitting Diode">LEDs</abbr> up on impact. Yeah, I play the drums, I forgot to mention. I think I will create a section on this site dedicated to my musical ventures (mainly the bands I'm on at the moment and the ones I've been part of &quot;historically&quot;).</p>
+          <aside><details><summary><strong>Brief techical aside:</strong></summary>
+          I plan on using piezoelectric sensors, LEDs and some microcontroller. I have an Arduino Mega and some STM32 board named Discovery or something, I can't quite remember the name. I'm planning on using interruptions as the main sensor mechanism, because a drumkit usually has more than one drum (I won't light up cymbals) and seems like an intuitive way to do it, rather than polling for each sensor's signal. I've been told that Arduino boards' interruption systems are kinda... meh. Too slow, blocking execution while changing context, so I'll have to try with the Mega (maybe they were refering to just the Arduino UNO(? ), because I've already used interruptions on the other board and I know they work very nicely. I plan on documenting the process here, so be ready!
+          </details></aside>
+          <p>I am so pumped to be &quot;free&quot;. Sometimes academics, specially in <abbr title="Science, Technology, Engineering and Maths">STEM</abbr> fields can be very taxing. In my case, the type of learning some teachers want from you is not compatible with how my brain works, at least in my uni. I need to understand the problem, not memorize the solution. I need to know <em>why</em> im doing something, and if I do, that solution usually comes naturally then. I don't know if I'm making any sense XD. Maybe next year I will think about doing a Masters degree, I've heard is more specialized, but not as taxing. We'll see, I guess.<br>
+          Anyways, as I said, I'm going to &quot;take control&quot; of my free time again. I'm so excited.</p>
+          <p><abbr title="Post Scriptum">P.S.</abbr>: Thanks again (and forever) to everyone who made that part of my life bearable. Family, friends, coleagues... You know who you are! 😉</p>
+        </div>
+      </article>
+    </main>
+    <footer id="footer">
+      <p style="display: flex; justify-content: center;">This webpage's HTML is licensed under a MIT license, CSS and site contents are protected by copyright&copy; law. <br></p>
+      <p><a style="display: flex; justify-content: center;" href="#">Back to top</a></p>
+    </footer>
+    <script defer src="/scripts/window.js"></script>
+  </body>
+</html>

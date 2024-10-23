@@ -1,0 +1,32 @@
+.hoverEl, .hoverImg, .hoverVid{
+  border:.0625rem solid var(--accent-orange);
+  border-radius:1rem;
+  width:100%;
+  height:auto;
+  aspect-ratio:auto 4/3;
+}
+.hoverEl{
+ text-decoration-line:none;
+ -webkit-text-decorations-in-effect: none;
+ transition:none;
+ overflow:hidden;
+ & pre{margin:0;overflow:hidden;
+  & code{
+   overflow:hidden;
+   padding-block:0;
+   font-size:12px;
+  }
+ }
+}
+#vidlist{
+  padding-inline-start:0;
+  display:flex;
+  flex-flow:row wrap;
+  justify-content:center;
+  align-content:center;
+  gap:2em;
+  & li{
+   width:clamp(310px, 22%, 720px);;/*24%*/
+   list-style-position: inside;
+  }
+}

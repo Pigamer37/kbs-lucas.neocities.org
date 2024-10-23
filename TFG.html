@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+  <head>
+    <meta charset="utf-8" />
+    <title>KB's TFG</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A personal website made from scratch" />
+<!-- Social media stuff -->
+    <meta property="og:title" content="KB's TFG" />
+    <meta property="og:description" content="My TFG or Final Project for uni" />
+    <meta property="og:image" content="https://kbs-lucas.neocities.org/images/twitter_preview.png" />
+    <meta property="og:image:alt" content="Preview image" />
+    
+    <meta name="twitter:title" content="KB's TFG" />
+    <meta name="twitter:description" content="My TFG or Final Project for uni" />
+    <meta name="twitter:url" content="https://kbs-lucas.neocities.org/TFG?src=twitter" />
+    <meta name="twitter:image:src" content="https://kbs-lucas.neocities.org/images/twitter_preview.png" />
+    <meta name="twitter:image:alt" content="27 different home appliances" />
+    <meta name="twitter:creator" content="@KBs__Lucas" />
+    <meta name="twitter:site" content="@KBs__Lucas" />
+<!-- Social media end -->
+    <link href="/styles/TFG.css" rel="stylesheet" type="text/css" media="all">
+    <meta name="theme-color" content="#ff9933" />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="canonical" href="https://kbs-lucas.neocities.org/TFG" />
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://kbs-lucas.neocities.org/RSS.xml">
+    <link rel="manifest" href="/mlwmanifest.json" />
+  </head>
+  <body>
+    <span class="portada">
+    <p>UNIVERSIDAD POLITÉCNICA DE MADRID</p>
+    <p>ESCUELA TÉCNICA SUPERIOR DE INGENIERÍA Y DISEÑO INDUSTRIAL</p>
+    <p>Graduado en Ingeniería Electrónica Industrial y Automática</p>
+    <p>TRABAJO FIN DE GRADO</p>
+    <strong><p>NAVEGACIÓN BASADA EN SEGUIMIENTO DE LÍNEAS MEDIANTE VISIÓN ARTIFICIAL PARA EL ROBOT ROBOGAIT SPORT</p></strong>
+    <p>Autor: Lucas Gómez Velayos</p>
+    </span>
+    <ol class="indice" id="indice">
+      <li class="nocount"><a href=#indice>Índice</a></li>
+      <li class="nocount"><a href=#Resumen>Resumen</a></li>
+      <li class="nocount"><a href=#Abstract>Abstract</a></li>
+      <li class="nocount"><a href=#Agradecimientos>Agradecimientos</a></li>
+      <li class="nocount"><a href=#indiceF>Índice de figuras</a></li>
+      <li class="nocount"><a href=#indiceT>Índice de tablas</a></li>
+      <li><a href=#Introduccion>Introducción</a>
+      <ol>
+        <li class="subInd"><a href=#Contexto>Contexto</a></li>
+        <li class="subInd"><a href=#Objetivos>Objetivos y alcance</a></li>
+      </ol>
+      </li>
+      <li><a href=#Estado>Estado de la cuestión</a>
+      <ol>
+        <li class="subInd"><a href=#EstadoP>Estado previo del prototipo</a></li>
+      </ol>
+      </li>
+    </ol>
+    <h1 id="Resumen">Resumen</h1>
+    <p>En este trabajo se ha profundizado en el diseño, selección de componentes, programación e integración de un sistema de detección de líneas y seguimiento de estas, adaptándose a la estructura, hardware y sistemas de control ya presentes en un prototipo de robot denominado ROBOGait SPORT. Se trata de un robot móvil de análisis de la marcha en humanos y, más concretamente, de la forma de correr de los atletas. Al comienzo de este trabajo, el sistema de GPS (Global Positioning System) planteado en primera instancia como forma de guiado del robot ya había sido desarrollado en otros proyectos, pero no ofrecía un buen funcionamiento. Por esta razón, en este trabajo se acomete un modo de guiado alternativo al que se había implementado en el prototipo original. Aprovechando que las pruebas con los sujetos de estudio del robot se realizan en pistas de atletismo, se planteó como método más eficaz utilizar la coloración diferenciada de las líneas que separan los carriles o calles de los corredores en el circuito, para delimitar y guiar también la ruta del robot mediante un sistema de visión artificial. Para este cometido, se ha utilizado la placa Raspberry Pi 5, la cámara Camera Module 3 de Raspberry y la biblioteca de código abierto de visión artificial OpenCV y de control de sensores fotográficos libcamera.</p>
+    <h1 id="Abstract" lang="es">Abstract</h1>
+    <p>In this work, the design process, part selection, programming and integration of a line detection and following system is thoroughly described, adapting to the structure, hardware and control systems already present in a prototype called ROBOGait SPORT. It is a mobile gait analysis robot for humans and, more specifically, it analyzes the way athletes run. At the start of this work, the GPS system proposed to guide the robot was already developed, but it did not function correctly. Because of this reason, in this an alternative guiding mode from the one implemented in the original prototype it’s taken on. Taking advantage of the fact that tests with the subjects are done in athletic tracks, using the differentiated coloration of the lines that separate the runner’s tracks in the circuit, to delimit and guide the route of the robot using a computer vision system was proposed as a more effective method. To do this, the Raspberry Pi 5 microcontroller, Raspberry’s Camera Module 3 and the open source computer vision library OpenCV and the photographic sensor control library libcamera have been used.</p>
+    <strong><p>Palabras clave</p></strong>
+    <p>Robótica, Visión Artificial, Seguimiento de líneas, Detección de bordes, OpenCV, ROS 2</p>
+    <strong><p lang="en">Keywords</p></strong>
+    <p lang="en">Robotics, Computer Vision, Line following, Edge detection, OpenCV, ROS 2</p>
+    <h1 id="Agradecimientos">Agradecimientos</h1>
+    <p>A Pablo Quesada (técnico de laboratorio) por su paciencia, y por compartir sus conocimientos de redes y ayuda. Al profesor de la ETSIDI (Escuela Técnica Superior de Ingeniería y Diseño Industrial) Miguel Hernando por sus sugerencias y su tiempo, y, sobre todo, a Alberto Brunete, mi tutor del TFG (Trabajo Fin de Grado), y a David Álvarez, co-tutor, por su guía e inestimable ayuda y apoyo en las reuniones periódicas que hemos mantenido con el resto del equipo ROBOGait. A Carlos Ferreira, por ayudarme a entender el funcionamiento de sus mejoras en el robot con el que he trabajado para este proyecto.</p>
+    <p>A mi familia, en especial a mis padres, Pepe y Carmen, por apoyarme y alentarme siempre en mi camino de formación que, por ahora, culmina con este trabajo.<br>
+    A Ana Cristina, a quien agradezco su apoyo incondicional, su amistad y el ánimo que me ha infundido. A mis compañeros y amigos de carrera por su compañerismo, los buenos momentos vividos y la simbiosis de conocimientos que hemos compartido, especialmente, a María y Manuel, quienes se embarcaron en sus propios TFG para el desarrollo de otros componentes de este proyecto al mismo tiempo que yo.</p>
+    <p>A los trabajadores y responsables del Centro Deportivo Municipal Estadio de Atletismo Vallehermoso de Madrid, quienes me facilitaron el uso de sus instalaciones para realizar la mayoría de las grabaciones empleadas para validar el sistema de visión artificial desarrollado en este trabajo.</p>
+    <p>Por último, a todos aquellos desarrolladores con los que me he topado que han publicado y compartido su código y lo han explicado para que pueda reutilizarse; de forma similar, a OpenCV y ROS 2, por mantener su código actualizado, libre y documentado para todo el mundo.</p>
+    <p style="float:right;"><q style="float:right;">Carpe Diem</q><br>Horacio (65-8 a. C.)</p>
+    <h1 id="indiceF">Índice de figuras</h1>
+
+  </body>
+</html>

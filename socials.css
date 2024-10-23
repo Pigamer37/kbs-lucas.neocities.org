@@ -1,0 +1,62 @@
+#main_win .content ul {
+  list-style-type: none;
+  width: 100%;
+  column-width: 8.75em;
+  column-gap: 1em;
+  padding-inline-start: 1em;
+}
+#bands .content{
+  display: flex;
+  gap: 1rem;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+#bands .content span p{
+ width: clamp(306px, 30vi, 75em); 
+}
+#bands .center-icons{
+  display: flex;
+  flex-flow: row;
+  place-content: center center;
+}
+#bands .center-icons > a{
+ height: 1rem; 
+}
+.Email:before{
+  content: "📩";
+  font-size: .75rem;
+  /*Thkfully rms underline for some reason*/
+  display: inline-block;
+}
+.Instagram:before, .Twitter:before, .Spotify:before, .GitHub:before, .LinkedIn:before, .YT:before, .Twitch:before, .TikTok:before {
+  content:"";
+  display: inline-block;
+  height: 1rem;
+  width: 1rem;
+  background-size: 1rem 1rem;
+  margin-inline-end: .5rem;
+}
+.Instagram:before{
+  background-image:url('https://static.cdninstagram.com/rsrc.php/v3/yR/r/lam-fZmwmvn.png');
+}
+.Twitter:before{
+  background-image:url('https://abs.twimg.com/favicons/twitter.3.ico');
+}
+.Spotify:before{
+  background-image:url('https://open.spotifycdn.com/cdn/images/favicon32.b64ecc03.png');
+}
+.GitHub:before{
+  background-image:url('https://github.githubassets.com/favicons/favicon-dark.svg');
+}
+.LinkedIn:before{
+  background-image:url('https://static.licdn.com/aero-v1/sc/h/akt4ae504epesldzj74dzred8');
+}
+.YT:before{
+  background-image:url('https://www.youtube.com/s/desktop/494dd881/img/favicon_32x32.png');
+}
+.Twitch:before{
+  background-image:url('https://assets.twitch.tv/assets/favicon-32-e29e246c157142c94346.png');
+}
+.TikTok:before{
+  background-image:url('https://www.tiktok.com/favicon.ico');
+}

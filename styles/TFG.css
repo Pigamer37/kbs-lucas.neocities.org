@@ -1,0 +1,82 @@
+:root{
+  --text-color: #dedede;
+}
+body {
+  font-family: Cambria, serif;
+  background-color: black;
+  color: var(--text-color);
+  margin: 0;
+  font-size: 12px;
+  padding-inline: 8em;
+}
+h1{
+  margin-block-start: 3em;
+  font-family: Poppins, Sans-Serif;
+  color: red;
+  font-size: 1.25rem;
+}
+h1{
+  font-size: 1.17rem;
+}
+p{
+  font-family: Cambria, serif;
+  font-size: 1rem;
+  color: var(--text-color);
+  text-align: justify;
+}
+.portada p{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Poppins, Sans-Serif;
+  font-size: 2rem;
+  text-align: center;
+}
+.indice{
+  counter-reset: indice 0;
+  padding: 0;
+}
+.indice li{
+  font-family: Poppins, Sans-Serif;
+  text-transform: uppercase;
+  color: red;
+  counter-increment: indice;
+  list-style-position: inside;
+  
+  &::marker{
+    content: counter(indice) "| ";
+  }
+  & a{
+    font-family: Poppins, Sans-Serif;
+    color: red;
+    text-decoration: none;
+  }
+}
+.indice li.nocount{
+  counter-increment: indice 0;
+  &::marker{
+    content: "";
+  }
+}
+
+.indice li ol li.subInd{
+  color: var(--text-color);
+  text-transform: none;
+  text-decoration: none;
+  counter-increment: indice 0;
+  &::marker{
+    content: counter(indice) "." counter(list-item) " ";
+  }
+  & a{
+    color: var(--text-color);
+  }
+}
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: white;
+    color: black;
+  }
+  p{
+    color: black;
+  }
+}

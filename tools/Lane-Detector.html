@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>KB's Lane Detector</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="An online lane detector that uses your camera" />
+<!-- Social media stuff -->
+    <meta property="og:title" content="KB's Lane Detector" />
+    <meta property="og:description" content="An online lane detector that uses your camera" />
+    <meta property="og:image" content="https://kbs-lucas.neocities.org/images/twitter_preview.png" />
+    <meta property="og:image:alt" content="Preview image" />
+    
+    <meta name="twitter:title" content="KB's Lane Detector" />
+    <meta name="twitter:description" content="An online lane detector that uses your camera" />
+    <meta name="twitter:url" content="https://kbs-lucas.neocities.org/?src=twitter" />
+    <meta name="twitter:image:src" content="https://kbs-lucas.neocities.org/images/twitter_preview.png" />
+    <meta name="twitter:image:alt" content="27 different home appliances" />
+    <meta name="twitter:creator" content="@KBs__Lucas" />
+    <meta name="twitter:site" content="@KBs__Lucas" />
+<!-- Social media end -->
+    <link href="/window.css" rel="stylesheet" type="text/css" media="all">
+    <meta name="theme-color" content="#ff9933" />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="canonical" href="https://kbs-lucas.neocities.org/tools/Lane-Detector" />
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://kbs-lucas.neocities.org/RSS.xml">
+    <link rel="manifest" href="/mlwmanifest.json" />
+  </head>
+  <body>
+    <header>
+      <!-- Navigation Window -->
+      <nav class="window" id="navigation" role="menubar" tabindex="0">
+        <div class="title-bar">
+          <span class="title">Site Content Navigation</span>
+          <div class="buttons">
+            <button tabindex="-1">_</button>
+            <button tabindex="-1">&#x26F6;</button>
+            <button tabindex="-1">✕</button>
+          </div>
+        </div>
+        <div class="content">
+          <ul role="list">
+            <!-- <a href="#reg">Register</a> -->
+            <li><a href="/index.html" role="menuitem" tabindex="0" style="margin:1ch">Home</a>
+            <li><a href="/es.html" role="menuitem" tabindex="0" style="margin:1ch">Página en Español</a>
+            <li><a href="/posts.html" role="menuitem" tabindex="0" style="margin:1ch">Posts</a>
+            <li><a href="/socials.html" role="menuitem" tabindex="0" style="margin:1ch">Socials/Contact</a>
+            <li><a href="/about.html" role="menuitem" tabindex="0" style="margin:1ch">About</a>
+            <li><a href="#footer" role="menuitem" tabindex="0" style="margin:1ch">More Info</a>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+    <h1 style="display:flex;justify-content:center;">Lane Detector</h1>
+     <article class="window" id="main_win">
+        <div class="title-bar">
+          <span class="title">Lane Detector using OpenCV (operational but not tested on athletic track/road yet)</span>
+          <div class="buttons">
+            <button tabindex="-1">_</button>
+            <button tabindex="-1">&#x26F6;</button>
+            <button tabindex="-1">✕</button>
+          </div>
+        </div>
+        <div class="content" >
+        <span id="visualization">
+          <figure style="margin-block-start:0;">
+          <video muted id="videoInput"></video>
+          <figcaption style="text-align:center;">Loading Camera...</figcaption>
+          </figure>
+          <figure style="margin-block-start:0;">
+          <canvas id="processedWebcam"></canvas>
+          <figcaption style="text-align:center;">Waiting for OpenCV</figcaption>
+          </figure>
+        </span>
+        <label style="display:flex;flex-direction:column;align-content:center;flex-wrap:wrap;text-align:center">
+          <span>Loading Lane Detector&nbsp;</span><progress max="100" indeterminate tabindex="-1">unknown</progress>
+        </label>
+        <label for="HLow">Min H value:</label>
+        <input id="HLow" type="range" step="1" min="0" max="179" value="130">
+        <label for="HHigh">Max. H channel value:</label>
+        <input id="HHigh" type="range" step="1" min="0" max="179" value="179"><button style="font-weight:bold; background-color:blue; border-radius:1em; color:white" id="startStop">Start</button><br>
+        <label for="SLow">Min S value:</label>
+        <input id="SLow" type="range" step="1" min="0" max="255" value="0">
+        <label for="SHigh">Max. S channel value:</label>
+        <input id="SHigh" type="range" step="1" min="0" max="255" value="31"><br>
+        <label for="VLow">Min L value:</label>
+        <input id="VLow" type="range" step="1" min="0" max="255" value="209">
+        <label for="VHigh">Max. L channel value:</label>
+        <input id="VHigh" type="range" step="1" min="0" max="255" value="255"><br>
+        </div>
+        <script src="/scripts/Lane-Detector.js"></script>
+        <script defer src="/scripts/opencv-4-10-0.js" onload="onOpenCvReady();" type="text/javascript" fetchpriority="high"></script>
+      </article>
+    </main>
+    <footer id="footer">
+      <p>This webpage's HTML is licensed under a MIT license, CSS and site contents are protected by copyright&copy; law. <br></p>
+      <p><a href="/RSS.xml" id="RSS"><img src="https://www.w3schools.com/xml/pic_rss.gif" width="41" height="16" alt="RSS"></a></p>
+      <p><a href="#">Back to top</a></p>
+    </footer>
+    <script defer src="/scripts/window.js"></script>
+  </body>
+</html>
