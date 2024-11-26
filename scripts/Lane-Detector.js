@@ -4,17 +4,51 @@
   clearTimeout(timeout);
   timeout = setTimeout(resizeVideo, delay);
 });*/
+function bindVidFile(reshand){
+  let inElement=document.getElementById('fileInput');
+  inElement.addEventListener('change', (e) => {
+    const file=e.target.files[0];
+    if(file.type.startsWith("video/")){
+    if("srcObject" in reshand.vid){
+      try{reshand.vid.srcObject=file; console.log("used srcObject");
+      }catch(err){
+        if(err.name!=="TypeError"){throw err;}
+        const size=file.size ? file.size : 'NOT SUPPORTED';
+        //reshand.vid.src=file;console.log("used src raw path, size: "+size);
+        reshand.vid.src=URL.createObjectURL(file);console.log("used src objectURL, size: "+size);
+      }
+    }else{reshand.vid.src=URL.createObjectURL(file);console.log("used src objectURL");}
+    reshand.vidBinded();
+    if(reshand?.vid===undefined){console.log("this.vid is undefined");}
+    let capt=reshand.vid.parentNode.getElementsByTagName("figcaption")[0];
+    capt.textContent="Using video file";
+    capt.style.color="unset";
+    reshand.setResolveVid();
+    }else{alert("The selected file is not valid");}
+    console.log("PuñetabindVidFile");
+  }, false);
+}
+
+function hexToRgb(hex){let shorthandRegex= /^#?([a-f\d])([a-f\d])([a-f\d])$/i;hex=hex.replace(shorthandRegex, function(m, r, g, b){return r+r+g+g+b+b;});let result= /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);return result ? {r:parseInt(result[1], 16),g:parseInt(result[2], 16),b:parseInt(result[3], 16)}:null;}
+
+function rgbTohsv(rgb){
+  if(!(rgb instanceof cv.Scalar)){throw new Error("Arg is not a Scalar/color");}
+  let hsvM=new cv.Mat();cv.cvtColor(new cv.Mat(2, 2, cv.CV_8UC3, rgb), hsvM, cv.COLOR_RGB2HSV,3);
+  let px=hsvM.ucharPtr(0, 0);
+  return px ? {h:px[0],s:px[1],v:px[2]}:null;
+}
+
 const FPS=30;
 const prog_bar=document.getElementsByTagName('progress')[0];
 
 function updateProgBar(val=0, vidEl=undefined, outEl=undefined){
   if((val===null)||(val===undefined)){
-    prog_bar.removeAttribute('aria-valuenow');
+    prog_bar.removeAttribute('aria-valuetext');
     prog_bar.removeAttribute('value');
     return;
   }
   prog_bar.value=val;
-  prog_bar.setAttribute('aria-valuenow', prog_bar.value+"%");
+  prog_bar.setAttribute('aria-valuetext', prog_bar.value+"%");
   prog_bar.textContent=prog_bar.value+"%";
   
   if((vidEl!==undefined)&&(outEl!==undefined)){
@@ -51,7 +85,26 @@ class ResourceHandler{
     updateProgBar(prog_bar.value+40, this.vid, this.out);
   }
   #resolveVid=false;
+  setResolveVid(){this.#resolveVid=true;}
   #gotVid=false;
+  vidBinded(){
+    this.#gotVid=true;
+    updateProgBar(prog_bar.value+25);
+    let resoH= (event) => {
+      console.log("The size of the video element has changed!");
+      this.resizeVideo();
+      if(this.#gotVid){
+        this.vid.removeEventListener('resize', resoH);
+        this.vid.parentNode.getElementsByTagName("figcaption")[0].textContent="Camera Input";
+        updateProgBar(prog_bar.value+25, this.vid, this.out);
+        console.trace("PuñetaTrace");
+        console.log("PuñetaTimeoutBefore");
+        setTimeout(this.waitCV.bind(this), 0);
+        console.log("PuñetaTimeout");
+      }
+    };
+    this.vid.addEventListener("resize", resoH);
+  }
   frame; frameCpy; morphOut; imgHSV; imgCanny;
   closeKern;
   maskVerts;
@@ -72,37 +125,22 @@ class ResourceHandler{
     navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'}}, audio:false})
       .then( (stream)=>{
         this.vid.srcObject=stream;
-        this.#gotVid=true;
-        updateProgBar(prog_bar.value+25);
+        this.vidBinded();//this.#gotVid=true;
         //this.vid.play();
-        let resoH= (event) => {
-          console.log("The size of the video element has changed!");
-          this.resizeVideo();
-          if(this.#gotVid){
-            this.vid.removeEventListener('resize', resoH);
-            this.vid.parentNode.getElementsByTagName("figcaption")[0].textContent="Camera Input";
-            updateProgBar(prog_bar.value+25, this.vid, this.out);
-            setTimeout(this.waitCV.bind(this), 0);
-          }
-        };
-        this.vid.addEventListener("resize", resoH);
       })
       .catch( (err)=>{
         if(this?.vid!==void 0){
           let capt=this.vid.parentNode.getElementsByTagName("figcaption")[0];
-          if(err.name==="NotAllowedError"){capt.textContent="Could not get camera permissions"; alert("Please grant this tab camera permissions for the demo to work");}
-          else{capt.textContent="Error getting camera"; alert("An unknown error occurred when getting the camera feed");}
+          if(err.name==="NotAllowedError"){capt.textContent="Could not get camera permissions"; alert("Please grant this tab camera permissions if you want to use it for processing");}
+          else{capt.textContent="Error getting camera"; alert("An unknown error occurred when getting the camera feed");errorProgBar(this.vid, this.out);throw(err);}
           capt.style.color="red";
-          errorProgBar(this.vid, this.out);
         }
         console.log("An error occurred on camera! "+err);
-        throw(err);
       })
-      .finally( () => 
-        this.#resolveVid=true
-      );
+      .finally( () => this.#resolveVid=true);
   }
   waitCV(){
+    console.log("PuñetaCV");
     if(!ResourceHandler.readyCV){setTimeout(this.waitCV.bind(this), 1000);}
     else{
       this.initialize();
@@ -129,7 +167,7 @@ class ResourceHandler{
       return;
     }
     else if(!this.#gotVid){
-      console.log("Camera feed is not ready yet");
+      console.log("Input is not ready yet");
       return;
     }
     if(kernSize===void 0){kernSize=5;}
@@ -157,7 +195,7 @@ class ResourceHandler{
     this.capture.read(this.frame);
     cv.cvtColor(this.frame, this.frameCpy, cv.COLOR_RGBA2RGB);
     //this.frameCpy = this.frame.clone();
-    if (this.show_borders) {
+    if(this.show_borders){
       cv.cvtColor(this.frameCpy, this.imgHSV, cv.COLOR_RGB2HSV);
       //TODO:rotation
       //Making the Mat inside inRange caused lag for some reason so we delete each time
@@ -168,19 +206,21 @@ class ResourceHandler{
       Apply_Draw_ROI(this.frameCpy, this.morphOut, this.maskVerts);
       cv.morphologyEx(this.morphOut, this.morphOut, cv.MORPH_CLOSE, this.closeKern);
       //cv.imshow(this.out, this.morphOut);
-      Draw_Contour_Points(this.frameCpy, /*LaneLogic::*/this.laneL.SmartGetHistLanePoints(this.morphOut, this.morphOut.rows, this.maskVerts[1].y, 20, true)); 
-			Draw_Contour_Points(this.frameCpy, /*LaneLogic::*/this.laneL.SmartGetHistLanePoints(this.morphOut, this.morphOut.rows, this.maskVerts[1].y, 20, false));
-			Draw_Contour_Points(this.frameCpy, /*LaneLogic::*/this.laneL.CalculateMidLane(), new cv.Scalar(150, 50, 0));
+      Draw_Contour_Points(this.frameCpy, this.laneL.SmartGetHistLanePoints(this.morphOut, this.morphOut.rows, this.maskVerts[1].y, 20, true)); 
+			Draw_Contour_Points(this.frameCpy, this.laneL.SmartGetHistLanePoints(this.morphOut, this.morphOut.rows, this.maskVerts[1].y, 20, false));
+			Draw_Contour_Points(this.frameCpy, this.laneL.CalculateMidLane(), new cv.Scalar(150, 50, 0));
 			this.laneL.CalculateMidLane();
     }
     cv.imshow(this.out, this.frameCpy);
     // schedule the next one.
-    let delay = 1000/FPS - (Date.now() - begin);
+    let delay=1000/FPS - (Date.now() - begin);
     setTimeout(this.processVideo.bind(this), delay);
     //console.log("Error: "+err);
   }
 }
-let resHandler = new ResourceHandler("videoInput","processedWebcam");
+let resHandler=new ResourceHandler("videoInput","processedWebcam");
+
+bindVidFile(resHandler);
 
 let playing=false;
 document.getElementById("startStop").addEventListener("click", function (event){
@@ -189,6 +229,16 @@ document.getElementById("startStop").addEventListener("click", function (event){
   playing?this.textContent="Stop":this.textContent="Start";
   resHandler.pauseVid(playing);
 });
+
+const colorPickers=document.getElementsByClassName("color-picker");for(const colP of colorPickers){colP.addEventListener("input", (event)=>{
+  let rgb=hexToRgb(event.target.value);
+  let hsv=rgbTohsv(new cv.Scalar(rgb.r,rgb.g,rgb.b));
+  ResourceHandler.filterValues.get("iLowH").value=hsv.h;ResourceHandler.filterValues.get("iLowS").value=hsv.s;ResourceHandler.filterValues.get("iLowV").value=hsv.v;
+});colP.addEventListener("change", (event)=>{
+  let rgb=hexToRgb(event.target.value);
+  let hsv=rgbTohsv(new cv.Scalar(rgb.r,rgb.g,rgb.b));
+  ResourceHandler.filterValues.get("iLowH").value=hsv.h;ResourceHandler.filterValues.get("iLowS").value=hsv.s;ResourceHandler.filterValues.get("iLowV").value=hsv.v;
+});colP.select();}
 
 function onOpenCvReady() {
   resHandler.openCVready();
@@ -220,25 +270,17 @@ function ApplyROI(img_input, maskVerts){
   if(!(img_input instanceof cv.Mat)){throw new Error("First arg is not an image");}
   if(typeof maskVerts[Symbol.iterator]!=='function'){throw new Error("Second arg is not iterable");}
 	//holy fck fillPoly is difficult to use compared to C++
-	let mask= new cv.Mat.zeros(img_input.rows, img_input.cols, cv.CV_8UC1);
-	let npts = maskVerts.length;
-	/*
-	let square_point_data = new Uint8Array([
-            1, 1,
-            4, 1,
-            4, 4,
-            1, 4]);
-        let square_points = cv.matFromArray(npts, 1, cv.CV_32SC2, square_point_data);
-	*/
-	let maskPoints = new Uint16Array([
+	let mask=new cv.Mat.zeros(img_input.rows, img_input.cols, cv.CV_8UC1);
+	let npts=maskVerts.length;
+	let maskPoints=new Uint16Array([
             maskVerts[0].x, maskVerts[0].y,
             maskVerts[1].x, maskVerts[1].y,
             maskVerts[2].x, maskVerts[2].y,
             maskVerts[3].x, maskVerts[3].y]);
-  let maskVerts_Array = cv.matFromArray(npts, 1, cv.CV_32SC2, maskPoints);//maskVerts
-  let pts = new cv.MatVector();
+  let maskVerts_Array=cv.matFromArray(npts, 1, cv.CV_32SC2, maskPoints);//maskVerts
+  let pts=new cv.MatVector();
   pts.push_back(maskVerts_Array);
-  let color = new cv.Scalar(255);
+  let color=new cv.Scalar(255);
   cv.fillPoly(mask, pts, color);
   cv.bitwise_and(img_input, mask, img_input);
 	mask.delete(); maskVerts_Array.delete(); pts.delete();
@@ -272,21 +314,14 @@ class LaneLogic{
 			for(let i=0; i<height; i++){
 				if((subImg.ucharPtr(i, j)[0]) != 0){value++;}//CHECK
 			}
-			if(value>=thresh){
-				hist.push(value);
-			}
+			if(value>=thresh){hist.push(value);}
 			else hist.push(0);
 		}
-		subImg.delete();
-		return hist;
+		subImg.delete();return hist;
   }
 	static GetHistMaxVal(hist){//should check if iterable
 	  let max=0;
-		for(const val of hist){
-			if(val>max){
-				max=val;
-			}
-		}
+		for(const val of hist){if(val>max){max=val;}}
 		return max;
 	}
 	static GetLocalMaxes(hist){
@@ -385,9 +420,7 @@ class LaneLogic{
 		    }
 		  }
 		}
-		if((leftLaneIdx===rightLaneIdx)&&(points.length>1)){
-		 rightLaneIdx++; 
-		}
+		if((leftLaneIdx===rightLaneIdx)&&(points.length>1)){rightLaneIdx++;}
 		lanePoints.push(points[leftLaneIdx]);
 		lanePoints.push(points[rightLaneIdx]);
 		
@@ -446,8 +479,8 @@ class LaneLogic{
 			return lane;
 		}
 		
-		if(leftLane){seedPoint=laneSeeds[0]; }
-		else if(laneSeeds.length>=2){seedPoint=laneSeeds[1]; }
+		if(leftLane){seedPoint=laneSeeds[0];}
+		else if(laneSeeds.length>=2){seedPoint=laneSeeds[1];}
 		else {
 			lane.push(new cv.Point(-1,-1));
 			return lane;
@@ -480,7 +513,6 @@ class LaneLogic{
 	static CalculateMidLane(leftLane, rightLane){
 	  if(typeof leftLane[Symbol.iterator]!=='function'){throw new Error("First arg is not iterable");}
 	  if(typeof rightLane[Symbol.iterator]!=='function'){throw new Error("Second arg is not iterable");}
-	  //
 	  let limit=(leftLane.length<=rightLane.length)?leftLane.length:rightLane.length;
 		let midLane=[];
 		let mid_x;

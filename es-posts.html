@@ -20,13 +20,12 @@
     <meta name="twitter:creator" content="@KBs__Lucas" />
     <meta name="twitter:site" content="@KBs__Lucas" />
 <!-- Social media end -->
-    <!-- <link rel="stylesheet" src="styles.css" /> -->
     <link href="/window.css" rel="stylesheet" type="text/css" media="all">
     <meta name="theme-color" content="#ff9933" />
     <link rel="icon" type="image/png" href="/images/favicon.png" />
     <link rel="canonical" href="https://kbs-lucas.neocities.org" />
     <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://kbs-lucas.neocities.org/RSS.xml">
-    <link rel="manifest" href="/mlwmanifest.json" />
+    <script src="/scripts/user-color.js"></script>
   </head>
   <body>
     <header>
@@ -42,29 +41,28 @@
         </div>
         <div class="content">
           <ul role="list">
-            <!-- <a href="#reg">Register</a> -->
-            <li><a href="/es.html" role="menuitem" tabindex="0" style="margin: 1ch">Principal</a></li>
-            <li><a href="/index.html" role="menuitem" tabindex="0" style="margin: 1ch">English Site</a></li>
+            <li><a href="/es" role="menuitem" tabindex="0" style="margin: 1ch">Principal</a></li>
+            <li><a href="/posts" hreflang="en" lang="en" role="menuitem" tabindex="0" style="margin: 1ch">English Site</a></li>
             <li><a aria-current="page" href="#main_win" role="menuitem" tabindex="0" style="margin: 1ch">Publicaciones</a></li>
-            <li><a href="/socials.html" role="menuitem" tabindex="0" style="margin: 1ch">RR.SS./Contacto</a></li>
-            <li><a href="/about.html" role="menuitem" tabindex="0" style="margin: 1ch">Acerca de la Página</a></li>
+            <li><a href="/socials" role="menuitem" tabindex="0" style="margin: 1ch">RR.SS./Contacto</a></li>
+            <li><a href="/about" role="menuitem" tabindex="0" style="margin: 1ch">Acerca de la Página</a></li>
             <li><a href="#footer" role="menuitem" tabindex="0" style="margin: 1ch">Más Información</a></li>
           </ul>
         </div>
       </nav>
     </header>
     <main>
-     <article class="window" id="main_win"> <!-- draggable="true" -->
+     <article class="window" id="main_win">
         <div class="title-bar">
           <span class="title" role="heading">Contenido principal</span>
           <div class="buttons">
             <form>
               <label style="display: none;" for="PostSearch">Busca un post</label>
-              <input style="width: 20.5rem;" type="search" placeholder="JS no habilitado/soportado, no se puede buscar" list="TagList" id="PostSearch">
-              <!--<input type="submit" value="Search">-->
+              <input style="width: 20.5rem;" type="search" inputmode="search" placeholder="JS no habilitado/soportado, no se puede buscar" list="TagList" id="PostSearch">
               <datalist id="TagList">
               <option value="Electrónica">
               <option value="Robótica">
+              <option value="Programación">
               <option value="Música">
               <option value="Personal">
               <option value="Cine-Series">
@@ -73,25 +71,22 @@
             </form>
             <script>
               // Select the blog posts list
-              const blogPosts = document.querySelector('.blog_posts');
-            
-              const searchInput = document.getElementById('PostSearch');
-              searchInput.placeholder = "Busca un post...";
-              searchInput.style = "";
-            
+              const blogPosts=document.querySelector('.blog_posts');
+              const searchInput=document.getElementById('PostSearch');
+              searchInput.placeholder="Search for post...";
+              searchInput.style="";
               // Add event listener to filter posts based on input
               if(searchInput){
                 searchInput.addEventListener('input', function() {
-                  const searchTerm = this.value.toLowerCase();
-                  const posts = document.querySelectorAll('.blog_posts li');
+                  const searchTerm=this.value.toLowerCase();
+                  const posts=document.querySelectorAll('.blog_posts li');
               
                   posts.forEach(post => {
-                    const title = post.textContent.toLowerCase();
-                    post.style.display = title.includes(searchTerm) ? '' : 'none';
+                    const title=post.textContent.toLowerCase();
+                    post.style.display=title.includes(searchTerm) ? '' : 'none';
                   });
                 });
-              }else {console.log("HUH?");}
-            </script>
+              }else{console.log("HUH?");}</script>
             <button tabindex="-1">_</button>
             <button tabindex="-1">&#x26F6;</button>
             <button tabindex="-1">✕</button>
@@ -99,9 +94,11 @@
           </div>
         <div class="content">
           <ul class="blog_posts">
-            <li><a href="/es-posts/Review_de_Dungeon_Meshi">Review de <cite>Dungeon_Meshi</cite> <time datetime="2024-10-07">(07/10/2024)</time></a> (Personal/Cine-Series/Anime)</li>
-            <li><a href="/es-posts/Playlist_mensual_KB_FM">Mi playlist mensual KB Radio (FM) <time datetime="2024-10-02">(02/10/2024)</time></a> (Personal/Música)</li>
-            <li><a href="/es-posts/Actualizacin_1_19-09-2024">Actualización 1 <time datetime="2024-09-19">(19/09/2024)</time></a> (Personal/Electrónica/Robótica)</li>
+            <li><a href="/es-posts/Explicacion_RSS">Explicación de <abbr title="Really Simple Syndication">RSS</abbr> <time datetime="2024-11-13">(13/<wbr>11/<wbr>2024)</time></a> (Programación)</li>
+            <li><a href="/es-posts/Horror_antes_de_Halloween">Horror antes de Halloween <time datetime="2024-10-29">(29/<wbr>10/<wbr>2024)</time></a> (Personal)</li>
+            <li><a href="/es-posts/Review_de_Dungeon_Meshi">Review de <cite>Dungeon Meshi</cite> <time datetime="2024-10-07">(07/<wbr>10/<wbr>2024)</time></a> (Personal/<wbr>Cine&hyphen;Series/<wbr>Anime)</li>
+            <li><a href="/es-posts/Playlist_mensual_KB_FM">Mi playlist mensual KB Radio (FM) <time datetime="2024-10-02">(02/<wbr>10/<wbr>2024)</time></a> (Personal/<wbr>Música)</li>
+            <li><a href="/es-posts/Actualizacin_1_19-09-2024">Actualización 1 <time datetime="2024-09-19">(19/<wbr>09/<wbr>2024)</time></a> (Personal/<wbr>Electrónica/<wbr>Robótica/<wbr>Programación)</li>
           </ul>
         </div>
       </article>
@@ -112,5 +109,6 @@
       <p><a href="#">Vuelta al principio</a></p>
     </footer>
     <script defer src="/scripts/window.js"></script>
+    <script type="speculationrules">{ "prerender": [{"urls": ["/es-posts/Explicacion_RSS"]}], "prefetch": [{"urls": ["/es-posts/Playlist_mensual_KB_FM", "/es-posts/Review_de_Dungeon_Meshi"]}]}</script>
   </body>
 </html>

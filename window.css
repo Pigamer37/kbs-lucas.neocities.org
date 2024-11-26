@@ -4,6 +4,10 @@
   --dark-grad-orage:#ff7f00;
   --light-grad-orage:#fdab58;
   --hover-button-orange:#ffb870;
+  --bg-dark:#4d4d4d;
+  --pointer-cur:url(https://www.cursor.cc/cursor/533/209/cursor.png) 11 2, pointer;
+  accent-color:var(--accent-orange);
+  scrollbar-color:var(--accent-orange) ButtonFace;
 }
 @font-face{
   font-family:'Cascadia Code';
@@ -11,6 +15,7 @@
   src: 
   local('Cascadia Code'),
   url("/fonts/CascadiaCode.woff2") format('woff2');
+  font-display:swap;
 }
 @font-face{
   font-family:'Cascadia Code'; 
@@ -18,8 +23,16 @@
   src: 
   local('Cascadia Code'),
   url("/fonts/CascadiaCodeItalic.woff2") format('woff2');
-  font-style: italic;
+  font-style:italic;
+  font-display:swap;
 }
+::-webkit-calendar-picker-indicator,
+::-webkit-search-results-button,
+::-webkit-search-cancel-button,
+::-webkit-inner-spin-button
+{color:var(--accent-orange);}
+:focus, :target{outline:.125rem outset white;box-shadow:0 0 .3rem .25rem var(--visited-orange);border-radius:.125rem;}
+:focus:not(:focus-visible){outline:unset;box-shadow:unset;}
 body{
   font-family:"Roboto", Arial, sans-serif;
   background-color:black;
@@ -29,7 +42,7 @@ body{
 .window{
   border:.0625rem solid var(--accent-orange); /*#ccc for white-is*/
   border-radius:.5rem .5rem 0 0;
-  box-shadow:0.5rem 0.5rem .625rem rgba(0, 0, 0, 0.5);
+  box-shadow:.5rem .5rem .625rem rgba(0, 0, 0, 0.5);
   margin:1rem;
   background-color:#fff;
 }
@@ -48,7 +61,7 @@ body{
 }
 header{
   position:sticky;
-  top:0em;
+  top:0;
   left:0;
 }
 nav .content ul{
@@ -68,20 +81,20 @@ nav .content ul{
 }
 nav .content ul li a{
   text-decoration: none;
-  color: #dedede;
-  border-radius: 1em;
-  padding-inline: 1ch;
+  color:#dedede;
+  border-radius:1rem;
+  padding-inline:1ch;
   
   &[aria-current="page"]{
-    text-decoration: underline var(--accent-orange) solid .3rem;
-    font-weight: bold;
-    color: var(--accent-orange);
-    background-color: #3d3d3d;
+    text-decoration:underline var(--accent-orange) solid .3rem;
+    font-weight:bold;
+    color:var(--accent-orange);
+    background-color:#3d3d3d;
   }
-  &:hover{
-    color: var(--accent-orange);
-    background-color: #3d3d3d;
-    animation: menu-hover 2000ms ease infinite;
+  &:is(:hover, :focus-visible){
+    color:var(--accent-orange);
+    background-color:#3d3d3d;
+    animation:menu-hover 2000ms ease infinite;
   }
 }
 .title-bar{
@@ -110,15 +123,15 @@ nav .content ul li a{
   cursor:not-allowed;
   margin-inline-start:.3125rem;
 }
-.title-bar .buttons button:hover{
+.title-bar .buttons button:is(:hover, :focus-visible){
   background:var(--hover-button-orange);
 }
-.title-bar .buttons button:last-child:hover{
+.title-bar .buttons button:last-child:is(:hover, :focus-visible){
   background:red;
 }
 .content{
   padding:.625rem;
-  background-color:#4d4d4d;
+  background-color:var(--bg-dark);
   flex-grow:initial;
   overflow:visible;
   /*font-family: "Roboto Mono", monospace;*/
@@ -128,8 +141,7 @@ nav .content ul li a{
   pointer;
 }*/
 a, summary, button{
-  cursor:url(https://www.cursor.cc/cursor/533/209/cursor.png) 11 2,
-  pointer;
+  cursor:var(--pointer-cur);
 }
 abbr{
  cursor:help; 
@@ -150,7 +162,7 @@ a:link{
 a:visited{
   color:var(--visited-orange);
 }
-a:is(:hover, :focus){
+a:is(:hover, :focus-visible){
   text-decoration:underline blue dashed;
   transition:text-decoration-color, 200ms ease;
 }
@@ -180,17 +192,9 @@ footer > p{
  display:flex;
  justify-content:center; 
 }
-progress {
-  color-scheme:light dark;
-  accent-color:var(--accent-orange);
-  &[value]::-webkit-progress-value{
-    background-color:var(--accent-orange);
-    transition:inline-size .25s ease-out;
-  }
-}
 
 ::selection{
-  background:#ff5900;
+  background:var(--visited-orange);
   color:#dedede;
   text-shadow:none
 }
@@ -204,59 +208,18 @@ progress {
   margin-inline-end:.5rem;
   background-image:url('https://www.svgrepo.com/show/25140/rss.svg');
 }
-#visualization{
-  display:flex;
-  text-align:center;
-  margin-inline:-0.625rem;
-  margin-block-start:-0.625rem;
-  flex-direction:row;
-  justify-content:space-between;
-  & figure{
-   margin-inline:.5ch; 
-  }
-  & figure:first-of-type{
-   margin-inline-start:0; 
-  }
-  & figure:last-of-type{
-   margin-inline-end:0; 
-  }
-}
-@media screen and ((max-width: 480px) or (orientation: portrait)){
-  #visualization{
-    flex-direction:column;
-    & figure{
-     margin-inline:0; 
-    }
-  }
-}
-
 @media (prefers-color-scheme: light){
-  body {
-    background-color:white;
-    color:black;
-  }
-  .window {
-    background-color:#000;
-  }
-  .content {
-    background-color:#f3f3f3;
-  }
+  :focus{outline-color:black;}
+  body{background-color:white;color:black;}
+  .window{background-color:#000;}
+  .content{background-color:#f3f3f3;}
   @keyframes menu-hover-l{
-  from {
-    background-color:#d9d9d9;
+  from{background-color:#d9d9d9;}
+  50%{background-color:blue;}
   }
-  50% {
-    background-color:blue;
-  }
-}
   nav .content ul li a{
-    color: black;
-    &[aria-current="page"]{
-      background-color:#d9d9d9;
-    }
-    &:hover{
-      background-color:#d9d9d9;
-      animation: menu-hover-l 2000ms ease infinite;
-    }
+    color:black;
+    &[aria-current="page"]{background-color:#d9d9d9;}
+    &:is(:hover, :focus-visible){background-color:#d9d9d9;animation:menu-hover-l 2000ms ease infinite;}
   }
 }

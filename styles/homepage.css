@@ -4,19 +4,24 @@
   width:100%;
   height:auto;
   aspect-ratio:auto 4/3;
+  transition: transform .2s;
+  &:is(:hover, :focus){transform:scale(1.1) translate(0, 5%);}
 }
 .hoverEl{
+  color-scheme:light dark;
  text-decoration-line:none;
+ background:light-dark(#fff,#22272e);
  -webkit-text-decorations-in-effect: none;
- transition:none;
  overflow:hidden;
  & pre{margin:0;overflow:hidden;
   & code{
    overflow:hidden;
    padding-block:0;
    font-size:12px;
+   transition: transform .2s;
   }
  }
+ &:is(:hover, :focus) pre code{transform:scale(0.91) translate(0, -5.1%);}
 }
 #vidlist{
   padding-inline-start:0;

@@ -18,17 +18,37 @@
     <docs>https://www.rssboard.org/rss-specification</docs>
     <!--RFC 2822 - https://timestampgenerator.com/-->
     <lastBuildDate>
-      Mon, 07 Oct 2024 08:23:51 +0000
+      Mon, 07 Oct 2024 08:23:51 GMT
     </lastBuildDate>
-    <pubDate>Mon, 07 Oct 2024 08:23:51 +0000</pubDate>
+    <pubDate>Mon, 07 Oct 2024 08:23:51 GMT</pubDate>
     <ttl>60</ttl>
-    
+    <item>
+    	<title>RSS Explanation</title>
+    	<link>https://kbs-lucas.neocities.org/posts/RSS_Explanation</link>
+    	<description>An explanation of RSS technology, and a tutorial on how to consume and produce it</description>
+    	<content:encoded><![CDATA[
+      	<p>So, you want to learn about <abbr title="Really Simple Syndication">RSS</abbr>. You are in the right place, not because I'm an expert or something, but because I did some research XD. First of all:</p>
+        <h1>What is <abbr title="Really Simple Syndication">RSS</abbr>?</h1>
+        <p>(Before you go ahead, there's an extensive and detailed explanation in <a href="https://researchbuzz.me/2023/07/06/rss-2/" target="_blank">ResearchBuzz, written by Tara Calishain</a>. I'll try to be a little more brief). You can find a lot of explanations of the achronym, but the most used one is Really Simple Syndication. Nowadays, the main use for <abbr>RSS</abbr> is for podcasts. Years ago, Google had a product that made it easy to use RSS, but Google likes to kill lot of it's products for a variety of reasons, and Google Reader went down in 2013. I never used it, to be clear. I'm fairly new to <abbr>RSS</abbr>, and I only found out about it because I started building this website. <abbr>RSS</abbr> is basicaly a way to syndicate or publish content so that people that subscribe to it don't have to check the main source periodically. What does this mean? In the case of podcasts, users that subscribe to it are notified whenever a new episode comes out. In the case of news publishers or websites, subscribers can see when individual articles get published instead of having to check the site periodically. Also, you can use it to group all the sources you want to subscribe to in one place, and because of how it works nowadays, if used correctly by the publisher, you only get the content of the article, without any bloat from ads, navigation elements, etc. Sounds good, right? Let's get into it a bit further, both from a consumer and a producer perspective.</p>
+        <h1>How do I use it?</h1>
+        <p>First of all, you'll need a feed reader. There's a lot of both paid and free options, even some browsers like Opera or Firefox have built in ones (at least at the time of writing). I personally recomend <a href="https://www.inoreader.com/" target="_blank">Inoreader</a>. It's free (with a limited but generous number of feeds), multi&hyphen;platform, it has many quality of life features, like automatically finding feeds, and the paid version has features for filtering articles or note taking, for example. The article mentioned before discusses more options.</p>
+        <p>Okay, now you have decided on a reader, let's find out how you can subscribe to feeds. Some readers do it for you, like I mentioned before, but they are not perfect. If the site is nice (like me XD), it will have a symbol that looks something like this: <a href="https://kbs-lucas.neocities.org/RSS.xml" target="_blank"><img loading="lazy" decoding="async" style="width:1em" src="https://i0.wp.com/researchbuzz.me/wp-content/uploads/2023/07/image5.png?resize=54%2C54&amp;ssl=1" alt="RSS logo"></a> If that's the case, you're in luck! Click it and you'll probably get a page ending in .xml (if you click the one I provided you'll get my feed as an example). That's the URL or link to the feed, provide it to your reader of choice and you are done, you'll get new articles when they are added. There's a possibility that instead of opening a page, your browser downloads a file, also ending in .xml. Woops! If you know how to inspect a page, do that and find the href attribute, if you don't, keep reading.</p>
+        <p>If you weren't succesful by now, know that this is not your fault, the site is making it difficult for you (or your browser is a bit goofy). A variety of methods are discussed in <a href="https://researchbuzz.me/2023/07/06/rss-2/#h.qyamvhwjzs7" target="_blank">the ResearchBuzz article</a> I mentioned before, but I will show you the most effective ones. First, the browser extension route. There's a variety of extensions that try to find the feeds automatically, like <a href="https://chromewebstore.google.com/detail/get-rss-feed-url/kfghpdldaipanmkhfpdcjglncmilendn" target="_blank">this one</a>. They are your best bet, usually, but let's say you can't or don't want to use extensions. Then there's some patterns you can <i>exploit</i>. For example, usually Wordpress based sites (wich are numerous) hide their automatically generated <abbr>RSS</abbr> feeds on /feed/. For example, let's say this was a Wordpress site (which it's not) and you wanted to get the feed for it. Then you'd go to https://kbs-lucas.neocities.org/feed/ and try your luck (there's some more of these patterns in <a href="https://researchbuzz.me/2023/07/06/rss-2/#h.up6e5ojczetb" target="_blank">the ResearchBuzz article</a>). If none of these methods worked, the page might not have an <abbr>RSS</abbr> feed, sadly :_( Speaking of which, if you have a website, you wouldn't want to disappoint possible readers by not having a feed, right? Don't worry, it's not too difficult:</p>
+        <h1>How do I make a feed?</h1>
+        <p>As always, there won't be a better feed than the one you make by hand, understanding each item. It's not too dificult! The RSS's Board has <a href="https://www.rssboard.org/rss-specification" target="_blank">the full specification</a>, it's not too long and it's well explained. They also have <a href="https://www.rssboard.org/rss-validator" target="_blank">a validator</a> and <a href="https://www.rssboard.org/rss-autodiscovery" target="_blank">a section that explains how to make your feed discoverable automatically</a> (by extensions or feed readers, for example).</p>
+        <p>Too much work? I made <a href="https://kbs-lucas.neocities.org/tools/RSS-Generator" target="_blank">an online tool that let's you make a feed automatically</a>, just by filling out a form. It's WIP but I'm trying to make it foolproof, you can even validate the feed you are working on via the previously mentioned validator in just one click! If you compare what it produces with what my own feed looks like, you'll see that it's nearly identical, and that's not by chance! I mainly tried to automate the process of updating my feed for myself, and just expanded to make it accesible to everyone. It follows the RSS Board's specifications and recommendations (mostly, as I said it's still WIP but it's like 90% done, and usable right now). Feel free to use it and make suggestions about it via any of my <a href="https://kbs-lucas.neocities.org/socials">socials</a>. You'll still need to <a href="https://www.rssboard.org/rss-autodiscovery" target="_blank">make your feed discoverable automatically</a> (it's just a link tag in your homepage, after all), and I'd suggest making a link or a button to your feed also.</p>
+        <strong>Happy syndicating!</strong>
+      ]]> </content:encoded>
+    	<category>Programming</category>
+    	<pubDate>Wed, 13 Nov 2024 16:11:39 GMT</pubDate>
+    	<guid>https://kbs-lucas.neocities.org/posts/RSS_Explanation</guid>
+    </item>
     <item>
         <title>Dungeon Meshi Review</title>
         <link>https://kbs-lucas.neocities.org/posts/Dungeon_Meshi_Review</link>
         <description>My experience with Dungeon Meshi S1 and how I was pleasantly surprised by a constant tide of creativity (with a spoiler free section)</description>
         <content:encoded><![CDATA[
-        <h1><span style="color: red;"><strong>NO SPOILER</strong></span> section: What is <cite>Dungeon Meshi</cite>?</h1>
+          <h1><span style="color: red;"><strong>NO SPOILER</strong></span> section: What is <cite>Dungeon Meshi</cite>?</h1>
           <p>I just finished the first season of <cite>Dungeon Meshi</cite> <time datetime="2024-10-03">(03/10/2024)</time>, and wow, what a series. What we got for now it's about half of the story, but just this was absolutely fantastic.</p>
           <p><cite>Dungeon Meshi</cite> (or <cite>Delicious in Dungeon</cite>) is a medieval fantasy anime, which sets itself appart immediately with it's premise: our protagonists must <strong>eat</strong> the monsters they encounter in the dungeon to survive. It's not like this is something everybody does on this universe, quite the contrary!</p>
           <figure class="inside-p-right" style="width: clamp(300px, 45vi, 100%)">
@@ -44,7 +64,7 @@
             <p>With the last episode fresh on my mind, I'm eager to see the golden lion, the mad mage and to see if the implications of cannibalism do come true and work to separate Falin's soul from th dragon's.</p>
           </details>
         ]]> </content:encoded>
-        <pubDate>Mon, 07 Oct 2024 08:23:51 +0000</pubDate>
+        <pubDate>Mon, 07 Oct 2024 08:23:51 GMT</pubDate>
         <category>Personal</category>
         <category>Anime</category>
         <category>Media</category>
@@ -70,7 +90,7 @@
           <p>Also included in this instance is the new Childish Gambino's new single <a class="Spotify" href="https://open.spotify.com/track/3uC4r2daXertBxxc8BpbbN?si=1abe5f30620c4f10" target="_blank"><cite>Lithonia</cite></a>, which to my knowledge is his first dip into rock. It's more of an indie-rock style, using a piano-<wbr/>like synth and soft, catchy back-up vocals. I also discovered Rolo Tomassi, I have to dip my toes into their catalogue, but they seem like a nice discovery. One of my favourite bands, Sexy Zebras, released their new single <a class="Spotify" href="https://open.spotify.com/track/3uC4r2daXertBxxc8BpbbN?si=1abe5f30620c4f10" target="_blank"><cite>Mañana no existe</cite></a>, a spanish rock song which overall message is <i>Carpe Diem</i>. Gaming rap-<wbr/>rock-<wbr/>pop trio Starbomb is brewing a <a class="Spotify" href="https://open.spotify.com/prerelease/1vHzziIw74SuvKhE6Am83Q?si=e83e89b5ff8c419b" target="_blank">new album</a>, and it has a confirmed release date of <time datetime="2024-10-25">October 25th, 2024</time>. They have released two singles so far, and I didn't <strong>love</strong> <a class="Spotify" href="https://open.spotify.com/track/0DH6xKuXR5ZQkeAEWtZtsi?si=8a7fae8ce62540ca" target="_blank"><cite>Pokémon Smash or Pass</cite></a>, but <a class="Spotify" href="https://open.spotify.com/track/5M6LqY0MXpKwPo9uakkfIq?si=f79b0fba9e9d415a" target="_blank"><cite>Nintendo Online's Greatest Announcement</cite></a> was great (pun intended). Finally, I got into Clown Core. Mixing metal (especially djent or groove metal), jazz and honks, they are weird, I know, but if you shed your prejudice and take a <strong>real</strong> and <strong>unbiased</strong> listen, it may be one of the most interesting musical experiences you'll ever get. <a class="Spotify" href="https://open.spotify.com/track/7L5T0IutG8MyDnucOVccdU?si=0327066932424000" target="_blank"><cite>Infinite Realm of Incomprehensible Suffering</cite></a> is a soothing jazzy pop track, very straightforward, don't let the name fool you, it may serve as a normal introduction to the duo. I imagine it played on an elevator or as a witing tone for a call center. <a class="Spotify" href="https://open.spotify.com/track/2mlh8fBK1wFPW5PgHYCjbN?si=50c93f9d62854b00" target="_blank"><cite>Flat Earth</cite></a> starts the shenanigans.</p>
           <p>Did I win you over? Do you want to take a peek at some of the stuff I mentioned? <a class="Spotify" href="https://open.spotify.com/playlist/42w2GD51boaQrw7it78z7G?si=JKJcvopvSxiNFFNqQ5PHJQ" target="_blank">Here's a link to the playlist</a>. Enjoy!</p>
         ]]> </content:encoded>
-        <pubDate>Tue, 01 Oct 2024 14:00:10 +0000</pubDate>
+        <pubDate>Tue, 01 Oct 2024 14:00:10 GMT</pubDate>
         <category>Personal</category>
         <category>Music</category>
         <guid>https://kbs-lucas.neocities.org/posts/Monthly_playlist_KB_FM</guid>
@@ -94,6 +114,7 @@
         <category>Personal</category>
         <category>Electronics</category>
         <category>Robotics</category>
+        <category>Programming</category>
         <guid>https://kbs-lucas.neocities.org/posts/Update_1_19-09-2024</guid>
     </item>
 

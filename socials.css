@@ -1,40 +1,41 @@
-#main_win .content ul {
-  list-style-type: none;
-  width: 100%;
-  column-width: 8.75em;
-  column-gap: 1em;
-  padding-inline-start: 1em;
+#main_win .content ul{
+  list-style-type:none;
+  width:100%;
+  column-width:12em;
+  column-gap:1em;
+  column-fill:balance;
+  padding-inline:1rem;
 }
 #bands .content{
-  display: flex;
-  gap: 1rem;
-  flex-flow: row wrap;
-  justify-content: space-around;
+  display:flex;
+  gap:1rem;
+  flex-flow:row wrap;
+  justify-content:space-around;
 }
 #bands .content span p{
- width: clamp(306px, 30vi, 75em); 
+ width:clamp(306px, 30vi, 75em); 
 }
 #bands .center-icons{
-  display: flex;
-  flex-flow: row;
-  place-content: center center;
+  display:flex;
+  flex-flow:row;
+  place-content:center center;
 }
 #bands .center-icons > a{
- height: 1rem; 
+ height:1rem; 
 }
 .Email:before{
-  content: "📩";
-  font-size: .75rem;
+  content:"📩";
+  font-size:.75rem;
   /*Thkfully rms underline for some reason*/
-  display: inline-block;
+  display:inline-block;
 }
-.Instagram:before, .Twitter:before, .Spotify:before, .GitHub:before, .LinkedIn:before, .YT:before, .Twitch:before, .TikTok:before {
+.Instagram:before,.Twitter:before,.Spotify:before,.GitHub:before,.LinkedIn:before,.YT:before,.lastfm:before,.letterboxd:before,.linktree:before,.Twitch:before,.TikTok:before {
   content:"";
-  display: inline-block;
-  height: 1rem;
-  width: 1rem;
-  background-size: 1rem 1rem;
-  margin-inline-end: .5rem;
+  display:inline-block;
+  height:1rem;
+  width:1rem;
+  background-size:1rem 1rem;
+  margin-inline-end:.5rem;
 }
 .Instagram:before{
   background-image:url('https://static.cdninstagram.com/rsrc.php/v3/yR/r/lam-fZmwmvn.png');
@@ -53,6 +54,15 @@
 }
 .YT:before{
   background-image:url('https://www.youtube.com/s/desktop/494dd881/img/favicon_32x32.png');
+}
+.lastfm:before{
+  background-image:url('https://www.last.fm/static/images/favicon.702b239b6194.ico');
+}
+.letterboxd:before{
+  background-image:url('https://letterboxd.com/favicon.ico');
+}
+.linktree:before{
+  background-image:url('https://assets.production.linktr.ee/11b181a48aec60f69b1fae056ecd49e69cad6193/favicon/favicon-16x16.png');
 }
 .Twitch:before{
   background-image:url('https://assets.twitch.tv/assets/favicon-32-e29e246c157142c94346.png');

@@ -1,0 +1,109 @@
+:root{
+  --th-w:1rem;
+  --th-h:2rem;
+  --th-bor-r:.2rem;
+  --th-bor:1px solid light-dark(black, var(--bg-dark));
+  --th-b-c:light-dark(white, black);
+  --tr-h:max(.5rem,24px);
+  --tr-bor-r:1px;
+  --tr-bor:0.2px solid black;
+  --tr-b-c:var(--accent-orange);
+  --box-sha:1px 1px 1px black, 0 0 1px black;
+}
+label:has(input:user-valid, textarea:user-valid){&:after{content:"✓";color:green;}}/*☑*/
+label:has(input:user-invalid, textarea:user-invalid){&:after{content:"✗";color:red;}}/*✕*/
+label:has(input[required], textarea[required]){&:before{content:"* ";color:red;}}
+label:has(input, textarea){cursor:var(--pointer-cur);}
+textarea + label{cursor:var(--pointer-cur);}
+input + label{cursor:var(--pointer-cur);}
+input, textarea{color-scheme:light dark;}
+input:user-valid, textarea:user-valid{border-color:green;}
+input:user-invalid, textarea:user-invalid{border-color:red;border-style:dashed;}
+input:autofill, textarea:autofill{outline:dashed LemonChiffon;}
+input:-webkit-autofill, textarea:-webkit-autofill{outline:dashed LemonChiffon;}
+input, textarea{height:max(1rem,32px);font-size:1rem;}
+@media(pointer: fine){
+  input[type="checkbox"]{
+    width:1rem;
+    height:1rem;
+  }
+}
+@media(pointer: coarse){
+  input[type="checkbox"]{
+    width:24px;
+    height:24px;
+  }
+}
+/*input:is([type="date"],[type="datetime-local"],[type="time"],[type="month"],[type="week"],[type="email"],[type="number"],[type="password"],[type="search"],[type="tel"],[type="text"],[type="url"]){}*/
+input[type=range]{-webkit-appearance:none;appearance:none;background:transparent;color-scheme:light dark;}
+input[type=range]::-webkit-slider-thumb{
+border:var(--th-bor);height:var(--th-h);width:var(--th-w);border-radius:var(--th-bor-r);background:var(--th-b-c);cursor:var(--pointer-cur);box-shadow:var(--box-sha);
+margin-top:calc(var(--tr-h)*-1/4);-webkit-appearance:none;appearance:none;
+}
+input[type=range]::-moz-range-thumb{
+border:var(--th-bor);height:var(--th-h);width:var(--th-w);border-radius:var(--th-bor-r);background:var(--th-b-c);cursor:var(--pointer-cur);box-shadow:var(--box-sha);
+}
+input[type=range]::-ms-thumb{
+border:var(--th-bor);height:var(--th-h);width:var(--th-w);border-radius:var(--th-bor-r);background:var(--th-b-c);cursor:var(--pointer-cur);box-shadow:var(--box-sha);
+}
+input[type=range]::-webkit-slider-runnable-track{
+height:var(--tr-h);cursor:var(--pointer-cur);box-shadow:var(--box-sha);background:var(--tr-b-c);border-radius:var(--tr-bor-r);border:var(--tr-bor);
+}
+input[type=range]::-moz-range-track{
+height:var(--tr-h);cursor:var(--pointer-cur);box-shadow:var(--box-sha);background:var(--tr-b-c);border-radius:var(--tr-bor-r);border:var(--tr-bor);
+}
+input[type=range]::-moz-range-progress{
+box-shadow:var(--visited-orange);background:var(--visited-orange);border-radius:var(--tr-bor-r);border:var(--tr-bor);
+}
+input[type=range]::-ms-track{
+height:var(--tr-h);cursor:var(--pointer-cur);box-shadow:var(--box-sha);border:var(--tr-bor);
+background:transparent;border-color:transparent;color:transparent;
+}
+input[type=range]::-ms-fill-lower{
+box-shadow:var(--box-sha);background:var(--visited-orange);border-radius:var(--tr-bor-r);border:var(--tr-bor);
+}
+input[type=range]::-ms-fill-upper{
+box-shadow:var(--box-sha);background:var(--tr-b-c);border-radius:calc(var(--tr-bor-r)*2);border:var(--tr-bor);
+}
+progress{
+  color-scheme:light dark;
+  color:var(--accent-orange);
+  width:100%;
+  height:1em;
+  margin-block-end:1.1em;
+  accent-color:var(--accent-orange);
+  &[value]{
+  appearance:none;
+  &::after{content:attr(value)'%';color:light-dark(black,#dedede);}
+  border-radius:1em;
+  background-color:light-dark(whiteSmoke, black);
+  box-shadow:0 2px 3px light-dark(rgba(0,0,0,.5), rgba(255,255,255,.5)) inset;
+  }
+}
+progress[value]::-webkit-progress-bar{
+  border-radius:1em;
+  background-color:light-dark(whiteSmoke, black);
+  box-shadow:0 2px 3px light-dark(rgba(0,0,0,.5), rgba(255,255,255,.5)) inset;
+}
+progress[value]::-webkit-progress-value{
+  border-radius:1em;
+  background-color:var(--accent-orange);
+  transition:width .25s ease-out;
+}
+progress[value]::-webkit-progress-value::after{
+  content:'';
+  position:absolute;
+  width:5px; height:5px;
+  top:7px; right:7px;
+  background-color:light-dark(white, black);
+  border-radius:100%; 
+}
+progress[value]::-moz-progress-bar{
+  border-radius:1em;
+  background-color:var(--accent-orange);
+  transition:width .25s ease-out;
+}
+
+.blue-button{
+ font-weight:bold;background-color:blue;border-radius:1em;color:white;
+}

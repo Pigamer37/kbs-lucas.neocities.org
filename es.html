@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Una web personal hecha desde cero" />
 <!-- Social media stuff -->
-    <meta property="og:title" content="La página web de KB" />
+    <meta property="og:title" content="La guarida de KB" />
     <meta property="og:description" content="Una web personal hecha desde cero" />
     <meta property="og:image" content="https://kbs-lucas.neocities.org/images/twitter_preview.png" />
     <meta property="og:image:alt" content="Preview image" />
@@ -20,13 +20,17 @@
     <meta name="twitter:creator" content="@KBs__Lucas" />
     <meta name="twitter:site" content="@KBs__Lucas" />
 <!-- Social media end -->
-    <!-- <link rel="stylesheet" src="styles.css" /> -->
     <link href="/window.css" rel="stylesheet" type="text/css" media="all">
-    <meta name="theme-color" content="#ff9933" />
+    <meta name="theme-color" content="#ff9933">
     <link rel="icon" type="image/png" href="/images/favicon.png" />
     <link rel="canonical" href="https://kbs-lucas.neocities.org" />
     <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://kbs-lucas.neocities.org/RSS.xml">
-    <link rel="manifest" href="/mlwmanifest.json" />
+    <link rel="preload" as="font" href="/fonts/CascadiaCode.woff2" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github-dark-dimmed.min.css" type="text/css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github.min.css" type="text/css" media="(prefers-color-scheme: light)">
+    <link href="/styles/homepage.css" rel="stylesheet" type="text/css" media="all">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
   </head>
   <body>
     <header>
@@ -42,12 +46,11 @@
         </div>
         <div class="content">
           <ul role="list">
-            <!-- <a href="#reg">Register</a> -->
             <li><a aria-current="page" href="#main_win" role="menuitem" tabindex="0" style="margin: 1ch">Principal</a>
-            <li><a href="/index.html" role="menuitem" tabindex="0" style="margin: 1ch">English Site</a>
-            <li><a href="/es-posts.html" role="menuitem" tabindex="0" style="margin: 1ch">Publicaciones</a>
-            <li><a href="/socials.html" role="menuitem" tabindex="0" style="margin: 1ch">RR.SS./Contacto</a>
-            <li><a href="/about.html" role="menuitem" tabindex="0" style="margin: 1ch">Acerca de la Página</a>
+            <li><a href="/index" hreflang="en" lang="en" role="menuitem" tabindex="0" style="margin: 1ch">English Site</a>
+            <li><a href="/es-posts" role="menuitem" tabindex="0" style="margin: 1ch">Publicaciones</a>
+            <li><a href="/socials" role="menuitem" tabindex="0" style="margin: 1ch">RR.SS./Contacto</a>
+            <li><a href="/about" role="menuitem" tabindex="0" style="margin: 1ch">Acerca de la Página</a>
             <li><a href="#footer" role="menuitem" tabindex="0" style="margin: 1ch">Más Información</a>
           </ul>
         </div>
@@ -66,26 +69,75 @@
           </div>
         <div class="content">
           <p>Esta página está en proceso de creación, pero esta es una lista de temas que puedes esperar:</p>
+          <ul id="vidlist">
+            <li>Música<br><a href="/socials#bands" aria-label="Leer más sobre la música que hago"><video preload="" playsinline class="hoverVid" muted loop><source width="960" src="https://files.catbox.moe/95ly3s.webm" type="video/webm">Video no soportado</video></a></li>
+            <li>Electrónica/robotica. <a href="https://blogs.upm.es/robogait/" target="_blank">¡Mira el proyecto universitario en el que trabajé!<br><img alt="Prototipo de robot móvil en el que trabajé" class="hoverImg" src="https://blogs.upm.es/robogait/wp-content/uploads/sites/853/2022/07/exteriores-1-288x300.jpg" srcset="https://blogs.upm.es/robogait/wp-content/uploads/sites/853/2022/07/exteriores-1-288x300.jpg 288w, https://blogs.upm.es/robogait/wp-content/uploads/sites/853/2022/07/exteriores-1-732x763.jpg 732w, https://blogs.upm.es/robogait/wp-content/uploads/sites/853/2022/07/exteriores-1-768x801.jpg 768w, https://blogs.upm.es/robogait/wp-content/uploads/sites/853/2022/07/exteriores-1-982x1024.jpg 982w, https://blogs.upm.es/robogait/wp-content/uploads/sites/853/2022/07/exteriores-1-1474x1536.jpg 1474w, https://blogs.upm.es/robogait/wp-content/uploads/sites/853/2022/07/exteriores-1-1965x2048.jpg 1965w, https://blogs.upm.es/robogait/wp-content/uploads/sites/853/2022/07/exteriores-1-1140x1188.jpg 1140w" sizes="(max-height: 500px) 288px, 25vw" width="288" height="300" fetchpriority="high"></a></li>
+            <li>Programación. <a href="https://github.com/Pigamer37" target="_blank">Visita mi GitHub!<br><div style="text-decoration:none" class="hoverEl"><pre><code class="js-html">const FPS=30;
+const prog_bar=document.getElementsByTagName('progress')[0];
 
-          <ul>
-            <li>Música</li>
-            <li>Electrónica/robotica. <a href="https://blogs.upm.es/robogait/" target="_blank">¡Mira el proyecto universitario en el que trabajé!</a> </li>
-            <li>Programación. <a href="https://github.com/Pigamer37" target="_blank">Visita mi GitHub!</a></li>
+function updateProgBar(val=0, vidEl=undefined, outEl=undefined){
+  if((val===null)||(val===undefined)){
+    prog_bar.removeAttribute('aria-valuenow');
+    prog_bar.removeAttribute('value');
+    return;
+  }
+  prog_bar.value=val;
+  prog_bar.setAttribute('aria-valuenow', prog_bar.value+"%");
+  prog_bar.textContent=prog_bar.value+"%";
+  
+  if((vidEl!==undefined)&&(outEl!==undefined)){
+    vidEl.setAttribute('aria-busy', val<100);
+    outEl.setAttribute('aria-busy', val<100);
+  }
+  
+  if(prog_bar.value===100){
+    const progLabel=prog_bar.parentNode;
+    for(const ch of progLabel.childNodes){
+      if(ch.tagName==="SPAN"){ch.innerHTML="Completed Loading&nbsp;"; break;}
+    }
+    setTimeout(function(){progLabel.parentNode.removeChild(progLabel);}, 5000);
+  }
+}
+function errorProgBar(vidEl, outEl){
+  const progLabel=prog_bar.parentNode;
+  progLabel.parentNode.removeChild(progLabel);
+  vidEl.setAttribute('aria-busy', false);
+  outEl.setAttribute('aria-busy', false);
+}</code></pre></div></a></li>
             <li>Videogames</li>
+            <script>const stop=function(event){this.pause();this.currentTime=0;};const vids=document.getElementsByClassName("hoverVid");for(const vid of vids){vid.addEventListener('pointerenter', () => {vid.play();});
+            vid.addEventListener('mouseleave', stop.bind(vid));vid.addEventListener('pointerup', stop.bind(vid));vid.addEventListener('touchend', stop.bind(vid));}</script>
           </ul>
+          <label>Define el color principal por picker: <input type="color" value="#ff9933" class="color-pickerr"/></label> <button style="font-weight:bold;background-color:blue;border-radius:1em;color:white" id="res">Resetear</button>
+          <script src="/scripts/user-color.js"></script>
+          <p>Información de privacidad: Este color se guarda en tu navegador. No se me envía ninguna información.</p>
+          <h1>Herramientas Online que he hecho:</h1>
+          <h3>Detector de Líneas</h3>
           <p>Ya puedes <a href="/TFG_Gomez_Velayos_Lucas.pdf" download="KBs_TFG.pdf">
           <button>descargar la memoria de mi Trabajo Fin de Grado</button></a>, o simplemente <a href="/TFG_Gomez_Velayos_Lucas.pdf" target="_blank">verlo</a>). Además, <strong>mi</strong> código que hice para el proyecto está en <a href="https://github.com/Pigamer37/Trabajo-Fin-de-Grado" target="_blank">mi GitHub</a>. Gracias a <a href="https://docs.opencv.org/4.10.0/df/d0a/tutorial_js_intro.html" target="_blank">OpenCV.js</a>, ¡puedo hacer que el <a href="/tools/Lane-Detector">algoritmo de mi Trabajo Fin de Grado se pueda usar en esta página</a> usando tu propia webcam!<br>
-          Traduje todo mi código de <code>C++</code> a <code><abbr title="JavaScript">JS</abbr></code>. El uso de OpenCV es un poco distinto entre lenguajes, y JS tiene colector de basura, a lo cual no estoy acostumbrado, pero al usar OpenCV.js te pide que liberes algunos de sus objetos explícitamente. Voy a construir esta página poco a poco, según aprenda (he usado <a href="https://web.dev/learn" target="_blank">los cursos de desarrollo de web de Google Dev</a>), ¡pero espero seguir compartiendo cosas chulas con vosotros en un futuro no muy lejano!
+          Traduje todo mi código de <code>C++</code> a <code><abbr title="JavaScript">JS</abbr></code>. El uso de OpenCV es un poco distinto entre lenguajes, y JS tiene colector de basura, a lo cual no estoy acostumbrado, pero al usar OpenCV.js te pide que liberes algunos de sus objetos explícitamente. 
           </p>
-          <p>Todavía tengo que mejorar esta <i>homepage</i>, tengo que añadir imágenes. Siéntete libre de contactarme en la pestaña de Redes Sociales o en Neocities para cualquier cosa, sugerencias de esta página, dudas de los posts, charlar un rato...</p>
+          <h3>Generador de fuentes RSS</h3>
+          <p>Puedes <a href="/tools/RSS-Generator">acceder directamente</a> o <a href="/es-posts/Explicacion_RSS">leer mi artículo sobre RSS y cómo funciona</a> antes de usarlo.</p>
+          <p>Voy a construir esta página poco a poco, según aprenda (he usado <a href="https://web.dev/learn" target="_blank">los cursos de desarrollo de web de Google Dev</a>), ¡pero espero seguir compartiendo cosas chulas con vosotros en un futuro no muy lejano! Estoy tratando de hacer que esta página sea dinámica (que funcione a pesar de las dimensiones de la pantalla), eficiente y accesible. Todavía tengo que mejorar esta <i lang="en">homepage</i>. Siéntete libre de contactarme en la pestaña de Redes Sociales o en Neocities para cualquier cosa, sugerencias de esta página, dudas de los posts, charlar un rato...</p>
         </div>
       </article>
     </main>
     <footer id="footer">
-      <span style="display: flex; justify-content: center;">
-      <a href="https://neocities.org"><img src="/neocities.png"></a>
+      <span style="display: flex; flex-direction:column; align-items:center; gap:1em;">
+      <!--<iframe height="300" width="640" src="https://webring.htmlhobbyist.com/site/kbs-lucas.neocities.org/" title="The HTML Hobbyist Webring"></iframe>-->
+      <div id="miscri2">
+        <a href='https://miscri.netlify.app/webring?action=prev'> ← prev </a>
+        Soy parte de
+        <a href='https://miscri.netlify.app/webring?action=home'>~misc-ring~</a>
+        (webs en inglés)
+        <a href='https://miscri.netlify.app/webring?action=rand'> aleatoria ?</a>
+        <a href='https://miscri.netlify.app/webring?action=next'> sig → </a>
+      </div>
+
+      <a href="https://neocities.org"><img width="200" height="59" alt="Hosteado por Neocities" src="/neocities.png"></a>
       </span>
-      <p>This webpage's HTML is licensed under a MIT license, CSS and site contents are protected by copyright&copy; law. <br></p>
+      <p>This webpage's HTML is licensed under a MIT license, CSS and site contents are protected by copyright&copy; law.<br></p>
       <p><a href="https://kbs-lucas.neocities.org/RSS.xml" id="RSS"><img src="https://www.w3schools.com/xml/pic_rss.gif" width="41" height="16" alt="RSS"></a></p>
       <p><a href="#">Vuelta al principio</a></p>
     </footer>
