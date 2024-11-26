@@ -1,5 +1,10 @@
 # kbs-lucas.neocities.org
-## All HTML, CSS and JS I host on my Neocities website. It has some interesting JS (like a translation of my Trabajo Fin de Grado repo to the web).
+## All HTML, CSS and JS I host on my Neocities website, including some interesting tools based on JavaScript.
+
+> [!WARNING]
+> Before copying/referencing this repo's content, please take a moment to read the following copyright notice
+
+## Copyright/license/citing info
 - As stated in most html documents, you are free to copy html document structures (tag order, etc). However, the contents of the HTML (the text, basically) is copyrighted; feel free to cite me though!
 - JavaScript scripts are free to use and copy, basically they are under an MIT license unless stated otherwise, although citing is appreciated (specially if you use my Final Degree Assignment code!).
 
