@@ -21,7 +21,8 @@
   place-content:center center;
 }
 #bands .center-icons > a{
- height:1rem; 
+ height:1rem;
+ &::after{content:none}
 }
 .Email:before{
   content:"📩";

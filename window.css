@@ -12,20 +12,41 @@
 @font-face{
   font-family:'Cascadia Code';
   font-feature-settings:"ss02";
-  src: 
-  local('Cascadia Code'),
-  url("/fonts/CascadiaCode.woff2") format('woff2');
+  src: local('Cascadia Code'), url("/fonts/CascadiaCode.woff2") format('woff2');
   font-display:swap;
 }
 @font-face{
   font-family:'Cascadia Code'; 
   font-feature-settings:"ss02";
-  src: 
-  local('Cascadia Code'),
-  url("/fonts/CascadiaCodeItalic.woff2") format('woff2');
+  src: local('Cascadia Code'), url("/fonts/CascadiaCodeItalic.woff2") format('woff2');
   font-style:italic;
   font-display:swap;
 }
+@font-face {
+  font-family:'Planet Kosmos';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Planet Kosmos'), url("/fonts/PLANK___.woff") format('woff');
+  font-display:swap;
+}
+@font-face {
+  font-family:'Octuple max Solid';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Octuple max Solid'), url("/fonts/Octuple-max-demo.woff") format('woff');
+  font-display:swap;
+}
+@font-face {
+  font-family:'Acidic';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Acidic'), url("/fonts/Acidic.woff") format('woff');
+  font-display:swap;
+}
+.CascadiaCode{font-family:'Cascadia Code', 'Roboto Mono', monospace}
+.PlanetK{font-family:'Planet Kosmos', Helvetica, sans-serif}
+.OctupleMax{font-family:'Octuple max Solid', Helvetica, sans-serif}
+.Acidic{font-family:'Acidic', Helvetica, sans-serif}
 ::-webkit-calendar-picker-indicator,
 ::-webkit-search-results-button,
 ::-webkit-search-cancel-button,
@@ -40,7 +61,7 @@ body{
   margin:0;
 }
 .window{
-  border:.0625rem solid var(--accent-orange); /*#ccc for white-is*/
+  border:.0625rem solid var(--accent-orange);
   border-radius:.5rem .5rem 0 0;
   box-shadow:.5rem .5rem .625rem rgba(0, 0, 0, 0.5);
   margin:1rem;
@@ -112,9 +133,7 @@ nav .content ul li a{
   font-size:1rem;
   font-family:"Roboto Mono", monospace;
 }
-.title-bar .buttons{
-  display:flex;
-}
+.title-bar .buttons{display:flex;}
 .title-bar .buttons button{
   background:none;
   border:none;
@@ -140,34 +159,37 @@ nav .content ul li a{
   cursor: url(https://www.cursor.cc/cursor/533/209/cursor.png) 11 2,
   pointer;
 }*/
-a, summary, button{
-  cursor:var(--pointer-cur);
-}
-abbr{
- cursor:help; 
-}
-code{
- /*font-size: 1.2em;*/
- font-family:"Cascadia Code", monospace;
-}
+a, summary, button{cursor:var(--pointer-cur);}
+abbr[title]{cursor:help;}
+code{/*font-size: 1.2em;*/
+font-family:"Cascadia Code", monospace;}
 summary{
   padding:1rem 2em 1rem 0;
   font-size:1.1rem;
   font-weight:bold;
 }
-a:link{
-  color:var(--accent-orange);
+ins{
+  display:inline-block;
+  text-decoration:none;
+  background-color:#84a173;
 }
+a:link{color:var(--accent-orange);}
 /*visited link*/
-a:visited{
-  color:var(--visited-orange);
-}
+a:visited{color:var(--visited-orange);}
 a:is(:hover, :focus-visible){
   text-decoration:underline blue dashed;
   transition:text-decoration-color, 200ms ease;
 }
-a:active{
- color:blue;
+a:active{color:blue;}
+a:not(.no-external, :has(img)){
+  &[href^="http"]::after, &[rel="external"]::after, &.external::after{
+    content:"⇗";
+    display:inline-block;
+    width:0.8em;height:0.8em;
+    margin-inline-start:0.25em;
+    /*background-size:100%;
+    background-image:url("external-link-52.png");*/
+  }
 }
 a:not([href]){
   color:var(--accent-orange);

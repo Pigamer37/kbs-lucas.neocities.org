@@ -52,7 +52,7 @@
       </nav>
     </header>
     <main>
-    <style>form{display:flex;flex-direction:column;align-content:center;flex-wrap:wrap;& p,& > span,& > div{width:clamp(240px,100%,40rem);}& button{width:100%}}fieldset{box-sizing:border-box;display:flex;flex-direction:column;width:clamp(240px,100%,40rem);line-height:1.2;& input[type="text"],& input[type="url"],& input[type="email"],& input[type="number"]{width:100%;}& label{margin-block-end:1rem;&:has(input[type="number"]){width:50%;}}}textarea{tab-size:2;resize:vertical;width:100%;} #res-box{margin-block-end:1rem;background-color:rgb(13 18 28);border:1px solid light-dark(white, black);;overflow:hidden;border-radius:0 0 1rem 1rem;& label{margin-inline:14px}& label textarea{width:calc(100% - 28px);resize:none;margin-inline:14px;}& #copy{font-weight:bold;border:0;height:max(1rem,32px);background-color:blue;color:white;}}/*#copy:before{content:'';mask-image: url(https://developer.mozilla.org/static/media/clippy.92fffda9d37d9c3a3b37.svg);}*/</style>
+    <style>form{display:flex;flex-direction:column;align-content:center;flex-wrap:wrap;& p,& > span,& > div{width:clamp(240px,100%,40rem);}& button{width:100%}}fieldset{box-sizing:border-box;display:flex;flex-direction:column;width:clamp(240px,100%,40rem);line-height:1.2;& input[type="text"],& input[type="url"],& input[type="email"],& input[type="number"]{width:100%;}& label{margin-block-end:1rem;&.half-w{width:50%;}}}textarea{tab-size:2;resize:vertical;width:100%;} #res-box{margin-block-end:1rem;background-color:rgb(13 18 28);border:1px solid light-dark(white, black);;overflow:hidden;border-radius:0 0 1rem 1rem;& label{margin-inline:14px}& label textarea{width:calc(100% - 28px);resize:none;margin-inline:14px;}& #copy{font-weight:bold;border:0;height:max(1rem,32px);background-color:blue;color:white;}}/*#copy:before{content:'';mask-image: url(https://developer.mozilla.org/static/media/clippy.92fffda9d37d9c3a3b37.svg);}*/</style>
     <h1 style="display:flex;justify-content:center;">KB's RSS Generator</h1>
      <article class="window" id="main_win">
         <div class="title-bar">
@@ -64,28 +64,43 @@
           </div>
         </div>
         <div class="content">
-        <noscript><p style="color:red;margin-block-end=0.625rem;">JavaScript is off, this demo won't load or work without it... sorry!</p></noscript>
-        <form>
+        <noscript><p style="color:red;margin-block-end=0.625rem;">JavaScript is off, this won't load or work without it... sorry!</p></noscript>
+        <form id="RSS-input">
+          <p>To make podcasts RSS feeds, use <a class="no-external" href="https://kbs-lucas.nekoweb.org/RSS-Gen-Podcast.html">this version</a>.</p>
           <label><input type="checkbox" name="chanCheck"> I need to define my RSS channel too </label>
+          <p>If you are starting from scratch, you will need to make your RSS channel. You only need to do this once, and when it's done you'll only need to make your items</p>
           <span id="Channel" name="channel" style="display:none"><p style="dis">As defined in <a href="https://www.rssboard.org/rss-specification#requiredChannelElements" target="_blank">the specification</a>, a channel must have the title, link and description elements:</p>
           <fieldset name="channel"><legend>Channel data</legend>
           <label>Title of the website <input type="text" name="title" placeholder="The John Doe Blog" required></label>
           <label>Link to the website <input type="url" autocomplete="url" inputmode="url" placeholder="https://www.johndoe.org" name="link" required></label>
           <label>Description <input type="text" name="desc" placeholder="A website made by John Doe, about sports, games or cinema" required></label>
           <label><input type="checkbox" name="imCheck"> Image </label>
-          <!--<label>(Same as CHTITLE) Title of the image <input type="text" name="imTitle" placeholder="The John Doe Blog" required></label>
-          <label>(Same as CHLINK) Link to the website <input type="url" autocomplete="url" inputmode="url" placeholder="https://www.johndoe.org" name="imLink" required></label>-->
-          <label style="display:none">Image URL <input type="url" autocomplete="url" inputmode="url" title="Publicly available GIF, JPEG or PNG URL" pattern=".+[.](?:gif|jpeg|png|GIF|JPEG|PNG)\s*$" placeholder="https://www.johndoe.org/img.[gif/jpeg/png]" name="imURL"></label>
-          <span style="width:100%;display:flex;flex-wrap:wrap;flex:1;justify-content:space-between"><label style="display:none">Image width <input type="number" min="1" max="144" step="1" name="imWidth" placeholder="Def. is 88px. Width in pixels"></label>
-          <label style="display:none">Image height <input type="number" min="1" max="400" step="1" name="imHeight" placeholder="Def. is 31px. Height in pixels"></label></span>
+          <label style="display:none">Image URL <input type="url" autocomplete="url" inputmode="url" title="Publicly available GIF, JPEG or PNG URL" pattern="\S+[.](?:gif|jpeg|png|GIF|JPEG|PNG)\s*$" placeholder="https://www.johndoe.org/img.[gif/jpeg/png]" name="imURL"></label>
+          <span style="width:100%;display:flex;flex-wrap:wrap;flex:1;justify-content:space-between"><label class="half-w" style="display:none">Image width <input type="number" min="1" max="144" step="1" name="imWidth" placeholder="Def. is 88px. Width in pixels"></label>
+          <label class="half-w" style="display:none">Image height <input type="number" min="1" max="400" step="1" name="imHeight" placeholder="Def. is 31px. Height in pixels"></label></span>
           <label style="display:none">Image description <input type="text" name="imDesc" placeholder="A website logo..."></label>
-          <label>Language (recommended) <input type="text" name="lang" autocomplete="language" placeholder="en-US" pattern="^[a-z]{2,4}(-[A-Z][a-z]{3})?(-([A-Z]{2}|[0-9]{3}))?$"></label>
+          <label>Language (recommended) <input type="text" name="lang" autocomplete="language" list="ISO639-1langs" placeholder="en-US" pattern="^[a-z]{2,4}(-[A-Z][a-z]{3})?(-([A-Z]{2}|[0-9]{3}))?$"></label>
+          <datalist id="ISO639-1langs">
+            <option value="">Enter a language code</option><option value="aa">Afar</option><option value="ab">Abkhazian</option><option value="af">Afrikaans</option><option value="ak">Akan</option><option value="sq">Albanian</option><option value="am">Amharic</option><option value="ar">Arabic</option><option value="an">Aragonese</option><option value="hy">Armenian</option><option value="as">Assamese</option><option value="av">Avaric</option><option value="ae">Avestan</option><option value="ay">Aymara</option><option value="az">Azerbaijani</option><option value="ba">Bashkir</option><option value="bm">Bambara</option><option value="eu">Basque</option><option value="be">Belarusian</option><option value="bn">Bengali</option><option value="bi">Bislama</option><option value="bo">Tibetan</option><option value="bs">Bosnian</option><option value="br">Breton</option><option value="bg">Bulgarian</option><option value="my">Burmese</option><option value="ca">Catalan; Valencian</option><option value="cs">Czech</option><option value="ch">Chamorro</option><option value="ce">Chechen</option><option value="zh">Chinese</option><option value="cu">Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic</option><option value="cv">Chuvash</option><option value="kw">Cornish</option><option value="co">Corsican</option><option value="cr">Cree</option><option value="cy">Welsh</option><option value="cs">Czech</option><option value="da">Danish</option><option value="de">German</option><option value="dv">Divehi; Dhivehi; Maldivian</option><option value="nl">Dutch; Flemish</option><option value="dz">Dzongkha</option><option value="el">Greek, Modern (1453-)</option><option value="en">English</option><option value="eo">Esperanto</option><option value="et">Estonian</option><option value="eu">Basque</option><option value="ee">Ewe</option><option value="fo">Faroese</option><option value="fa">Persian</option><option value="fj">Fijian</option><option value="fi">Finnish</option><option value="fr">French</option><option value="fy">Western Frisian</option><option value="ff">Fulah</option><option value="ka">Georgian</option><option value="de">German</option><option value="gd">Gaelic; Scottish Gaelic</option><option value="ga">Irish</option><option value="gl">Galician</option><option value="gv">Manx</option><option value="el">Greek, Modern (1453-)</option><option value="gn">Guarani</option><option value="gu">Gujarati</option><option value="ht">Haitian; Haitian Creole</option><option value="ha">Hausa</option><option value="he">Hebrew</option><option value="hz">Herero</option><option value="hi">Hindi</option><option value="ho">Hiri Motu</option><option value="hr">Croatian</option><option value="hu">Hungarian</option><option value="hy">Armenian</option><option value="ig">Igbo</option><option value="is">Icelandic</option><option value="io">Ido</option><option value="ii">Sichuan Yi; Nuosu</option><option value="iu">Inuktitut</option><option value="ie">Interlingue; Occidental</option><option value="ia">Interlingua (International Auxiliary Language Association)</option><option value="id">Indonesian</option><option value="ik">Inupiaq</option><option value="is">Icelandic</option><option value="it">Italian</option><option value="jv">Javanese</option><option value="ja">Japanese</option><option value="kl">Kalaallisut; Greenlandic</option><option value="kn">Kannada</option><option value="ks">Kashmiri</option><option value="ka">Georgian</option><option value="kr">Kanuri</option><option value="kk">Kazakh</option><option value="km">Central Khmer</option><option value="ki">Kikuyu; Gikuyu</option><option value="rw">Kinyarwanda</option><option value="ky">Kirghiz; Kyrgyz</option><option value="kv">Komi</option><option value="kg">Kongo</option><option value="ko">Korean</option><option value="kj">Kuanyama; Kwanyama</option><option value="ku">Kurdish</option><option value="lo">Lao</option><option value="la">Latin</option><option value="lv">Latvian</option><option value="li">Limburgan; Limburger; Limburgish</option><option value="ln">Lingala</option><option value="lt">Lithuanian</option><option value="lb">Luxembourgish; Letzeburgesch</option><option value="lu">Luba-Katanga</option><option value="lg">Ganda</option><option value="mk">Macedonian</option><option value="mh">Marshallese</option><option value="ml">Malayalam</option><option value="mi">Maori</option><option value="mr">Marathi</option><option value="ms">Malay</option><option value="mk">Macedonian</option><option value="mg">Malagasy</option><option value="mt">Maltese</option><option value="mn">Mongolian</option><option value="mi">Maori</option><option value="ms">Malay</option><option value="my">Burmese</option><option value="na">Nauru</option><option value="nv">Navajo; Navaho</option><option value="nr">Ndebele, South; South Ndebele</option><option value="nd">Ndebele, North; North Ndebele</option><option value="ng">Ndonga</option><option value="ne">Nepali</option><option value="nl">Dutch; Flemish</option><option value="nn">Norwegian Nynorsk; Nynorsk, Norwegian</option><option value="nb">Bokmål, Norwegian; Norwegian Bokmål</option><option value="no">Norwegian</option><option value="ny">Chichewa; Chewa; Nyanja</option><option value="oc">Occitan (post 1500)</option><option value="oj">Ojibwa</option><option value="or">Oriya</option><option value="om">Oromo</option><option value="os">Ossetian; Ossetic</option><option value="pa">Panjabi; Punjabi</option><option value="fa">Persian</option><option value="pi">Pali</option><option value="pl">Polish</option><option value="pt">Portuguese</option><option value="ps">Pushto; Pashto</option><option value="qu">Quechua</option><option value="rm">Romansh</option><option value="ro">Romanian; Moldavian; Moldovan</option><option value="rn">Rundi</option><option value="ru">Russian</option><option value="sg">Sango</option><option value="sa">Sanskrit</option><option value="si">Sinhala; Sinhalese</option><option value="sk">Slovak</option><option value="sl">Slovenian</option><option value="se">Northern Sami</option><option value="sm">Samoan</option><option value="sn">Shona</option><option value="sd">Sindhi</option><option value="so">Somali</option><option value="st">Sotho, Southern</option><option value="es">Spanish; Castilian</option><option value="sq">Albanian</option><option value="sc">Sardinian</option><option value="sr">Serbian</option><option value="ss">Swati</option><option value="su">Sundanese</option><option value="sw">Swahili</option><option value="sv">Swedish</option><option value="ty">Tahitian</option><option value="ta">Tamil</option><option value="tt">Tatar</option><option value="te">Telugu</option><option value="tg">Tajik</option><option value="tl">Tagalog</option><option value="th">Thai</option><option value="bo">Tibetan</option><option value="ti">Tigrinya</option><option value="to">Tonga (Tonga Islands)</option><option value="tn">Tswana</option><option value="ts">Tsonga</option><option value="tk">Turkmen</option><option value="tr">Turkish</option><option value="tw">Twi</option><option value="ug">Uighur; Uyghur</option><option value="uk">Ukrainian</option><option value="ur">Urdu</option><option value="uz">Uzbek</option><option value="ve">Venda</option><option value="vi">Vietnamese</option><option value="vo">Volapük</option><option value="cy">Welsh</option><option value="wa">Walloon</option><option value="wo">Wolof</option><option value="xh">Xhosa</option><option value="yi">Yiddish</option><option value="yo">Yoruba</option><option value="za">Zhuang; Chuang</option><option value="zh">Chinese</option><option value="zu">Zulu</option>
+          </datalist>
           <label>Link to the .xml file where your feed will be available (recommended) <input type="url" autocomplete="url" inputmode="url" placeholder="https://www.johndoe.org/RSS.xml" name="atomLink"></label>
           <label>Categories or tags (comma separated) <input type="text" name="tags" placeholder="Sports,Games,Cinema"></label>
           <label>Managing Editor email (not recommended) <input type="email" inputmode="email" name="mEdit"></label>
           <label>Web Master email (not recommended) <input type="email" inputmode="email" name="webMast"></label>
+          <label>Hours where channel won't be updated in GMT (not recommended) <input type="time" step="3600" name="skipHours" id="skipHours"></label>
+          <button id="skipHB" type="button" class="blue-button">Add hour</button>
+          <label>Days where channel won't be updated (not recommended)</label>
+          <button id="skipMon" type="button" class="blue-button">Skip Monday</button>
+          <button id="skipTue" type="button" class="blue-button">Skip Tuesday</button>
+          <button id="skipWed" type="button" class="blue-button">Skip Wednesday</button>
+          <button id="skipThu" type="button" class="blue-button">Skip Thursday</button>
+          <button id="skipFri" type="button" class="blue-button">Skip Friday</button>
+          <button id="skipSat" type="button" class="blue-button">Skip Saturday</button>
+          <button id="skipSun" type="button" class="blue-button" style="margin-block-end:1rem">Skip Sunday</button>
+          <label>Time to live (<abbr>ttl</abbr>): how many minutes the channel can be cached before refreshing from the source (not recommended)<input type="number" min="0" step="1" name="ttl" placeholder="Ex: 60 (1 hour), use 0 to disable"></label>
           </fieldset>
-          <p>As defined in <a href="https://www.rssboard.org/rss-specification" target="_blank">the specification</a>, &lt;item&gt; elements should be inside the &lt;channel&gt; tag, after all its other elements, and their order is not important.</p></span>
+          <p>As defined in <a href="https://www.rssboard.org/rss-specification" target="_blank">the specification</a>, &lt;item&gt; elements should be inside the &lt;channel&gt; tag, after all its other elements, and their order is not important. However, I recommend ordering items by date, keeping newer ones near the top, just to be consistent. There's no real limit to the number of items that can be present in a feed, so don't limit yourself if not needed, but I've read that if your feed updates frequently or has many items, keeping the 20-100 most recent ones is a good range to shoot for.</p>
+          </span>
           <p>As defined in <a href="https://www.rssboard.org/rss-specification#hrelementsOfLtitemgt" target="_blank">the specification</a>, all elements of an item are optional, but it must contain either a title or description. I recommend including all of these (except stated otherwise):</p>
           <fieldset name="item"><legend>Item/Article data</legend>
           <label>Title <input type="text" name="title" placeholder="Interesting article" required></label>
@@ -95,7 +110,7 @@
           <label>Author's email (not recommended) <input type="email" inputmode="email" name="author"></label>
           <label>Categories or tags (comma separated) <input type="text" name="tags" placeholder="Sports,Games,Cinema"></label>
           </fieldset>
-          <span style="align-self:center;"><div id="res-box"><label style="margin-block-start:1rem">Result <textarea name="result" placeholder="RSS result here" readonly ></textarea></label>
+          <span style="align-self:center;"><div id="res-box"><output form="RSS-input"><label style="margin-block-start:1rem">Result <textarea name="result" placeholder="RSS result here" readonly ></textarea></output></label>
           <button id="copy" type="button">Copy result to clipboard</button></div>
           <div>If you don't want to use the current date, please change the &lt;pubDate&gt; tag with a RFC 2822 date. You can use <a href="https://timestampgenerator.com/" target="_blank">timestamp&shy;generator</a>.</div>
           <button style="width:49%;display:none" id="validate" type="button" class="blue-button">Validate generated feed (on primary validation pass, it will use <a href="https://www.rssboard.org/rss-validator/" target="_blank">the RSS Board's validator</a>)</button>
@@ -103,6 +118,9 @@
         </form>
         <script>const form=document.querySelector('form');const result=document.getElementsByName("result")[0];
         let item, channel, chTitle, chDesc, chLink, imURL, imDesc, imHeight, imWidth, chaLink, chTags, mEdit, webMast, lang, title, link, desc, content, author, tags;
+        let skipHB, skipMon, skipTue, skipWed, skipThu, skipFri, skipSat, skipSun, ttl;
+        let skipHoursStr="";
+        let dayBools = new Array(7);dayBools.fill(false);
         for(fieldset of form.children){if(fieldset.name==='item')item=fieldset;else if(fieldset.localName==="span"&&fieldset.id==="Channel"){channel=fieldset.children[1]}}
         for(ch of item.children){switch(ch.children[0]?.name){case 'title': title=ch.children[0];break;case 'link': link=ch.children[0];break;case 'desc': desc=ch.children[0];break;case 'content': content=ch.children[0];break;case 'author': author=ch.children[0];break;case 'tags': tags=ch.children[0];break;default:}}
         content.style.height="1px";content.style.height=(content.scrollHeight)+"px";
@@ -116,20 +134,48 @@
           if(RSStext!==""){let now=new Date().toUTCString();RSStext+="\n\t<pubDate>"+now+"</pubDate>";RSStext="<item>"+RSStext;RSStext+=guid+"\n</item>";}
           return RSStext;
         }
-        for(ch of channel.children){if(ch.localName==="span"){imWidth=ch.children[0].children[0];imHeight=ch.children[1].children[0];}switch(ch.children[0]?.name){case 'title': chTitle=ch.children[0];break;case 'link': chLink=ch.children[0];break;case 'desc': chDesc=ch.children[0];break;case 'imURL': imURL=ch.children[0];break;case 'imDesc': imDesc=ch.children[0];break;case 'imHeight': imHeight=ch.children[0];break;case 'imWidth': imWidth=ch.children[0];case 'tags': chTags=ch.children[0];break;case 'atomLink': chaLink=ch.children[0];break;case 'lang': lang=ch.children[0];break;case 'mEdit': mEdit=ch.children[0];break;case 'webMast': webMast=ch.children[0];break;default:}}
+        for(ch of channel.children){if(ch.localName==="span"){imWidth=ch.children[0].children[0];imHeight=ch.children[1].children[0];continue;}else if(ch.localName==="button"){
+          switch(ch.id){case 'skipMon': skipMon=ch;break;case 'skipTue': skipTue=ch;break;case 'skipWed': skipWed=ch;break;case 'skipThu': skipThu=ch;break;case 'skipFri': skipFri=ch;break;case 'skipSat': skipSat=ch;break;case 'skipSun': skipSun=ch;break;case 'skipHB': skipHB=ch;break;default:}continue;
+        }switch(ch.children[0]?.name){case 'title': chTitle=ch.children[0];break;case 'link': chLink=ch.children[0];break;case 'desc': chDesc=ch.children[0];break;case 'imURL': imURL=ch.children[0];break;case 'imDesc': imDesc=ch.children[0];break;case 'imHeight': imHeight=ch.children[0];break;case 'imWidth': imWidth=ch.children[0];case 'tags': chTags=ch.children[0];break;case 'atomLink': chaLink=ch.children[0];break;case 'lang': lang=ch.children[0];break;case 'mEdit': mEdit=ch.children[0];break;case 'webMast': webMast=ch.children[0];break;default:}if(ch.children[1]?.name==='ttl')ttl=ch.children[1];}
         const imCheck=document.querySelector('input[type="checkbox"][name="imCheck"]');
         if(imCheck)imCheck.addEventListener('input', (event)=>{if(event.target.checked){imWidth.parentNode.style.display="unset";imHeight.parentNode.style.display="unset";imURL.parentNode.style.display="unset";imDesc.parentNode.style.display="unset";imURL.required=true;}else{imWidth.parentNode.style.display="none";imHeight.parentNode.style.display="none";imURL.parentNode.style.display="none";imDesc.parentNode.style.display="none";imURL.required=false;}updateRes();});
+        const skipHours=document.getElementById("skipHours");
+        skipHB.addEventListener("click", (e)=>{
+          if((skipHours?.value!==undefined)&&(skipHours.value!=="")){
+            const h=skipHours.value.slice(0,2);const hInt=parseInt(h);
+            if((!skipHoursStr.includes(h))&&(!isNaN(hInt))){if(skipHoursStr==="")skipHoursStr="\n\t\t<skipHours>\n\t\t</skipHours>";
+              skipHoursStr=`${skipHoursStr.slice(0, -15)}\n\t\t\t<hour>${h}</hour>\n\t\t</skipHours>`
+            }
+          }
+          updateRes();
+        })
+        const DayButtons=[skipMon, skipTue, skipWed, skipThu, skipFri, skipSat, skipSun]
+        for(let i=0;i<DayButtons.length;i++){DayButtons[i].addEventListener("click", (e)=>{
+            dayBools[i]=!dayBools[i];
+            if(dayBools[i])e.target.innerText="Don't "+e.target.innerText;
+            else e.target.innerText=e.target.innerText.slice(6);
+            updateRes();
+          });
+        }
         function ParseChannel(){let RSStext="";
           if(chTitle.value!=="")RSStext="\n\t\t<title>"+chTitle.value.replaceAll("&","&#x26;").replaceAll("<","&#x3C;").replaceAll(">","&#x3E;")+"</title>";
           if(chLink.value!==""){RSStext+="\n\t\t<link>"+chLink.value+"</link>";}
           if(chDesc.value!=="")RSStext+="\n\t\t<description>"+chDesc.value.replaceAll("&","&#x26;").replaceAll("<","&#x3C;").replaceAll(">","&#x3E;")+"</description>";
-          if(imCheck.checked){RSStext+="\n\t\t<image>";if(imURL.value!==""){RSStext+="\n\t\t\t<url>"+imURL.value+"</url>\n\t\t\t<title>"+chTitle.value.replaceAll("&","&#x26;").replaceAll("<","&#x3C;").replaceAll(">","&#x3E;")+"</title>\n\t\t\t<link>"+chLink.value+"</link>";}if(imDesc.value!==""){RSStext+="\n\t\t\t<description>"+imDesc.value.replaceAll("&","&#x26;").replaceAll("<","&#x3C;").replaceAll(">","&#x3E;")+"</description>";}if(imWidth.value!==""){RSStext+="\n\t\t\t<width>"+imWidth.value+"</width>";}if(imHeight.value!==""){RSStext+="\n\t\t\t<width>"+imHeight.value+"</width>";}RSStext+="\n\t\t</image>";}
+          if(imCheck.checked){RSStext+="\n\t\t<image>";if(imURL.value!==""){RSStext+="\n\t\t\t<url>"+imURL.value+"</url>\n\t\t\t<title>"+chTitle.value.replaceAll("&","&#x26;").replaceAll("<","&#x3C;").replaceAll(">","&#x3E;")+"</title>\n\t\t\t<link>"+chLink.value+"</link>";}if(imDesc.value!==""){RSStext+="\n\t\t\t<description>"+imDesc.value.replaceAll("&","&#x26;").replaceAll("<","&#x3C;").replaceAll(">","&#x3E;")+"</description>";}if(imWidth.value!==""){RSStext+="\n\t\t\t<width>"+imWidth.value+"</width>";}if(imHeight.value!==""){RSStext+="\n\t\t\t<height>"+imHeight.value+"</height>";}RSStext+="\n\t\t</image>";}
           if(mEdit.value!=="")RSStext+="\n\t\t<managingEditor>"+mEdit.value+"</managingEditor>";
           if(webMast.value!=="")RSStext+="\n\t\t<webMaster>"+webMast.value+"</webMaster>";
           if(chTags.value!==""){let tagarr=chTags.value.replaceAll("&","&#x26;").replaceAll("<","&#x3C;").replaceAll(">","&#x3E;").split(",");for(tag of tagarr){RSStext+="\n\t\t<category>"+tag+"</category>";}}
           if(lang.value!=="")RSStext+="\n\t\t<language>"+lang.value+"</language>";
           if(chaLink.value!=="")RSStext+='\n\t\t<atom:link href="'+chaLink.value+'" rel="self" type="application/rss+xml"/>';
-          if(RSStext!==""){let now=new Date().toUTCString();RSStext+="\n\t\t<pubDate>"+now+"</pubDate>\n\t\t<lastBuildDate>"+now+"</lastBuildDate>\n\t\t<docs>https://www.rssboard.org/rss-specification</docs>\n\t\t<generator>KB's RSS feed generator v0.1 (https://kbs-lucas.neocities.org/tools/RSS-Generator)</generator>";
+          if(dayBools.find((e)=> e === true)!==undefined){
+            RSStext+="\n\t\t<skipDays>";
+            for(let i=0;i<dayBools.length;i++){
+              if(dayBools[i]){RSStext+="\n\t\t\t<day>";switch(i){case 0: RSStext+="Monday";break;case 1: RSStext+="Tuesday";break;case 2: RSStext+="Wednesday";break;case 3: RSStext+="Thursday";break;case 4: RSStext+="Friday";break;case 5: RSStext+="Saturday";break;case 6: RSStext+="Sunday";break;default:}RSStext+="</day>";}
+            }
+            RSStext+="\n\t\t</skipDays>";
+          }RSStext+=skipHoursStr;
+          if((ttl?.value!==undefined)&&(!isNaN(parseInt(ttl.value)))&&(ttl.value>0))RSStext+=`\n\t\t<ttl>${ttl.value}</ttl>`;
+          if(RSStext!==""){let now=new Date().toUTCString();RSStext+="\n\t\t<pubDate>"+now+"</pubDate>\n\t\t<lastBuildDate>"+now+"</lastBuildDate>\n\t\t<docs>https://www.rssboard.org/rss-specification</docs>\n\t\t<generator>KB's RSS feed generator v1.0 (https://kbs-lucas.neocities.org/tools/RSS-Generator)</generator>";
           }
           let itemRSS=ParseItem();
           if(itemRSS!=="")RSStext+="\n\t\t"+itemRSS.replaceAll("\n","\n\t\t");
@@ -144,7 +190,7 @@
         const chanCheck=document.querySelector('input[type="checkbox"][name="chanCheck"]');
         chanCheck.addEventListener('input', (event)=>{if(event.target.checked){channelInput.style.display="unset";valBtn.style.display="unset";valURLBtn.style.display="unset";title.required=false;}else{channelInput.style.display="none";valBtn.style.display="none";valURLBtn.style.display="none";title.required=true;}updateRes();});
         const itemFields=[title, link, desc, author, tags];
-        const Fields=[chTitle, chLink, chDesc, chaLink, chTags, mEdit, imURL, imDesc, imHeight, imWidth, webMast, lang, ...itemFields];
+        const Fields=[chTitle, chLink, chDesc, chaLink, chTags, mEdit, imURL, imDesc, imHeight, imWidth, webMast, lang, ttl, ...itemFields];
         Fields.forEach((elem)=>{elem.addEventListener("input", updateRes);});
         content.addEventListener('input', (event)=>{event.target.style.height="1px";event.target.style.height=(event.target.scrollHeight)+"px";updateRes();})
         title.addEventListener('blur', (event)=>{event.target.reportValidity();});
@@ -154,21 +200,23 @@
         lang.addEventListener('invalid', (event)=>{event.target.setCustomValidity('Please enter a valid RFC 5646/BCP 47 language code');});
         const copyBtn=document.getElementById('copy');
         copyBtn.addEventListener('click', (event)=>{navigator.clipboard.writeText(result.value).then((e)=>{console.log("copied!");event.target.innerText="Copied!";setTimeout(function(){this.innerText="Copy result to clipboard";}.bind(event.target), 3000);}).catch((error)=>{console.error(error);});});
-        function validateRSSBoard(link, mode=false){
+        function validateRSSBoard(link=undefined, mode=false){
           const checker=new URL("https://www.rssboard.org/rss-validator/check.cgi");const params=new URLSearchParams(checker.search);
           mode?params.append("url", link.value):params.append("rawdata", result.value);
           window.open(checker.toString()+"?"+params.toString());
         }
-        valBtn.addEventListener('click', (event)=>{if(chanCheck.checked){form.reportValidity();validateRSSBoard(chaLink);}else{itemFields.forEach((e)=>{e.reportValidity();});}});
+        valBtn.addEventListener('click', (event)=>{if(chanCheck.checked){form.reportValidity();validateRSSBoard();}else{itemFields.forEach((e)=>{e.reportValidity();});}});
         valURLBtn.addEventListener('click', (event)=>{if(chanCheck.checked){if(chaLink.value===""){chaLink.setCustomValidity("Please provide a file to validate via URL");chaLink.reportValidity();setTimeout(()=>{chaLink.setCustomValidity("")},3000);}else{chaLink.reportValidity();validateRSSBoard(chaLink,true);}}});
         </script>
         <p>TODO/Future enhancements (in order of importance):
         <ol>
           <li>✓ DONE! Support channel's image tag</li>
-          <li>Detect relative URL's on Content field and notify the user</li>
+          <li>✓ DONE! Support skipDays and skipHours tags</li>
+          <li>✓ DONE! Support ttl tag (caching indicator)</li>
+          <li>✓ DONE! Added comprehensive list of ISO 639-1 language codes for ease</li>
+          <li>✗ Wont do: Detect relative URL's on Content field and notify the user (The Regular Expressions are so complicated it doesn't make sense, the user can validate using the RSS Board Validator, which implements them, and most readers should be able to resolve relative paths based on the feed channel properties anyways)</li>
           <li>Support comments tag</li>
-          <li>Support skipDays, skipHours and ttl tags, preferrably with native HTML date pickers</li>
-          <li>Support enclosure tag (very niche use case)</li>
+          <li>Support enclosure tag (for podcasts visit <a class="no-external" href="https://kbs-lucas.nekoweb.org/RSS-Gen-Podcast.html">this version</a>)</li>
         </ol></p>
         <p>Privacy notice: This demo runs entirely within your browser. In other words, no data is sent to me, the code is sent to your browser and runs locally. You could theoretically load the page, cut your network connection and then start it.</p>
         </div>

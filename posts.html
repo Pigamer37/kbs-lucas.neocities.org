@@ -57,6 +57,7 @@
         <div class="title-bar">
           <span class="title" role="heading">Posts</span>
           <div class="buttons">
+            <search>
             <form>
               <label style="display: none;" for="PostSearch">Search for posts</label>
               <input style="width: 17rem;" type="search" inputmode="search" placeholder="JS not supported/enabled, can't search" list="TagList" id="PostSearch">
@@ -70,6 +71,7 @@
               <option value="Anime">
               </datalist>
             </form>
+            </search>
             <script>
               // Select the blog posts list
               const blogPosts=document.querySelector('.blog_posts');
@@ -95,7 +97,7 @@
           </div>
         <div class="content">
           <ul class="blog_posts">
-            <li><a href="/posts/RSS_Explanation">RSS Explanation <time datetime="2024-11-13">(13/<wbr>11/<wbr>2024)</time></a> (Programming)
+            <li><a href="/posts/RSS_Explanation"><abbr title="Really Simple Syndication">RSS</abbr> Explanation (Last updated: <time datetime="2024-01-16">16/<wbr>01/<wbr>2025)</time>, <time datetime="2024-11-13">(13/<wbr>11/<wbr>2024)</time></a> (Programming)
             <li><a href="/posts/Dungeon_Meshi_Review"><cite>Dungeon Meshi</cite> Review <time datetime="2024-10-07">(07/<wbr>10/<wbr>2024)</time></a> (Personal/<wbr>Media/<wbr>Anime)</li>
             <li><a href="/posts/Monthly_playlist_KB_FM">My monthly playlist KB Radio (FM) <time datetime="2024-10-01">(01/<wbr>10/<wbr>2024)</time></a> (Personal/<wbr>Music)</li>
             <li><a href="/posts/Update_1_19-09-2024">Update 1 <time datetime="2024-09-19">(19/<wbr>09/<wbr>2024)</time></a> (Personal/<wbr>Electronics/<wbr>Robotics/<wbr>Programming)</li>

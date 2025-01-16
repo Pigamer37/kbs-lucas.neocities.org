@@ -31,7 +31,7 @@
   align-content:center;
   gap:2em;
   & li{
-   width:clamp(310px, 22%, 720px);;/*24%*/
+   width:clamp(300px, 22%, 720px);;/*24%*/
    list-style-position: inside;
   }
 }

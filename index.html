@@ -79,8 +79,8 @@ s.parentNode.insertBefore(g, s);
           <p>This website is WIP, but here's a list of topics that you might expect:</p>
           <ul id="vidlist">
             <li>Music<br><a id="b-a" tabindex="-1" href="/socials#bands" aria-label="Read more about my music"><video aria-describedby="b-a" tabindex="0" preload="" playsinline class="hoverVid" muted loop><source width="960" src="https://files.catbox.moe/95ly3s.webm" type="video/webm">Video not supported</video></a></li>
-            <li>Electronics/robotics. <a id="r-a" href="https://blogs.upm.es/robogait/" target="_blank">See the University Robotics project I worked in!<br><img aria-describedby="r-a" tabindex="0" alt="Mobile robot prototype I worked in" class="hoverImg" src="https://blogs.upm.es/robogait/wp-content/uploads/sites/853/2022/07/exteriores-1-288x300.jpg" srcset="https://blogs.upm.es/robogait/wp-content/uploads/sites/853/2022/07/exteriores-1-288x300.jpg 288w, https://blogs.upm.es/robogait/wp-content/uploads/sites/853/2022/07/exteriores-1-732x763.jpg 732w, https://blogs.upm.es/robogait/wp-content/uploads/sites/853/2022/07/exteriores-1-768x801.jpg 768w, https://blogs.upm.es/robogait/wp-content/uploads/sites/853/2022/07/exteriores-1-982x1024.jpg 982w, https://blogs.upm.es/robogait/wp-content/uploads/sites/853/2022/07/exteriores-1-1474x1536.jpg 1474w, https://blogs.upm.es/robogait/wp-content/uploads/sites/853/2022/07/exteriores-1-1965x2048.jpg 1965w, https://blogs.upm.es/robogait/wp-content/uploads/sites/853/2022/07/exteriores-1-1140x1188.jpg 1140w" sizes="(max-height: 500px) 288px, 25vw" width="288" height="300" fetchpriority="high"></a></li>
-            <li>Programming. <a id="g-a" href="https://github.com/Pigamer37" target="_blank">Check out my GitHub!<br><div aria-describedby="g-a" tabindex="0" style="text-decoration:none" class="hoverEl"><pre><code class="js-html">const FPS=30;
+            <li>Electronics/robotics. <a id="r-a" href="https://blogs.upm.es/robogait/" class="no-external" target="_blank">See the University Robotics project I worked in!<br><img aria-describedby="r-a" tabindex="0" alt="Mobile robot prototype I worked in" class="hoverImg" src="https://blogs.upm.es/robogait/wp-content/uploads/sites/853/2022/07/exteriores-1-288x300.jpg" srcset="https://blogs.upm.es/robogait/wp-content/uploads/sites/853/2022/07/exteriores-1-288x300.jpg 288w, https://blogs.upm.es/robogait/wp-content/uploads/sites/853/2022/07/exteriores-1-732x763.jpg 732w, https://blogs.upm.es/robogait/wp-content/uploads/sites/853/2022/07/exteriores-1-768x801.jpg 768w, https://blogs.upm.es/robogait/wp-content/uploads/sites/853/2022/07/exteriores-1-982x1024.jpg 982w, https://blogs.upm.es/robogait/wp-content/uploads/sites/853/2022/07/exteriores-1-1474x1536.jpg 1474w, https://blogs.upm.es/robogait/wp-content/uploads/sites/853/2022/07/exteriores-1-1965x2048.jpg 1965w, https://blogs.upm.es/robogait/wp-content/uploads/sites/853/2022/07/exteriores-1-1140x1188.jpg 1140w" sizes="(max-height: 500px) 288px, 25vw" width="288" height="300" fetchpriority="high"></a></li>
+            <li>Programming. <a id="g-a" href="https://github.com/Pigamer37" class="no-external" target="_blank">Check out my GitHub!<br><div aria-describedby="g-a" tabindex="0" style="text-decoration:none" class="hoverEl"><pre><code class="js-html">const FPS=30;
 const prog_bar=document.getElementsByTagName('progress')[0];
 
 function updateProgBar(val=0, vidEl=undefined, outEl=undefined){
@@ -125,9 +125,9 @@ function errorProgBar(vidEl, outEl){
           <button>download my final project's article</button></a>, or just <a href="/TFG_Gomez_Velayos_Lucas.pdf" target="_blank">preview it</a>). Also, <strong>my</strong> code made for the project is on <a href="https://github.com/Pigamer37/Trabajo-Fin-de-Grado" target="_blank">my GitHub</a>. Thanks to <a href="https://docs.opencv.org/4.10.0/df/d0a/tutorial_js_intro.html" target="_blank">OpenCV.js</a>, I'm able to host my <a href="/tools/Lane-Detector">Final Project's lane detection algorithm in this site</a> using your own webcam!<br>
           I translated all my <code>C++</code> codebase to <code><abbr title="JavaScript">JS</abbr></code>. The use of OpenCV is a bit different between languages, and JS is garbage collected, which I'm not used to, but OpenCV.js makes you delete some of its objects explicitly.
           </p>
-          <h3>RSS Feed Generator</h3>
-          <p>You can <a href="/tools/RSS-Generator">access it directly</a> or <a href="/posts/RSS_Explanation">read my article about RSS and how it works</a> before using it.</p>
-          <p>I will build this site little by little, as I learn (I used <a href="https://web.dev/learn" target="_blank">Google Dev's web developement courses</a>), but I hope to keep sharing cool things like this with you in the near future! Trying to make this site responsive, performant and accessible. I need to improve this homepage still. Feel free to contact me in the Socials tab or Neocities for anything, like suggestions about this page, questions about the posts, to have a little chat...</p>
+          <h3>RSS Feed Generators, for standard RSS and podcast feeds</h3>
+          <p>You can <a href="/tools/RSS-Generator">access them directly</a> or <a href="/posts/RSS_Explanation">read my article about RSS and how it works</a> before using it.</p>
+          <p>I will build this site little by little, as I learn (I used <a href="https://web.dev/learn" target="_blank">Google Dev's web developement courses</a>), but I hope to keep sharing cool things like this with you in the near future! Trying to make this site responsive, performant and accessible. I must say that the <span class="OctupleMax">cannonical form </span>of this page is in dark mode, I don't usually look at it in light mode and it's uglier to me. I need to improve this homepage still. Feel free to contact me in the Socials tab or Neocities for anything, like suggestions about this page, questions about the posts, to have a little chat...</p>
         </div>
       </article>
       <!--<div class="window" id="cusdis_win">
@@ -149,11 +149,11 @@ function errorProgBar(vidEl, outEl){
       <span style="display: flex; flex-direction:column; align-items:center; gap:1em;">
       <!--<iframe height="300" width="640" src="https://webring.htmlhobbyist.com/site/kbs-lucas.neocities.org/" title="The HTML Hobbyist Webring"></iframe>-->
       <div id="miscri2">
-        <a href='https://miscri.netlify.app/webring?action=prev'> ← prev </a>
+        <a href='https://miscri.netlify.app/webring?action=prev'class="no-external"> ← prev </a>
         I am part of the 
         <a href='https://miscri.netlify.app/webring?action=home'>~misc-ring~</a>
-        <a href='https://miscri.netlify.app/webring?action=rand'> random ?</a>
-        <a href='https://miscri.netlify.app/webring?action=next'> next → </a>
+        <a href='https://miscri.netlify.app/webring?action=rand' class="no-external"> random ?</a>
+        <a href='https://miscri.netlify.app/webring?action=next' class="no-external"> next → </a>
       </div>
 
       <a href="https://neocities.org"><img width="200" height="59" alt="Hosted by Neocities" src="/neocities.png"></a>
