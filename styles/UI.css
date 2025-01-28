@@ -21,6 +21,8 @@ input:user-valid, textarea:user-valid{border-color:green;}
 input:user-invalid, textarea:user-invalid{border-color:red;border-style:dashed;}
 input:autofill, textarea:autofill{outline:dashed LemonChiffon;}
 input:-webkit-autofill, textarea:-webkit-autofill{outline:dashed LemonChiffon;}
+input[type="file"]::file-selector-button{font-weight:bold;border: 2px solid initial;padding: 0.2em 0.4em;border-radius: 0.2em;background-color:initial}
+input[type="file"]::file-selector-button:hover{background-color:light-dark(var(--accent-orange),blue);}
 input, textarea{height:max(1rem,32px);font-size:1rem;}
 @media(pointer: fine){
   input[type="checkbox"]{

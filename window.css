@@ -22,37 +22,68 @@
   font-style:italic;
   font-display:swap;
 }
-@font-face {
+@font-face{
   font-family:'Planet Kosmos';
   font-style: normal;
   font-weight: normal;
   src: local('Planet Kosmos'), url("/fonts/PLANK___.woff") format('woff');
   font-display:swap;
 }
-@font-face {
+@font-face{
   font-family:'Octuple max Solid';
   font-style: normal;
   font-weight: normal;
   src: local('Octuple max Solid'), url("/fonts/Octuple-max-demo.woff") format('woff');
   font-display:swap;
 }
-@font-face {
+@font-face{
   font-family:'Acidic';
   font-style: normal;
   font-weight: normal;
   src: local('Acidic'), url("/fonts/Acidic.woff") format('woff');
   font-display:swap;
 }
+@font-face{
+  font-family:'yagiza Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('yagiza Regular'), url('/fonts/YAGIZA__.woff') format('woff');
+  font-display:swap;
+}
+@font-face{
+  font-family:'PixdorTwo Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('PixdorTwo Medium'), url('/fonts/PixdorTwo.woff') format('woff');
+  font-display:swap;
+}
+@font-face {
+  font-family:'AddElectricCity';
+  font-style: normal;
+  font-weight: normal;
+  src: local('AddElectricCity'), url('/fonts/ADDECRG_.woff') format('woff');
+  font-display:swap;
+}
+@font-face{
+  font-family:'HorrorFont-Regular';
+  src: local('HorrorFont-Regular'), url('fonts/HorrorFont-Regular.ttf');
+  font-display:swap;
+}
 .CascadiaCode{font-family:'Cascadia Code', 'Roboto Mono', monospace}
 .PlanetK{font-family:'Planet Kosmos', Helvetica, sans-serif}
 .OctupleMax{font-family:'Octuple max Solid', Helvetica, sans-serif}
 .Acidic{font-family:'Acidic', Helvetica, sans-serif}
+.Yagiza{font-family:'yagiza Regular', Helvetica, sans-serif}
+.PixdorTwo{font-family:'PixdorTwo Medium', 'Roboto Mono', monospace}
+.AddElectricCity{font-family:'AddElectricCity', 'Cascadia Code', monospace}
+.horror{font-family:'HorrorFont-Regular', sans-serif}
 ::-webkit-calendar-picker-indicator,
 ::-webkit-search-results-button,
 ::-webkit-search-cancel-button,
 ::-webkit-inner-spin-button
 {color:var(--accent-orange);}
 :focus, :target{outline:.125rem outset white;box-shadow:0 0 .3rem .25rem var(--visited-orange);border-radius:.125rem;}
+:target, ::target-text{background-color:gold}
 :focus:not(:focus-visible){outline:unset;box-shadow:unset;}
 body{
   font-family:"Roboto", Arial, sans-serif;
@@ -183,10 +214,10 @@ a:is(:hover, :focus-visible){
 a:active{color:blue;}
 a:not(.no-external, :has(img)){
   &[href^="http"]::after, &[rel="external"]::after, &.external::after{
-    content:"⇗";
+    content:"⬀";
     display:inline-block;
     width:0.8em;height:0.8em;
-    margin-inline-start:0.25em;
+    margin-inline-start:0.1em;
     /*background-size:100%;
     background-image:url("external-link-52.png");*/
   }
