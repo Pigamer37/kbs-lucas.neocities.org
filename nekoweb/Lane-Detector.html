@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>KB's Lane Detector</title>
+    <link rel="icon" type="image/x-icon" href="https://kbs-lucas.neocities.org/images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="An online lane detector that uses your camera" />
+<!-- Social media stuff -->
+    <meta property="og:title" content="KB's Lane Detector" />
+    <meta property="og:description" content="An online lane detector that uses your camera" />
+    <meta property="og:image" content="https://kbs-lucas.neocities.org/images/twitter_preview.png" />
+    <meta property="og:image:alt" content="Preview image" />
+    
+    <meta name="twitter:title" content="KB's Lane Detector" />
+    <meta name="twitter:description" content="An online lane detector that uses your camera" />
+    <meta name="twitter:url" content="https://kbs-lucas.neocities.org/?src=twitter" />
+    <meta name="twitter:image:src" content="https://kbs-lucas.neocities.org/images/twitter_preview.png" />
+    <meta name="twitter:image:alt" content="27 different home appliances" />
+    <meta name="twitter:creator" content="@KBs__Lucas" />
+    <meta name="twitter:site" content="@KBs__Lucas" />
+<!-- Social media end -->
+    <link href="https://kbs-lucas.neocities.org/window.css" rel="stylesheet" type="text/css" media="all">
+    <meta name="theme-color" content="#ff9933" />
+    <link href="https://kbs-lucas.neocities.org/styles/UI.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="icon" type="image/png" href="https://kbs-lucas.neocities.org/images/favicon.png" />
+    <link rel="canonical" href="https://kbs-lucas.neocities.org/tools/Lane-Detector" />
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://kbs-lucas.neocities.org/RSS.xml">
+    <script src="https://kbs-lucas.neocities.org/scripts/user-color.js"></script>
+    <link rel="manifest" href="https://kbs-lucas.nekoweb.org/manifest-L-D.json">
+  </head>
+  <body>
+    <header>
+      <nav class="window" id="navigation" role="menubar" tabindex="0">
+        <div class="title-bar">
+          <span class="title">Site Content Navigation</span>
+          <div class="buttons">
+            <button tabindex="-1">_</button>
+            <button tabindex="-1">&#x26F6;</button>
+            <button tabindex="-1">✕</button>
+          </div>
+        </div>
+        <div class="content">
+          <ul role="list">
+            <li><a href="https://kbs-lucas.neocities.org/index" role="menuitem" tabindex="0" style="margin:1ch">Home</a>
+            <li><a href="https://kbs-lucas.neocities.org/es" hreflang="es-ES" lang="es-ES" role="menuitem" tabindex="0" style="margin: 1ch">Página en Español</a>
+            <li><a href="https://kbs-lucas.neocities.org/posts" role="menuitem" tabindex="0" style="margin:1ch">Posts</a>
+            <li><a href="https://kbs-lucas.neocities.org/socials" role="menuitem" tabindex="0" style="margin:1ch">Socials/Contact</a>
+            <li><a href="https://kbs-lucas.neocities.org/about" role="menuitem" tabindex="0" style="margin:1ch">About</a>
+            <li><a href="#footer" role="menuitem" tabindex="0" style="margin:1ch">More Info</a>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+    <style>#visualization{display:flex;text-align:center;margin-inline:-0.625rem;margin-block-start:-0.625rem;flex-direction:row;justify-content:space-between;& figure{margin-inline:.5ch;}& figure:first-of-type{margin-inline-start:0;}& figure:last-of-type{margin-inline-end:0;}}
+    @media screen and ((max-width: 480px) or (orientation: portrait)){
+      #visualization{
+        flex-direction:column;
+        & figure{margin-inline:0;}
+      }
+    }</style>
+    <h1 style="display:flex;justify-content:center;">Lane Detector</h1>
+     <article class="window" id="main_win">
+        <div class="title-bar">
+          <span class="title">Lane Detector using OpenCV (operational but not tested on athletic track/road yet)<noscript style="color:red">JavaScript is off</noscript></span>
+          <div class="buttons">
+            <button tabindex="-1">_</button>
+            <button tabindex="-1">&#x26F6;</button>
+            <button tabindex="-1">✕</button>
+          </div>
+        </div>
+        <div class="content">
+        <noscript><p style="color:red;margin-block-end=0.625rem;">JavaScript is off, this demo won't load or work without it... sorry!</p></noscript>
+        <span id="visualization">
+          <figure style="margin-block-start:0;">
+          <video muted id="videoInput"></video>
+          <figcaption style="text-align:center;">Loading Camera...</figcaption>
+          <label>Process a video file: <input type="file" id="fileInput" accept="video/*" name="file"/></label>
+          </figure>
+          <figure style="margin-block-start:0;">
+          <canvas id="processedWebcam"></canvas>
+          <figcaption style="text-align:center;">Waiting for OpenCV</figcaption>
+          </figure>
+        </span>
+        <label style="display:flex;flex-direction:column;align-content:center;flex-wrap:wrap;text-align:center">
+          <span>Loading Lane Detector&nbsp;</span><progress max="100" indeterminate tabindex="-1">unknown</progress>
+        </label>
+        <label for="HLow">Min H value:
+        <input id="HLow" type="range" step="1" min="0" max="179" value="130"></label>
+        <label for="HHigh">Max. H channel value:
+        <input id="HHigh" type="range" step="1" min="0" max="179" value="179"></label><button style="font-weight:bold; background-color:blue; border-radius:1em; color:white" id="startStop">Start</button><br>
+        <label for="SLow">Min S value:
+        <input id="SLow" type="range" step="1" min="0" max="255" value="0"></label>
+        <label for="SHigh">Max. S channel value:
+        <input id="SHigh" type="range" step="1" min="0" max="255" value="31"></label><label> Define line color via picker (will adjust the Min. values automatically): <input type="color" value="#d1d1d1" class="color-picker"/></label><br>
+        <label for="VLow">Min V value:
+        <input id="VLow" type="range" step="1" min="0" max="255" value="209"></label>
+        <label for="VHigh">Max. V channel value:
+        <input id="VHigh" type="range" step="1" min="0" max="255" value="255"></label>
+        <p>This tool is a PWA, meaning you can install it as an app or program in your OS, similarly to an enhanced bookmark. <a href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/Installing" target="_blank">Here's a guide on how to install and uninstall PWA's</a></p>
+        <p>TODO:
+        <ol>
+          <li>Add functionallity to be able to load a video (as stated below, everything runs on the browser) to be processed instead of the webcam. Displaying should be the same</li>
+          <li>Add PWA specific OS functionallity. Mainly being able to "share" a video to be processed from another app or the OS's filesystem directly, or add a share button that let's you text this website on messaging apps</li>
+        </ol>
+        </p>
+        <p>Privacy notice: This demo runs entirely within your browser. In other words, no data is sent to me, the code is sent to your browser and runs locally. You could theoretically load the page, cut your network connection and then start it.</p>
+        </div>
+        <script src="https://kbs-lucas.neocities.org/scripts/Lane-Detector.js"></script>
+        <script defer src="https://kbs-lucas.neocities.org/scripts/opencv-4-10-0.js" onload="onOpenCvReady();" type="text/javascript" fetchpriority="high"></script>
+      </article>
+    </main>
+    <footer id="footer">
+      <p>This webpage's HTML is licensed under a MIT license, CSS and site contents are protected by copyright&copy; law. <br></p>
+      <p><a href="#">Back to top</a></p>
+    </footer>
+    <script defer src="https://kbs-lucas.neocities.org/scripts/window.js"></script>
+  </body>
+</html>

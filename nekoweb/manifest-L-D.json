@@ -1,0 +1,29 @@
+{
+  "short_name": "Lane Detector",
+  "name": "KB's Lane Detector",
+  "icons": [
+    {
+      "src": "https://kbs-lucas.neocities.org/images/favicon.png",
+      "type": "image/png",
+      "sizes": "32x32",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://kbs-lucas.neocities.org/images/favicon.ico",
+      "type": "image/x-icon",
+      "sizes": "32x32",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://kbs-lucas.neocities.org/images/icon400.png",
+      "type": "image/png",
+      "sizes": "400x400",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/Lane-Detector",
+  "background_color": "black",
+  "display": "minimal-ui",
+  "theme_color": "#ff9933",
+  "description": "A lane detector designed for athletic tracks, but adjustable to any line color. It detects one lane an tries to keep track of it and the continuous lines that delimit it."
+}
