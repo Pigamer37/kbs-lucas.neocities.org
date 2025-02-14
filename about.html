@@ -2,32 +2,87 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <title>About | KB</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <!-- BOOTSTRAP -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+    <meta name="description" content="A personal website made from scratch" />
+<!-- Social media stuff -->
+    <meta property="og:title" content="KB's about page" />
+    <meta property="og:description" content="A personal website made from scratch" />
+    <meta property="og:image" content="https://kbs-lucas.neocities.org/images/twitter_preview.png" />
+    <meta property="og:image:alt" content="Preview image" />
+    
+    <meta name="twitter:title" content="KB's about page" />
+    <meta name="twitter:description" content="A personal website made from scratch" />
+    <meta name="twitter:url" content="https://kbs-lucas.neocities.org/about?src=twitter" />
+    <meta name="twitter:image:src" content="https://kbs-lucas.neocities.org/images/twitter_preview.png" />
+    <meta name="twitter:image:alt" content="27 different home appliances" />
+    <meta name="twitter:creator" content="@KBs__Lucas" />
+    <meta name="twitter:site" content="@KBs__Lucas" />
+<!-- Social media end -->
+    <link href="/window.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/styles/UI.css" rel="stylesheet" type="text/css" media="all">
+    <meta name="theme-color" content="#ff9933" />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <!--<link rel="alternate" href="https://kbs-lucas.neocities.org/es/" hreflang="es-ES" />-->
+    <link rel="canonical" href="https://kbs-lucas.neocities.org/about" />
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://kbs-lucas.neocities.org/RSS.xml">
+    <script src="/scripts/user-color.js"></script>
     <!-- highlight.js -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github-dark-dimmed.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/languages/cpp.min.js"></script> -->
-    
     <script>hljs.highlightAll();</script>
-    
-    <title>KB's website</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <!-- The style.css file allows you to change the look of your web pages.
-         If you include the next line in all your web pages, they will all share the same look.
-         This makes it easier to make new pages for your site. -->
-    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
-    <!-- BOOTSTRAP -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
   </head>
   <body>
-    <h1>About</h1>
-
-    <p>Made possible by: <a href="https://neocities.org">Neocities. <img src="/neocities.png"></a></p>
-
-    <h2>This website is WIP, here are some tests:</h2>
-    
-    <pre><code class="cpp-html">std::cout&lt;&lt;&quot;Testing automatic code syntax highlighting&quot;&lt;&lt;std::endl;</code></pre>
-
-    <p>To learn more HTML/CSS, check out these <a href="https://neocities.org/tutorials">tutorials</a>!</p>
+    <header>
+      <nav class="window" id="navigation" role="menubar" tabindex="0">
+        <div class="title-bar">
+          <span class="title" role="heading">Site Content Navigation</span>
+          <div class="buttons">
+            <button tabindex="-1">_</button>
+            <button tabindex="-1">&#x26F6;</button>
+            <button tabindex="-1">✕</button>
+          </div>
+        </div>
+        <div class="content">
+          <ul role="list">
+            <li><a href="/index" role="menuitem" tabindex="0" style="margin: 1ch">Home</a></li>
+            <li><a href="/es" hreflang="es-ES" lang="es-ES" role="menuitem" tabindex="0" style="margin: 1ch">Página en Español</a>
+            <li><a href="/posts" role="menuitem" tabindex="0" style="margin: 1ch">Posts</a></li>
+            <li><a href="/socials" role="menuitem" tabindex="0" style="margin: 1ch">Socials/Contact</a></li>
+            <li><a aria-current="page" href="#main_win" role="menuitem" tabindex="0" style="margin: 1ch">About</a></li>
+            <li><a href="#footer" role="menuitem" tabindex="0" style="margin: 1ch">More Info</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+     <article class="window" id="main_win">
+        <div class="title-bar">
+          <span class="title" role="heading">About</span>
+          <div class="buttons">
+            <button tabindex="-1">_</button>
+            <button tabindex="-1">&#x26F6;</button>
+            <button tabindex="-1">✕</button>
+          </div>
+          </div>
+        <div class="content">
+          <p>Hi! I'm Lucas/Pigamer37/KB, depending on how you met me or your familiarity with me. I'm an Industrial Electronics and Automatics Engineer, passionate about robotics and general programming. My mother tongue is Spanish, that's why you'll probably find some broken English somewhere, and also why most pages have a Spanish version/translation.</p>
+          <p>I'm also a drummer. I'm involved in some projects you can check out in the <a href="/socials">social tab</a>. I've been an avid music "enjoyer" and developing my music taste since I was about 12 years old, and I think I listen to most styles of music. My biggest playlist (where I include everything I like to listen to) has been described as random or eclectic many times, which I think is a good thing. That doesn't mean I don't have my preferences, but I like to keep my mind open and I often find awesome musical ideas in "unexpected" places, that I borrow or take inspiration from for my own compositions. Also, when I say compositions, I mean I compose my own drum parts most of the time, running them by the other bandmates. I sometimes also get some vague ideas for other instruments, or get suggestions from my colleagues, though.</p>
+          <p>I also love cinema. My father has been educating me on good movies and classics since I was a little boy, and I even took a preliminary course on movie making many years ago, teaching me things like basic script writing, shot photography, editing, pacing, etc. I specially love sci-fi, a good mistery film, psychological horror and fantasy.</p>
+          <p>I also enjoy comics and manga. I wouldn't say I'm as passionate on this field because I don't have a big collection, but I loved works like Watchmen, Hellboy, Blacksad (spanish creation, btw), Death Note (haven't seen the anime yet, funnyly enough), or Berserk (still catching up to the published chapters, but it helped me through some of the worst moments in my life. I'm planning on making a post about that). I also like anime, as you may have gathered. Some of my favourites are the Berserk 1997 adaptation (beautiful animation and fantastic music), Cowboy Bebop, or Konosuba (yes, I can have fun too HAHAHA).</p>
+          <p>I also sometimes enjoy writing, I mostly dabble on poetry, but I have written some narrative too. I don't consider myself good at it,but it helps me clear my mind, and I think at the very least I sometimes try to write about novel topics, like frustration, friendship, betrayal, isolation, greek mythology, etc. I'm kind of tired of predictable love songs, I guess, although I sometimes write about love too.</p>
+          <p>So, many interests, I know. This site will reflect that. You may find an explanation on some program I developed, or about some technology I find interesting but think lacks a good writeup online, but also reviews about media on which I want to share my perspective, reflections about hypothetical topics, just general blogging. Don't worry, they will be clearly labeled in categories so if you just want to explore one "branch", you can filter out the rest. Hope you'll find something you like, and feel free to contact me via any of my public <a href="/socials">socials</a>.</p>
+        </div>
+      </article>
+    </main>
+    <footer id="footer">
+      <p>This webpage's HTML is licensed under a MIT license, CSS and site contents are protected by copyright&copy; law. <br></p>
+      <p><a href="/RSS.xml" id="RSS"><img src="https://www.w3schools.com/xml/pic_rss.gif" width="41" height="16" alt="RSS"></a></p>
+      <p><a href="#">Back to top</a></p>
+    </footer>
+    <script defer src="/scripts/window.js"></script>
   </body>
 </html>

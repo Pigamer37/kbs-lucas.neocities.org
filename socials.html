@@ -75,6 +75,7 @@
             <li><a href="https://www.twitch.tv/pigamer37" class="Twitch">Twitch</a></li>
             <li><a href="https://www.tiktok.com/@kbs_lucas" class="TikTok">TikTok</a></li>
             <li><a href="https://linktr.ee/KBs_Lucas" class="linktree">Linktree</a></li>
+            <li><a href="https://ko-fi.com/pigamer37" class="Ko-fi">Ko-fi (Tipping platform)</a></li>
           </ul>
         </div>
       </div>
@@ -149,5 +150,14 @@
       <p><a href="#">Back to top</a></p>
     </footer>
     <script defer src="/scripts/window.js"></script>
+    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+    <script>
+      kofiWidgetOverlay.draw('pigamer37', {
+        'type': 'floating-chat',
+        'floating-chat.donateButton.text': 'Tip Me',
+        'floating-chat.donateButton.background-color': getComputedStyle(document.body).getPropertyValue('--accent-orange'),
+        'floating-chat.donateButton.text-color': '#fff'
+      });
+    </script>
   </body>
 </html>

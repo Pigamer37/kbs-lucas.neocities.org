@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+  <head>
+    <meta charset="utf-8" />
+    <title>Explicación de RSS | KB</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Una web personal hecha desde cero" />
+<!-- Social media stuff -->
+    <meta property="og:title" content="Explicación de RSS" />
+    <meta property="og:description" content="Una web personal hecha desde cero" />
+    <meta property="og:image" content="https://kbs-lucas.neocities.org/images/twitter_preview.png" />
+    <meta property="og:image:alt" content="Preview image" />
+    
+    <meta name="twitter:title" content="Explicación de RSS" />
+    <meta name="twitter:description" content="Una web personal hecha desde cero" />
+    <meta name="twitter:url" content="https://kbs-lucas.neocities.org/?src=twitter" />
+    <meta name="twitter:image:src" content="https://kbs-lucas.neocities.org/images/twitter_preview.png" />
+    <meta name="twitter:image:alt" content="Preview image" />
+    <meta name="twitter:creator" content="@KBs__Lucas" />
+    <meta name="twitter:site" content="@KBs__Lucas" />
+<!-- Social media end -->
+    <link href="/window.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/styles/UI.css" rel="stylesheet" type="text/css" media="all">
+    <meta name="theme-color" content="#ff9933" />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="canonical" href="https://kbs-lucas.neocities.org/posts/UUIDv5_Explanation" hreflang="en"/>
+    <script src="/scripts/user-color.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github-dark-dimmed.min.css" type="text/css" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github.min.css" type="text/css" media="(prefers-color-scheme: light)">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+  </head>
+  <body>
+    <header style="z-index:2">
+      <nav class="window" id="navigation" role="menubar" tabindex="0">
+        <div class="title-bar">
+          <span class="title">Navegación del Contenido de la Página</span>
+          <div class="buttons">
+            <button tabindex="-1">_</button>
+            <button tabindex="-1">&#x26F6;</button>
+            <button tabindex="-1">✕</button>
+          </div>
+        </div>
+        <div class="content">
+          <ul role="list">
+            <li><a href="/es" role="menuitem" tabindex="0" style="margin: 1ch">Principal</a></li>
+            <li><a href="/posts/UUIDv5_Explanation" hreflang="en" lang="en" role="menuitem" tabindex="0" style="margin: 1ch">English Site</a>
+            <li><a href="/es-posts" role="menuitem" tabindex="0" style="margin: 1ch">Publicaciones</a></li>
+            <li><a href="/socials" role="menuitem" tabindex="0" style="margin: 1ch">RR.SS./Contacto</a></li>
+            <li><a href="/about" role="menuitem" tabindex="0" style="margin: 1ch">Acerca de la Página</a></li>
+            <li><a href="#footer" role="menuitem" tabindex="0" style="margin: 1ch">Más Información</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+    <h1 style="display:flex;justify-content:center;">Explicación de&nbsp;<abbr title="Universally Unique IDentifier version 5">UUIDv5</abbr></h1>
+      <article class="window">
+        <div class="title-bar">
+          <span class="title" role="heading">Explicación de&nbsp;<abbr title="Universally Unique IDentifier version 5">UUIDv5</abbr> <time datetime="2025-02-04">(04/02/2025)</time></span>
+          <div class="buttons">
+            <button tabindex="-1">_</button>
+            <button tabindex="-1">&#x26F6;</button>
+            <button tabindex="-1">✕</button>
+          </div>
+          </div>
+        <div class="content">
+          <h1>Introducción</h1>
+          <p>Estaba reflexionando sobre cómo dar soporte para <a href="https://podcasting2.org/podcast-namespace/tags/guid" target="_blank">la etiqueta &lt;podcast:guid&gt; del namespace podcasting 2.0</a> en <a class="no-external" href="https://kbs-lucas.nekoweb.org/RSS-Gen-Podcast.html" target="_blank">mi Generador de fuentes RSS para podcasts</a>, y estaba leyendo la documentación. Primero, descubro que la guid es una cadena de texto <abbr title="Universally Unique IDentifier version 5">UUIDv5</abbr>. Investigo un poco, y descubro que <abbr title="Universally Unique IDentifier version 5">UUIDv5</abbr> significa Universally Unique Identifier version 5 (Identidicador Único Universal versión 5), también conocido como <abbr title="Globally Unique IDentifier">GUID</abbr> (o Globally Unique IDentifier, Identificador Único Global). Okay, tiene sentido, la documentación de la etiqueta menciona que su propósito es identificar el podcast. También proporcionan dos herramientas distintas para generar estos tipos de cadenas en línea: <a href="https://www.uuidtools.com/v5" target="_blank">UUID Tools</a> y <a href="https://tools.rssblue.com/podcast-guid" target="_blank">RSS Blue</a>, y compruebo que, con los mismos parámetros (incluyendo el namespace de podcast, con un UUID de ead4c236-bf58-58c6-a2c6-a6b28d128cb6) devuelven el mismo resultado. Trato de inspeccionar ambas páginas para ver el código que usan, pero está todo ofuscado o envuelto en lo que creo que son capas de <i lang="en">callbacks</i> de jQuery. Empiezo a buscar código ya hecho, y solo encuentro paquetes de npm (no aplicables porque estoy haciendo esto en JS de navegador, no <i lang="en">node</i>, que usa tipos y API's distintas en este caso específico) y una implementación muy incompleta en C en la especificación. Hablando de <a href="https://www.rfc-editor.org/rfc/rfc4122#section-4.3" target="_blank">la especificación</a>, no menciona algunos detalles de gran importancia, pero reiteró varias veces el orden de bytes (o <i lang="en">endianness</i>) necesario de los datos para el algoritmo múltiples veces, de forma super útil /j. Acabé encontrando un paquetito corto de npm que ya no puedo encontrar, me estudié el código y acabé adaptándolo a lo que necesitaba. Las partes más ingeniosas del código, como usar padStart(), o aplicar una <i lang="en">regular expression</i> para filtrar el namespace, son gracias a ese paquete. Así que, para cualquiera que esté intentando implementar UUIDv5's en JS de navegador, aquí está el código, y para aquellos que quieran entender el estándar o implementarlo en otros lenguajes, también tenéis una explicación detallada:</p>
+          <h1>La explicación</h1>
+          <p>Los UUIDv5's son deterministas, lo que quiere decir que, como hemos mencionado antes, las mismas entradas siempre producirán las mismas salidas. Los UUIDs de versión 4 no lo son, por ejemplo, dependen del momento en el que se generan. Podría argumentarse que son también deterministas (y por tanto probablemente toda la computación) y que el tiempo es otra entrada, pero esa es una conversación que no tendremos hoy. Esta es la "anatomía de bytes" de cualquier UUID.</p><pre class="CascadiaCode" style="text-align:center">
+0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                          time_low                             |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|       time_mid                |         time_hi_and_version   |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|clk_seq_hi_res |  clk_seq_low  |         node (0-1)            |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         node (2-5)                            |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+</pre>
+          <p>Cuando conoces el aspecto de una UUID (parecido a <code>a5de3ad2-5d30-5c05-aa56-30c24b857264</code>), empezarás a ver v4's y v5's en todas partes, ya que no solo se usan en podcasts, al menos esa fue mi experiencia. Para saber qué versión de UUID estás viendo, mira al segundo grupo, y el primer número debería chivártelo, por ejemplo, la anterior era una v5 (<code>a5de3ad2-5d30-<strong style="color:red">5</strong>c05-aa56-30c24b857264</code>).</p>
+          <p>La version 5 requiere 2 entradas, un <i lang="en">namespace</i> (hay también <i lang="en">namespaces</i> estándar), y la cadena que quieres codificar. Como ejemplo vamos a generar una guid para un podcast cuya fuente RSS reside en https://media.example.com/feed.xml/. Esto quiere decir que nuestro <i lang="en">namespace</i> es "<code>ead4c236-bf58-58c6-a2c6-a6b28d128cb6</code>" y nuestra cadena será "media.example.com/feed.xml" (con el esquema de protocolo y barras finales eliminadas, como manda la especificación podcast 2.0). Usaremos <i lang="en">arrays</i> (vectores), para poder controlar el orden de los bytes, y necesitaremos lógica de bits, así que asegúrate de conocer esa sintaxys en el lenguaje que hayas escogido.</p>
+          <p><strong>Nota de "accessibilidad":</strong> el código se renderiza con la <a href="https://github.com/microsoft/cascadia-code" target="_blank">fuente <i lang="en">Cascadia Code</i></a>, que es de código abierto y hecha por Microsoft, diseñada para usarse en la IDE Visual Studio, con ligaduras, lo que hace que algunos caracteres aparezcan de forma distinta. Por ejemplo, !== se vuelve <code>!==</code>, y => se convierte en <code>=></code>. Me resulta útil para leer (especialmente código en JS), pero si a tí no, siéntete libre de copiar el código y pegarlo en otro lugar con una fuente distinta sin ligaduras, y los caracteres se mostrarán de forma normal.</p>
+          
+          <ol><li><h3>Lidiando con el <i lang="en">namespace</i></h3>
+          <p>Primero necesitamos procesar el <i lang="en">namespace</i>. Toma la cadena de texto, elimina o ignora los guiones, tómala par a par de caracteres, y traduce cada par a su valor hexadecimal; toma esos valores y guárdalos en un array. En la siguiente función se usa una <i lang="en">regular expression</i> en el método <code>replace()</code> del array para separar los pares, y una función toma cada uno (llamado <code>hex</code>, de hexadecimal) y los mete en <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt" target="_blank">parseInt()</a></code> para hacer la traducción de una cadena de texto representando un byte hexadecimal a su valor como número entero o <code>int/integer</code> (<noscript style="color:red">si activas JavaScript, </noscript>puedes copiarla con un botón que aparece cuando pones el mouse sobre el código en ordenador o presionándolo en móvil):</p>
+          <pre><code class="language-js">function uuidToBytes(uuid) {
+  let bytes = [];
+  uuid.replace(/[a-fA-F0-9]{2}/g, function(hex) { bytes.push( parseInt(hex, 16) ) });
+  return bytes;
+}</code><button class="copy-btn">Copiar 📋</button></pre></li>
+          <li><h3>Lidiando con la cadena de entrada o "nombre"</h3>
+          <p>Si solo miras el código, puede que este paso parezca equivalente a lo que acabamos de hacer con el <i lang="en">namespace</i>, pero no te confundas, amigo mío. Esta vez necesitamos tomar la entrada y traducir <strong>cada caracter</strong> a su código en UTF-16, y después guardar esos valores en un array. Hay una función muy conveniente en JavaScript que nos permite hacer esto, <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt" target="_blank">charCodeAt()</a></code>. Aquí inicializo el array de forma distinta, pero no te asustes:</p>
+          <pre><code class="language-js">function stringToBytes(str) {
+  let bytes = new Array(str.length);
+  for(let i = 0; i < str.length; i++) { bytes[i] = str.charCodeAt(i) }
+  return bytes;
+}</code><button class="copy-btn">Copiar 📋</button></pre></li>
+          <li><h3>SHA-1 y "la promesa"</h3>
+          <p>Okay, ahora tienes ambas entradas parseadas como necesitas para el siguiente paso, plicar el algoritmo de encriptación/"digestión" sha-1. Para esto, JS vuelve a ayudarnos (no iba a implementarlo yo mismo, No sé mucho de criptografía) con <code><a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest" target="_blank">window.crypto.subtle.digest()</a></code>. Este método devuelve un objeto <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises" target="_blank">Promise</a></code> (promesa) que resuelve a la cadena encriptada. Simplemente le tenemos que pasar la concatenación del <i lang="en">namespace</i> con el "nombre" como argumento. Este método en particular, en JS, necesita que le especifiquemos <code>'SHA-1'</code> como primer argumento para elegir el algoritmo, y precisa que el argumento a encriptar sea un buffer. Así es como podemos obtener nuestro resultado de sha-1:</p>
+          <pre><code class="language-js">crypto.subtle.digest('SHA-1', new Uint8Array(namespace.concat(name)) )</code><button class="copy-btn">Copiar 📋</button></pre></li>
+          <li><h3>Obteniendo nuestro <i lang="en">hash</i> de vuelta</h3>
+          <p>Vamos a llamar al resultado del anterior paso <code>hash</code>. Ahora necesitamos convertirlo en un array de bytes manipulable. Esto implica reducir nuestro resultado a los primeros 16 bytes, porque sha-1 devuelve más bytes de los que necesitmos, y en nuestro caso en JS, convertir ese buffer en un array que podamos manipular (porque los buffers no nos son útiles para los que queremos hacer a continuación):</p>
+          <pre><code class="language-js">let bytes = Array.from( new Uint8Array(hash, 0, 16) );</code><button class="copy-btn">Copiar 📋</button></pre></li>
+          <li><h3>Lógica de bytes</h3>
+          <p>Para cumplir con la especificación de UUIDv5, necesitamos modificar algunos bits. Específicamente, necesitamos convertir la primera mitad del byte 5 a un 5 en binario <code>(0b0101)</code> para especificar la versión, y poner los dos primeros bits del byte 7 a <code>0b10</code>. Podemos hacer cada una de estas operaciones con una OR y una AND a nivel de bits:</p>
+          <pre><code class="language-js">bytes[6] = (bytes[6] & 0x0f) | 0x50;
+bytes[8] = (bytes[8] & 0x3f) | 0x80;</code><button class="copy-btn">Copiar 📋</button></pre>
+          <p>Para poner el 5, ponemos a cerp la primera mitad del byte haciendo AND a nivel de bits con <code>0x0f (0b0000.1111)</code>, y luego poniéndolo a 5 con una OR con <code>0x50 (0b0101.0000)</code>. Para poner el <code>0b10</code>, hacemos algo similar. Primero ponemos a cero los bits con una and AND con <code>0x3f (0b0011.1111)</code> y luego los modificamos con una OR con <code>0x80 (0b1000.0000)</code> (Se han añadido puntos a la notación binaria para que sea más legible).</p></li>
+          <li><h3>Yyyy, ¡de array de bytes vamos a la cadena final!</h3>
+          <p>Por último, toma el array de bytes manipulado, y convierte cada byte en un caracter UTF-16 (al revés de lo que hemos hecho en el paso 1, ¡completamos el ciclo!). Pon guiones después de los caracteres 7, 11, 15 y 19. Para hacer esto en JS, podemos usar el útil método <code>map()</code> para aplicar la función <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString" target="_blank">toString()</a></code> a cada elemento del array. Esto nos puede dejar con valores singulares en vez de pares, por ejemplo 'b' en vez de '0b', así que usamos <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart" target="_blank">padStart()</a> para detectar y corregir esos casos de una tacada. Después de eso, <code>join('')</code> simplemente convierte el array de caracteres en un objeto string (cadena de texto). Para añadir los guiones, uso una <i lang="en">template literal</i> (o plantilla de literales, traducido toscamente):</p>
+          <pre><code class="language-js">let uuidS = bytes.map( v => v.toString(16).padStart(2,'0') ).join('');
+uuidS = `${uuidS.substring(0,8)}-${uuidS.substring(8,12)}-${uuidS.substring(12,16)}-${uuidS.substring(16,20)}-${uuidS.substring(20)}`;</code><button class="copy-btn">Copiar 📋</button></pre></li>
+          </ol>
+          <h2>Todo junto, tus 3 funciones para alcanzar el éxito:</h2>
+          <p>Aquí están todos los pasos que dimos, compilados en 3 funciones con un poco de gestión de errores adicional:</p>
+          <pre><code class="language-js">function uuidToBytes(uuid) {
+  let bytes = [];
+  uuid.replace(/[a-fA-F0-9]{2}/g, function(hex){ bytes.push(parseInt(hex, 16)) });
+  return bytes;
+}
+function stringToBytes(str) {
+  let bytes = new Array(str.length);
+  for(let i = 0; i < str.length; i++){bytes[i] = str.charCodeAt(i);}
+  return bytes;
+}
+function v5(name, namespace) {
+  if(typeof name === 'string') name = stringToBytes(name);
+  if(typeof namespace === 'string') namespace = uuidToBytes(namespace);
+  if(!Array.isArray(name)) throw TypeError('name must be an array of bytes');
+  if(!Array.isArray(namespace) || namespace.length !== 16) throw TypeError('namespace must be uuid string or an Array of 16 byte values');
+  return crypto.subtle.digest( 'SHA-1', new Uint8Array(namespace.concat(name)) ).then( hash => {
+    let bytes = Array.from(new Uint8Array(hash, 0, 16));
+    bytes[6] = (bytes[6] & 0x0f) | 0x50;
+    bytes[8] = (bytes[8] & 0x3f) | 0x80;
+    let uuidS = bytes.map(v => v.toString(16).padStart(2,'0')).join('');
+    uuidS = `${uuidS.substring(0,8)}-${uuidS.substring(8,12)}-${uuidS.substring(12,16)}-${uuidS.substring(16,20)}-${uuidS.substring(20)}`;
+    return uuidS;
+  }).catch(e=>console.error(e));
+}</code><button class="copy-btn">Copiar 📋</button></pre>
+          <p>Ten en cuenta que como crypto devuelve una <code>Promise</code>, he usado la sintaxis de <i lang="en">then</i> para hacer los asos siguientes y devolver el resultado final. Para usar el código, solo necesitas pegar las funciones anteriores en algún lado e invocar/llamar</p>
+          <pre><code class="language-js">v5('media.example.com/feed.xml','ead4c236-bf58-58c6-a2c6-a6b28d128cb6').then(res=>{ })</code><button class="copy-btn">Copiar 📋</button></pre>
+          <p>y la cadena estará disponible dentro del then() como <code>res</code>. También existe la sintaxis de <i lang="en">async/await</i>, así que usa lo que prefieras.</p>
+          <p>Puedes comprobarlo tú mismo, pero tanto este código como las herramientas en línea mencionadas devuelven <code>a5de3ad2-5d30-5c05-aa56-30c24b857264</code> para nuestras entradas de ejemplo. ¡Puedes aprovechar esto para comprobar si tu implementación está funcionando correctamente!</p>
+          <p>Este tema ha tocado bastantes ramas y técnicas de programación, así que espero que te haya resultado interesante o útil de alguna forma. ¡Gracias por leerme!</p>
+        </div>
+        <script>let copyBtns=document.getElementsByClassName('copy-btn');[...copyBtns].forEach(e=>{e.style.display="unset";e.addEventListener('click', (event)=>{
+          let code=e.parentElement.getElementsByTagName('code');let res="";[...code].forEach(c=>{res+=c.textContent});
+            navigator.clipboard.writeText(res).then((e)=>{console.log("copied!\n",res);event.target.innerText="Copiado!📋";setTimeout(function(){this.innerText="Copiar 📋";}.bind(event.target), 3000);}).catch((error)=>{console.error(error);});
+          });})</script>
+      </article>
+    </main>
+    <footer id="footer">
+      <p>This webpage's HTML is licensed under a MIT license, CSS and site contents are protected by copyright&copy; law. <br></p>
+      <p><a href="/RSS.xml" id="RSS"><img src="https://www.w3schools.com/xml/pic_rss.gif" width="41" height="16" alt="RSS"></a></p>
+      <p><a href="#">Back to top</a></p>
+    </footer>
+    <script defer src="/scripts/window.js"></script>
+    <script type="speculationrules">{ "prerender": [{"urls": ["https://kbs-lucas.nekoweb.org/RSS-Gen-Podcast.html"]}] }</script>
+  </body>
+</html>

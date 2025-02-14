@@ -30,13 +30,16 @@
   /*Thkfully rms underline for some reason*/
   display:inline-block;
 }
-.Instagram:before,.Twitter:before,.Spotify:before,.GitHub:before,.LinkedIn:before,.YT:before,.lastfm:before,.letterboxd:before,.linktree:before,.Twitch:before,.TikTok:before {
+.Instagram,.Twitter,.Spotify,.GitHub,.LinkedIn,.YT,.lastfm,.letterboxd,.linktree,.Twitch,.TikTok,.Ko-fi {
+  &:before{
   content:"";
   display:inline-block;
   height:1rem;
   width:1rem;
   background-size:1rem 1rem;
+  background-position:center;
   margin-inline-end:.5rem;
+  }
 }
 .Instagram:before{
   background-image:url('https://static.cdninstagram.com/rsrc.php/v3/yR/r/lam-fZmwmvn.png');
@@ -70,4 +73,9 @@
 }
 .TikTok:before{
   background-image:url('https://www.tiktok.com/favicon.ico');
+}
+.Ko-fi:before{
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-image:url('https://storage.ko-fi.com/cdn/brandasset/v2/kofi_symbol.png');
 }

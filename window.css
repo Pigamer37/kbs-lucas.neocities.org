@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 :root{
   --accent-orange:#ff9933;
   --visited-orange:#ff5900;
@@ -7,7 +8,7 @@
   --bg-dark:#4d4d4d;
   --pointer-cur:url(https://www.cursor.cc/cursor/533/209/cursor.png) 11 2, pointer;
   accent-color:var(--accent-orange);
-  scrollbar-color:var(--accent-orange) ButtonFace;
+  scrollbar-color:var(--accent-orange) var(--bg-dark);
 }
 @font-face{
   font-family:'Cascadia Code';
@@ -90,6 +91,10 @@ body{
   background-color:black;
   color:#dedede;
   margin:0;
+  font-optical-sizing: auto;
+  /*font-weight: <weight>;*/
+  font-style: normal;
+  font-variation-settings:"wdth" 100;
 }
 .window{
   border:.0625rem solid var(--accent-orange);
@@ -262,6 +267,7 @@ footer > p{
   background-image:url('https://www.svgrepo.com/show/25140/rss.svg');
 }
 @media (prefers-color-scheme: light){
+  :root{scrollbar-color:var(--accent-orange) #f3f3f3}
   :focus{outline-color:black;}
   body{background-color:white;color:black;}
   .window{background-color:#000;}

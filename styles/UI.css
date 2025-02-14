@@ -11,30 +11,32 @@
   --box-sha:1px 1px 1px black, 0 0 1px black;
 }
 label:has(input:user-valid, textarea:user-valid){&:after{content:"✓";color:green;}}/*☑*/
-label:has(input:user-invalid, textarea:user-invalid){&:after{content:"✗";color:red;}}/*✕*/
-label:has(input[required], textarea[required]){&:before{content:"* ";color:red;}}
+label:has(input:user-invalid, textarea:user-invalid, select:user-invalid){&:after{content:"✗";color:red;}}/*✕*/
+label:has(input[required], textarea[required], select[required]){&:before{content:"* ";color:red;}}
 label:has(input, textarea){cursor:var(--pointer-cur);}
 textarea + label{cursor:var(--pointer-cur);}
 input + label{cursor:var(--pointer-cur);}
-input, textarea{color-scheme:light dark;}
+input, textarea, select{color-scheme:light dark;}
 input:user-valid, textarea:user-valid{border-color:green;}
-input:user-invalid, textarea:user-invalid{border-color:red;border-style:dashed;}
-input:autofill, textarea:autofill{outline:dashed LemonChiffon;}
-input:-webkit-autofill, textarea:-webkit-autofill{outline:dashed LemonChiffon;}
+input:user-invalid, textarea:user-invalid, select:user-invalid{border-color:red;border-style:dashed;}
+input:autofill, textarea:autofill, select:autofill{outline:dashed LemonChiffon;}
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{outline:dashed LemonChiffon;}
 input[type="file"]::file-selector-button{font-weight:bold;border: 2px solid initial;padding: 0.2em 0.4em;border-radius: 0.2em;background-color:initial}
 input[type="file"]::file-selector-button:hover{background-color:light-dark(var(--accent-orange),blue);}
-input, textarea{height:max(1rem,32px);font-size:1rem;}
+input, textarea, select{height:max(1rem,32px);font-size:1em;}
 @media(pointer: fine){
   input[type="checkbox"]{
     width:1rem;
     height:1rem;
   }
+  .copy-btn{padding:.3em .75em;}
 }
 @media(pointer: coarse){
   input[type="checkbox"]{
     width:24px;
     height:24px;
   }
+  .copy-btn{padding:.375em .75em;}
 }
 /*input:is([type="date"],[type="datetime-local"],[type="time"],[type="month"],[type="week"],[type="email"],[type="number"],[type="password"],[type="search"],[type="tel"],[type="text"],[type="url"]){}*/
 input[type=range]{-webkit-appearance:none;appearance:none;background:transparent;color-scheme:light dark;}
@@ -98,14 +100,24 @@ progress[value]::-webkit-progress-value::after{
   width:5px; height:5px;
   top:7px; right:7px;
   background-color:light-dark(white, black);
-  border-radius:100%; 
+  border-radius:100%;
 }
 progress[value]::-moz-progress-bar{
   border-radius:1em;
   background-color:var(--accent-orange);
   transition:width .25s ease-out;
 }
-
+pre:has(.copy-btn){position:relative;& code{border-radius:.3em}&:hover .copy-btn{opacity:1}}
+.copy-btn{position:absolute;top:0px;right:0px;
+    background-color:var(--accent-orange);color:white;border:none;border-radius:.3em;opacity:0;
+    font-size:1rem;display:none;
+    transition:opacity 0.2s;
+}
 .blue-button{
  font-weight:bold;background-color:blue;border-radius:1em;color:white;
+}
+.y2k{border-radius:2em 1em / 75% 25%;border:.05em outset white;box-shadow:.4em 0 0 .05em black,-.4em 0 0 .05em black;}
+.dropZone{display:none;text-align:center;align-content:center;height:6.25rem;color-scheme:light dark;font-weight:bold;border:5px dashed grey;
+  &.dragOver{border-color:light-dark(black,#dedede);background-color: rgb(0 0 0 / .2)}
+  &::before{content:'⭱';font-size:2em;font-weight:normal;display:block}
 }
