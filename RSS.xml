@@ -3,12 +3,12 @@
 <channel>
     <title>KB's Lair</title>
     <image>
-      <url>https://kbs-lucas.neocities.org/images/favicon.png</url>
+      <url>https://pigamer37.github.io/images/favicon.png</url>
       <title>KB's Lair</title>
-      <link>https://kbs-lucas.neocities.org</link>
+      <link>https://pigamer37.github.io</link>
     </image>
-    <link>https://kbs-lucas.neocities.org/</link>
-    <atom:link href="https://kbs-lucas.neocities.org/RSS.xml" rel="self" type="application/rss+xml"/>
+    <link>https://pigamer37.github.io/</link>
+    <atom:link href="https://pigamer37.github.io/RSS.xml" rel="self" type="application/rss+xml"/>
     <description>A personal website where I talk about personal topics, electronics and robotics, music, etc. Made from scratch</description>
     <category>Personal</category>
     <category>Electronics</category>
@@ -23,29 +23,29 @@
     <pubDate>Wed, 23 Jul 2025 17:10:33 GMT</pubDate>
     <ttl>60</ttl>
     <item>
-	<title><![CDATA[I made a Stremio Addon]]></title>
-	<link>https://kbs-lucas.neocities.org/posts/I_made_a_Stremio_Addon</link>
-	<description><![CDATA[An explanation about what Stremio is and why I made an addon for it]]></description>
-	<content:encoded> <![CDATA[ 
-		<h2>Do you know what Stremio is?</h2>
-          <img style="float:left;max-height:100%;max-width:30%;shape-outside:polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%) content-box;shape-margin:.5em;margin:0 .5em .5em 0" decoding="async" class="center animate slideL fullEntry" src="https://www.stremio.com/website/stremio-logo-small.png" alt="Stremio logo" fetchpriority="high">
-          <p><a href="https://www.stremio.com" target="_blank">Stremio</a> is an open source streaming platform, which has been my go to for a while now. <a href="https://guides.viren070.me/stremio" target="_blank">Here's a super thorough guide about what Stremio is and how to set it up</a>. It's very easy to use and makes it possible to access almost everything I want to watch thanks to the modularity on which it is built.</p>
-          <p>What do I mean by modularity? Everything works based on a protocol defined by the platform, which requests resources to the addons the user has installed. For example, you may have an addon that has a list for the trending page on Netflix, if you click on a series, another addon may get the metadata (title, release date, cast...) from IMDB, another addon may get you some links where you can watch it, and when you click on an episode another addon may gather subtitles from OpenSubtitles. The thing is you don't have to think about any of this. All you need to do is "install" (that's the word they use, but you don't have to download anything, they get saved on your account) the addons you want once and all of that will be done in the background, and displayed to you in a user friendly way like in any other streaming service. Also, the stock official addons make it very much usable except for providing the content itself, so you'll have to look out for stream addons (which give access to the streams/videos themselves). You can find info about these on <a href="https://www.reddit.com/r/StremioAddons/top/?t=all" target="_blank">the Stremio Addons subreddit</a> or use <a href="https://beta.stremio-addons.net/" target="_blank">a list of community addons</a> (I personally followed <a href="https://x.com/political_moods/status/1582682409501589504?t=swT_Y50s2CAfLkfmQbe07w" hreflang="es-ES" target="_blank">this guide</a>, but it is written in spanish). Now you know it and maybe I made you discover your new favorite platform, but...</p>
-          <h2>Why did I make an addon?</h2>
-          <p>As you may have seen, there's A BUNCH of addons, for many different purposes. And I just use the stock addons (Cinemeta, OpenSubtitles v3...), a stream provider one and the fantastic <a href="https://beta.stremio-addons.net/addons/mal-stremio-addon" target="_blank">MAL-Stremio Addon</a> anyways. So why make one?</p>
-          <figure class="animate slideR fullEntry" style="margin:0 0 .5em .35em;text-align:center;width:clamp(30%,136px,100%);display:table;float:right">
-          <img decoding="async" style="width:100%;max-width:120px" class="center" src="https://i.imgur.com/VZK8qw2.jpeg" alt="Buta no Subs Stremio Addon Logo" fetchpriority="high">
-          <figcaption style="display:table-caption;caption-side:bottom">The Buta no Subs Stremio Addon Logo, made by the friend I made the addon for</figcaption></figure>
-          <p>A dear friend of mine studies Japanese by himself. A lot of the time, Animelon had subtitles which timing was offset from the video, which made it tedious or impossible to use, so I recommended the platform to him, because it has a subtitle timing offset feature built right in. That's where the problem arose: the base subtitle addons didn't usually return results in Japanese, and the one community addon that claimed it would didn't work either.</p>
-          <p>I don't know Japanese at all, but I didn't let that stop me. So, with <a href="https://github.com/Pigamer37/letterboxd-stremio-addon" target="_blank">a failed addon project</a> on my past, I cloned that repo to get a "template" and started researching the protocol (again), japanese subtitle providers, and started making changes. I had a working prototype within 3 days, which was a surprise even for myself! I just had to wait for the Stremio team to help me with a bug on the tool they provide to publish addons. I opened issues, wrote emails, and waited while making improvements on the addon... But I finally was tired of waiting and published it on <a href="https://render.com/" target="_blank">Render</a>. The project has changed a lot since then, adding more subtitle sources and changing the flow of the program so it is faster and more accurate. There's still progress to be made, because this is one of my first experiences using Node.js, Express.js, and doing backend, so the code is not the cleanest, for example. The current list of issues and future enhancements will always be updated on the <a href="https://github.com/Pigamer37/buta-no-subs-stremio-addon" target="_blank">GitHub repository</a>, so feel free to check it out and/or contribute to it there!</p>
-	]]> </content:encoded>
-	<category>Programming</category>
-	<pubDate>Wed, 23 Jul 2025 17:10:33 GMT</pubDate>
-	<guid>https://kbs-lucas.neocities.org/posts/I_made_a_Stremio_Addon</guid>
-</item>
+      <title><![CDATA[I made a Stremio Addon]]></title>
+      <link>https://pigamer37.github.io/posts/I_made_a_Stremio_Addon</link>
+      <description><![CDATA[An explanation about what Stremio is and why I made an addon for it]]></description>
+      <content:encoded> <![CDATA[ 
+        <h2>Do you know what Stremio is?</h2>
+              <img style="float:left;max-height:100%;max-width:30%;shape-outside:polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%) content-box;shape-margin:.5em;margin:0 .5em .5em 0" decoding="async" class="center animate slideL fullEntry" src="https://www.stremio.com/website/stremio-logo-small.png" alt="Stremio logo" fetchpriority="high">
+              <p><a href="https://www.stremio.com" target="_blank">Stremio</a> is an open source streaming platform, which has been my go to for a while now. <a href="https://guides.viren070.me/stremio" target="_blank">Here's a super thorough guide about what Stremio is and how to set it up</a>. It's very easy to use and makes it possible to access almost everything I want to watch thanks to the modularity on which it is built.</p>
+              <p>What do I mean by modularity? Everything works based on a protocol defined by the platform, which requests resources to the addons the user has installed. For example, you may have an addon that has a list for the trending page on Netflix, if you click on a series, another addon may get the metadata (title, release date, cast...) from IMDB, another addon may get you some links where you can watch it, and when you click on an episode another addon may gather subtitles from OpenSubtitles. The thing is you don't have to think about any of this. All you need to do is "install" (that's the word they use, but you don't have to download anything, they get saved on your account) the addons you want once and all of that will be done in the background, and displayed to you in a user friendly way like in any other streaming service. Also, the stock official addons make it very much usable except for providing the content itself, so you'll have to look out for stream addons (which give access to the streams/videos themselves). You can find info about these on <a href="https://www.reddit.com/r/StremioAddons/top/?t=all" target="_blank">the Stremio Addons subreddit</a> or use <a href="https://beta.stremio-addons.net/" target="_blank">a list of community addons</a> (I personally followed <a href="https://x.com/political_moods/status/1582682409501589504?t=swT_Y50s2CAfLkfmQbe07w" hreflang="es-ES" target="_blank">this guide</a>, but it is written in spanish). Now you know it and maybe I made you discover your new favorite platform, but...</p>
+              <h2>Why did I make an addon?</h2>
+              <p>As you may have seen, there's A BUNCH of addons, for many different purposes. And I just use the stock addons (Cinemeta, OpenSubtitles v3...), a stream provider one and the fantastic <a href="https://beta.stremio-addons.net/addons/mal-stremio-addon" target="_blank">MAL-Stremio Addon</a> anyways. So why make one?</p>
+              <figure class="animate slideR fullEntry" style="margin:0 0 .5em .35em;text-align:center;width:clamp(30%,136px,100%);display:table;float:right">
+              <img decoding="async" style="width:100%;max-width:120px" class="center" src="https://i.imgur.com/VZK8qw2.jpeg" alt="Buta no Subs Stremio Addon Logo" fetchpriority="high">
+              <figcaption style="display:table-caption;caption-side:bottom">The Buta no Subs Stremio Addon Logo, made by the friend I made the addon for</figcaption></figure>
+              <p>A dear friend of mine studies Japanese by himself. A lot of the time, Animelon had subtitles which timing was offset from the video, which made it tedious or impossible to use, so I recommended the platform to him, because it has a subtitle timing offset feature built right in. That's where the problem arose: the base subtitle addons didn't usually return results in Japanese, and the one community addon that claimed it would didn't work either.</p>
+              <p>I don't know Japanese at all, but I didn't let that stop me. So, with <a href="https://github.com/Pigamer37/letterboxd-stremio-addon" target="_blank">a failed addon project</a> on my past, I cloned that repo to get a "template" and started researching the protocol (again), japanese subtitle providers, and started making changes. I had a working prototype within 3 days, which was a surprise even for myself! I just had to wait for the Stremio team to help me with a bug on the tool they provide to publish addons. I opened issues, wrote emails, and waited while making improvements on the addon... But I finally was tired of waiting and published it on <a href="https://render.com/" target="_blank">Render</a>. The project has changed a lot since then, adding more subtitle sources and changing the flow of the program so it is faster and more accurate. There's still progress to be made, because this is one of my first experiences using Node.js, Express.js, and doing backend, so the code is not the cleanest, for example. The current list of issues and future enhancements will always be updated on the <a href="https://github.com/Pigamer37/buta-no-subs-stremio-addon" target="_blank">GitHub repository</a>, so feel free to check it out and/or contribute to it there!</p>
+      ]]> </content:encoded>
+      <category>Programming</category>
+      <pubDate>Wed, 23 Jul 2025 17:10:33 GMT</pubDate>
+      <guid>https://pigamer37.github.io/posts/I_made_a_Stremio_Addon</guid>
+    </item>
     <item>
     	<title><![CDATA[The Literal Legend of Zelda]]></title>
-    	<link>https://kbs-lucas.neocities.org/posts/The_Literal_Legend_of_Zelda</link>
+    	<link>https://pigamer37.github.io/posts/The_Literal_Legend_of_Zelda</link>
     	<description><![CDATA[A theory about the Zelda series and timeline/continuity]]></description>
     	<content:encoded> <![CDATA[ 
     		<h2>You probably know The Legend of Zelda... or do you?</h2>
@@ -69,11 +69,11 @@
     	]]> </content:encoded>
     	<category>VideoGames</category>
     	<pubDate>Tue, 15 Apr 2025 07:50:43 GMT</pubDate>
-    	<guid>https://kbs-lucas.neocities.org/posts/The_Literal_Legend_of_Zelda</guid>
+    	<guid>https://pigamer37.github.io/posts/The_Literal_Legend_of_Zelda</guid>
     </item>
     <item>
     	<title><![CDATA[UUIDv5 Explanation]]></title>
-    	<link>https://kbs-lucas.neocities.org/posts/UUIDv5_Explanation</link>
+    	<link>https://pigamer37.github.io/posts/UUIDv5_Explanation</link>
     	<description><![CDATA[An explanation on how UUIDv5's worn and how to generate them with browser JS]]></description>
     	<content:encoded> <![CDATA[ 
     		<h1>Introduction</h1>
@@ -159,11 +159,11 @@ function v5(name, namespace) {
     	]]> </content:encoded>
     	<category>Programming</category>
     	<pubDate>Tue, 4 Feb 2025 08:06:25 GMT</pubDate>
-    	<guid>https://kbs-lucas.neocities.org/posts/UUIDv5_Explanation</guid>
+    	<guid>https://pigamer37.github.io/posts/UUIDv5_Explanation</guid>
     </item>
     <item>
     	<title>A Robot Thought</title>
-    	<link>https://kbs-lucas.neocities.org/posts/A_Robot_Thought</link>
+    	<link>https://pigamer37.github.io/posts/A_Robot_Thought</link>
     	<description>A thought about my wish to become a robot</description>
     	<content:encoded> <![CDATA[ 
     		<h1>I think I want to become a robot</h1>
@@ -183,11 +183,11 @@ function v5(name, namespace) {
     	<category>Personal</category>
     	<category>Robotics</category>
     	<pubDate>Tue, 21 Jan 2025 19:04:46 GMT</pubDate>
-    	<guid>https://kbs-lucas.neocities.org/posts/A_Robot_Thought</guid>
+    	<guid>https://pigamer37.github.io/posts/A_Robot_Thought</guid>
     </item>
     <item>
     	<title>RSS Explanation</title>
-    	<link>https://kbs-lucas.neocities.org/posts/RSS_Explanation</link>
+    	<link>https://pigamer37.github.io/posts/RSS_Explanation</link>
     	<description>An explanation of RSS technology, and a tutorial on how to consume and produce it</description>
     	<content:encoded><![CDATA[
       	<p>So, you want to learn about <abbr title="Really Simple Syndication">RSS</abbr>. You are in the right place, not because I'm an expert or something, but because I did some research XD. First of all:</p>
@@ -195,21 +195,21 @@ function v5(name, namespace) {
           <p>(Before you go ahead, there's an extensive and detailed explanation in <a href="https://researchbuzz.me/2023/07/06/rss-2/" target="_blank">ResearchBuzz, written by Tara Calishain</a>. I'll try to be a little more brief). You can find a lot of explanations of the achronym, but the most used one is Really Simple Syndication. Nowadays, the main use for <abbr>RSS</abbr> is for podcasts <ins datetime="2025-01-16">(I'll talk about this use case later)</ins>. Years ago, Google had a product that made it easy to use RSS, but Google likes to kill lot of it's products for a variety of reasons, and Google Reader went down in 2013. I never used it, to be clear. I'm fairly new to <abbr>RSS</abbr>, and I only found out about it because I started building this website. <abbr>RSS</abbr> is basicaly a way to syndicate or publish content so that people that subscribe to it don't have to check the main source periodically. What does this mean? In the case of podcasts, users that subscribe to it are notified whenever a new episode comes out <ins datetime="2025-01-16">(and streaming platforms like Itunes or Spotify can update the podcast's content automatically from it)</ins>. In the case of news publishers or websites, subscribers can see when individual articles get published instead of having to check the site periodically. Also, you can use it to group all the sources you want to subscribe to in one place, and because of how it works nowadays, if used correctly by the publisher, you only get the content of the article, without any bloat from ads, navigation elements, etc. Sounds good, right? Let's get into it a bit further, both from a consumer and a producer perspective.</p>
           <h1>How do I use it?</h1>
           <p>First of all, you'll need a feed reader. There's a lot of both paid and free options, even some browsers like Opera or Firefox have built in ones (at least at the time of writing). I personally recomend <a href="https://www.inoreader.com/" target="_blank">Inoreader</a>. It's free (with a limited but generous number of feeds), multi&hyphen;platform, it has many quality of life features, like automatically finding feeds, and the paid version has features for filtering articles or note taking, for example. The article mentioned before discusses more options.</p>
-          <p>Okay, now you have decided on a reader, let's find out how you can subscribe to feeds. Some readers do it for you, like I mentioned before, but they are not perfect. If the site author is nice (like me XD), there will be a symbol that looks something like this: <a href="https://kbs-lucas.neocities.org/RSS.xml" target="_blank"><img loading="lazy" decoding="async" style="width:1em" src="https://i0.wp.com/researchbuzz.me/wp-content/uploads/2023/07/image5.png?resize=54%2C54&amp;ssl=1" alt="RSS logo"></a> If that's the case, you're in luck! Click it and you'll probably get a page ending in .xml (if you click the one I provided you'll get my feed as an example). That's the URL or link to the feed, provide it to your reader of choice and you are done, you'll get new articles when they are added. There's a possibility that instead of opening a page, your browser downloads a file, also ending in .xml. Woops! If you know how to inspect a page, do that and find the href attribute, if you don't, keep reading.</p>
-          <p>If you weren't succesful by now, know that this is not your fault, the site is making it difficult for you (or your browser is a bit goofy). A variety of methods are discussed in <a href="https://researchbuzz.me/2023/07/06/rss-2/#h.qyamvhwjzs7" target="_blank">the ResearchBuzz article</a> I mentioned before, but I will show you the most effective ones. First, the browser extension route. There's a variety of extensions that try to find the feeds automatically, like <a href="https://chromewebstore.google.com/detail/get-rss-feed-url/kfghpdldaipanmkhfpdcjglncmilendn" target="_blank">this one</a>. They are your best bet, usually, but let's say you can't or don't want to use extensions. Then there's some patterns you can <i>exploit</i>. For example, usually Wordpress based sites (wich are numerous) hide their automatically generated <abbr>RSS</abbr> feeds on /feed/. For example, let's say this was a Wordpress site (which it's not) and you wanted to get the feed for it. Then you'd go to https://kbs-lucas.neocities.org/feed/ and try your luck (there's some more of these patterns in <a href="https://researchbuzz.me/2023/07/06/rss-2/#h.up6e5ojczetb" target="_blank">the ResearchBuzz article</a>). If none of these methods worked, the page might not have an <abbr>RSS</abbr> feed, sadly :_( Speaking of which, if you have a website, you wouldn't want to disappoint possible readers by not having a feed, right? Don't worry, it's not too difficult:</p>
+          <p>Okay, now you have decided on a reader, let's find out how you can subscribe to feeds. Some readers do it for you, like I mentioned before, but they are not perfect. If the site author is nice (like me XD), there will be a symbol that looks something like this: <a href="/RSS.xml" target="_blank"><img loading="lazy" decoding="async" style="width:1em" src="https://i0.wp.com/researchbuzz.me/wp-content/uploads/2023/07/image5.png?resize=54%2C54&amp;ssl=1" alt="RSS logo"></a> If that's the case, you're in luck! Click it and you'll probably get a page ending in .xml (if you click the one I provided you'll get my feed as an example). That's the URL or link to the feed, provide it to your reader of choice and you are done, you'll get new articles when they are added. There's a possibility that instead of opening a page, your browser downloads a file, also ending in .xml. Woops! If you know how to inspect a page, do that and find the href attribute, if you don't, keep reading.</p>
+          <p>If you weren't succesful by now, know that this is not your fault, the site is making it difficult for you (or your browser is a bit goofy). A variety of methods are discussed in <a href="https://researchbuzz.me/2023/07/06/rss-2/#h.qyamvhwjzs7" target="_blank">the ResearchBuzz article</a> I mentioned before, but I will show you the most effective ones. First, the browser extension route. There's a variety of extensions that try to find the feeds automatically, like <a href="https://chromewebstore.google.com/detail/get-rss-feed-url/kfghpdldaipanmkhfpdcjglncmilendn" target="_blank">this one</a>. They are your best bet, usually, but let's say you can't or don't want to use extensions. Then there's some patterns you can <i>exploit</i>. For example, usually Wordpress based sites (wich are numerous) hide their automatically generated <abbr>RSS</abbr> feeds on /feed/. For example, let's say this was a Wordpress site (which it's not) and you wanted to get the feed for it. Then you'd go to https://pigamer37.github.io/feed/ and try your luck (there's some more of these patterns in <a href="https://researchbuzz.me/2023/07/06/rss-2/#h.up6e5ojczetb" target="_blank">the ResearchBuzz article</a>). If none of these methods worked, the page might not have an <abbr>RSS</abbr> feed, sadly :_( Speaking of which, if you have a website, you wouldn't want to disappoint possible readers by not having a feed, right? Don't worry, it's not too difficult:</p>
           <h1>How do I make a feed?</h1>
           <p>As always, there won't be a better feed than the one you make by hand, understanding each item. It's not too dificult! The RSS's Board has <a href="https://www.rssboard.org/rss-specification" target="_blank">the full specification</a>, it's not too long and it's well explained. They also have <a href="https://www.rssboard.org/rss-validator" target="_blank">a validator</a> and <a href="https://www.rssboard.org/rss-autodiscovery" target="_blank">a section that explains how to make your feed discoverable automatically</a> (by extensions or feed readers, for example).</p>
           <ins datetime="2025-01-16">In the case of podcasts, you can make it by hand too by following <a href="https://help.apple.com/itc/podcasts_connect/#/itcb54353390" target="_blank">Apple's Itunes Podcast RSS Feed requirements and recommendations</a>, and using <a href="https://podcasters.apple.com/support/829-validate-your-podcast" target="_blank">their recommended validators</a>. There's also sites like <a href="https://rss.com/" target="_blank">RSS.com</a> that promise to handle not only a podcast's RSS feed but many more adjacent things (but it isn't free). I don't know more resources right now, and in fact I know of this one just because I researched how the folks over at the <a href="https://rss.com/podcasts/gl-hf/" target="_blank">gl;hf podcast</a> were doing their syndication.</ins>
-          <p>Too much work? I made <a href="https://kbs-lucas.nekoweb.org/RSS-Generator" target="_blank">an online tool that let's you make a feed automatically</a>, just by filling out a form. It's WIP but I'm trying to make it foolproof, you can even validate the feed you are working on via the previously mentioned validator in just one click! If you compare what it produces with what my own feed looks like, you'll see that it's nearly identical, and that's not by chance! I mainly tried to automate the process of updating my feed for myself, and just expanded to make it accesible to everyone. It follows the RSS Board's specifications and recommendations (<span style="font-style:italic">mostly</span>, as I said it's still WIP but it's like 95% done, and usable right now). Feel free to use it and make suggestions about it via any of my <a href="https://kbs-lucas.neocities.org/socials">socials</a>. You'll still need to <a href="https://www.rssboard.org/rss-autodiscovery" target="_blank">make your feed discoverable automatically</a> (it's just a link tag in your homepage, after all), and I'd suggest making a link or a button to your feed also, like <a href="https://kbs-lucas.neocities.org/#RSS" >this one</a>. <ins datetime="2025-01-16">I made <a class="no-external" href="https://kbs-lucas.nekoweb.org/RSS-Gen-Podcast" target="_blank">a similar tool specifically for podcast feeds</a>, because they have different requirements. Right now it's totally usable (I even recreated the previously mentioned gl;hf feed with it, because I don't have a podcast), but I plan on supporting even more optional features.</ins></p>
+          <p>Too much work? I made <a href="https://kbs-lucas.nekoweb.org/RSS-Generator" target="_blank">an online tool that let's you make a feed automatically</a>, just by filling out a form. It's WIP but I'm trying to make it foolproof, you can even validate the feed you are working on via the previously mentioned validator in just one click! If you compare what it produces with what my own feed looks like, you'll see that it's nearly identical, and that's not by chance! I mainly tried to automate the process of updating my feed for myself, and just expanded to make it accesible to everyone. It follows the RSS Board's specifications and recommendations (<span style="font-style:italic">mostly</span>, as I said it's still WIP but it's like 95% done, and usable right now). Feel free to use it and make suggestions about it via any of my <a href="/socials">socials</a>. You'll still need to <a href="https://www.rssboard.org/rss-autodiscovery" target="_blank">make your feed discoverable automatically</a> (it's just a link tag in your homepage, after all), and I'd suggest making a link or a button to your feed also, like <a href="/#RSS" >this one</a>. <ins datetime="2025-01-16">I made <a class="no-external" href="https://kbs-lucas.nekoweb.org/RSS-Gen-Podcast" target="_blank">a similar tool specifically for podcast feeds</a>, because they have different requirements. Right now it's totally usable (I even recreated the previously mentioned gl;hf feed with it, because I don't have a podcast), but I plan on supporting even more optional features.</ins></p>
           <strong>Happy syndicating!</strong>
       ]]> </content:encoded>
     	<category>Programming</category>
     	<pubDate>Wed, 13 Nov 2024 16:11:39 GMT</pubDate>
-    	<guid>https://kbs-lucas.neocities.org/posts/RSS_Explanation</guid>
+    	<guid>https://pigamer37.github.io/posts/RSS_Explanation</guid>
     </item>
     <item>
         <title>Dungeon Meshi Review</title>
-        <link>https://kbs-lucas.neocities.org/posts/Dungeon_Meshi_Review</link>
+        <link>https://pigamer37.github.io/posts/Dungeon_Meshi_Review</link>
         <description>My experience with Dungeon Meshi S1 and how I was pleasantly surprised by a constant tide of creativity (with a spoiler free section)</description>
         <content:encoded><![CDATA[
           <h1><span style="color: red;"><strong>NO SPOILER</strong></span> section: What is <cite>Dungeon Meshi</cite>?</h1>
@@ -232,11 +232,11 @@ function v5(name, namespace) {
         <category>Personal</category>
         <category>Anime</category>
         <category>Media</category>
-        <guid>https://kbs-lucas.neocities.org/posts/Dungeon_Meshi_Review</guid>
+        <guid>https://pigamer37.github.io/posts/Dungeon_Meshi_Review</guid>
     </item>
     <item>
         <title>My monthly playlist KB Radio (FM)</title>
-        <link>https://kbs-lucas.neocities.org/posts/Monthly_playlist_KB_FM</link>
+        <link>https://pigamer37.github.io/posts/Monthly_playlist_KB_FM</link>
         <description>An explanation on the monthly music playlist concept and some of this month's content</description>
         <content:encoded><![CDATA[
         <h1>I present to you: <span style="color: red;"><strong>my monthly playlist, KB Radio (FM)</strong></span></h1>
@@ -257,11 +257,11 @@ function v5(name, namespace) {
         <pubDate>Tue, 01 Oct 2024 14:00:10 GMT</pubDate>
         <category>Personal</category>
         <category>Music</category>
-        <guid>https://kbs-lucas.neocities.org/posts/Monthly_playlist_KB_FM</guid>
+        <guid>https://pigamer37.github.io/posts/Monthly_playlist_KB_FM</guid>
     </item>
     <item>
         <title>Update 1</title>
-        <link>https://kbs-lucas.neocities.org/posts/Update_1_19-09-2024</link>
+        <link>https://pigamer37.github.io/posts/Update_1_19-09-2024</link>
         <description>First post on this site! Explaining my situation and future plans.</description>
         <content:encoded><![CDATA[
         <p><span style="color: red;"><strong>I just (yesterday) presented mi Final Degree Project!!</strong></span><br>
@@ -279,7 +279,7 @@ function v5(name, namespace) {
         <category>Electronics</category>
         <category>Robotics</category>
         <category>Programming</category>
-        <guid>https://kbs-lucas.neocities.org/posts/Update_1_19-09-2024</guid>
+        <guid>https://pigamer37.github.io/posts/Update_1_19-09-2024</guid>
     </item>
 
 </channel>

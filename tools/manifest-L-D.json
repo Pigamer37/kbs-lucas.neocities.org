@@ -3,25 +3,25 @@
   "name": "KB's Lane Detector",
   "icons": [
     {
-      "src": "/images/favicon.png",
+      "src": "https://pigamer37.github.io/images/favicon.png",
       "type": "image/png",
       "sizes": "32x32",
       "purpose": "any maskable"
     },
     {
-      "src": "/images/favicon.ico",
+      "src": "https://pigamer37.github.io/images/favicon.ico",
       "type": "image/x-icon",
       "sizes": "32x32",
       "purpose": "any maskable"
     },
     {
-      "src": "/images/icon400.png",
+      "src": "https://pigamer37.github.io/images/icon400.png",
       "type": "image/png",
       "sizes": "400x400",
       "purpose": "any maskable"
     }
   ],
-  "start_url": "/tools/Lane-Detector",
+  "start_url": "/Lane-Detector",
   "background_color": "black",
   "display": "minimal-ui",
   "theme_color": "#ff9933",

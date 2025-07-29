@@ -9,13 +9,13 @@
 <!-- Social media stuff -->
     <meta property="og:title" content="KB's RSS Generator" />
     <meta property="og:description" content="An online RSS feed generator" />
-    <meta property="og:image" content="https://kbs-lucas.neocities.org/images/twitter_preview.png" />
+    <meta property="og:image" content="/images/twitter_preview.png" />
     <meta property="og:image:alt" content="Preview image" />
     
     <meta name="twitter:title" content="KB's RSS Generator" />
     <meta name="twitter:description" content="An online RSS feed generator" />
-    <meta name="twitter:url" content="https://kbs-lucas.neocities.org/?src=twitter" />
-    <meta name="twitter:image:src" content="https://kbs-lucas.neocities.org/images/twitter_preview.png" />
+    <meta name="twitter:url" content="/?src=twitter" />
+    <meta name="twitter:image:src" content="/images/twitter_preview.png" />
     <meta name="twitter:image:alt" content="27 different home appliances" />
     <meta name="twitter:creator" content="@KBs__Lucas" />
     <meta name="twitter:site" content="@KBs__Lucas" />
@@ -24,8 +24,8 @@
     <meta name="theme-color" content="#ff9933" />
     <link href="/styles/UI.css" rel="stylesheet" type="text/css" media="all">
     <link rel="icon" type="image/png" href="/images/favicon.png" />
-    <link rel="canonical" href="https://kbs-lucas.neocities.org/tools/RSS-Generator" />
-    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://kbs-lucas.neocities.org/RSS.xml">
+    <link rel="canonical" href="https://kbs-lucas.nekoweb.org/RSS-Generator" />
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/RSS.xml">
     <script src="/scripts/user-color.js"></script>
   </head>
   <body>
@@ -41,18 +41,19 @@
         </div>
         <div class="content">
           <ul role="list">
-            <li><a href="/index" role="menuitem" tabindex="0" style="margin:1ch">Home</a>
-            <li><a href="/es" hreflang="es-ES" lang="es-ES" role="menuitem" tabindex="0" style="margin: 1ch">Página en Español</a>
-            <li><a href="/posts" role="menuitem" tabindex="0" style="margin:1ch">Posts</a>
-            <li><a href="/socials" role="menuitem" tabindex="0" style="margin:1ch">Socials/Contact</a>
-            <li><a href="/about" role="menuitem" tabindex="0" style="margin:1ch">About</a>
-            <li><a href="#footer" role="menuitem" tabindex="0" style="margin:1ch">More Info</a>
+            <li><a class="no-external" href="/index" role="menuitem" tabindex="0" style="margin:1ch">Home</a>
+            <li><a class="no-external" href="/es" hreflang="es-ES" lang="es-ES" role="menuitem" tabindex="0" style="margin: 1ch">Página en Español</a>
+            <li><a class="no-external" href="/posts" role="menuitem" tabindex="0" style="margin:1ch">Posts</a>
+            <li><a class="no-external" href="/socials" role="menuitem" tabindex="0" style="margin:1ch">Socials/Contact</a>
+            <li><a class="no-external" href="/about" role="menuitem" tabindex="0" style="margin:1ch">About</a>
+            <li><a class="no-external" href="#footer" role="menuitem" tabindex="0" style="margin:1ch">More Info</a>
           </ul>
         </div>
       </nav>
     </header>
     <main>
-    <style>form{display:flex;flex-direction:column;align-content:center;flex-wrap:wrap;& p,& > span,& > div{width:clamp(240px,100%,40rem);}& button{width:100%}}fieldset{box-sizing:border-box;display:flex;flex-direction:column;width:clamp(240px,100%,40rem);line-height:1.2;& input[type="text"],& input[type="url"],& input[type="email"],& input[type="number"]{width:100%;}& label{margin-block-end:1rem;&.half-w{width:50%;}}}textarea{tab-size:2;resize:vertical;width:100%;} #res-box{margin-block-end:1rem;background-color:rgb(13 18 28);border:1px solid light-dark(white, black);;overflow:hidden;border-radius:0 0 1rem 1rem;& label{margin-inline:14px}& label textarea{width:calc(100% - 28px);resize:none;margin-inline:14px;}& #copy{font-weight:bold;border:0;height:max(1rem,32px);background-color:blue;color:white;}}/*#copy:before{content:'';mask-image: url(https://developer.mozilla.org/static/media/clippy.92fffda9d37d9c3a3b37.svg);}*/</style>
+    <style>form{display:flex;flex-direction:column;align-content:center;flex-wrap:wrap;& p,& > span,& > div{width:clamp(60px,100%,40rem);}& button{width:100%}}fieldset{box-sizing:border-box;display:flex;flex-direction:column;width:clamp(60px,100%,40rem);line-height:1.2;& input[type="text"],& input[type="url"],& input[type="email"],& input[type="number"]{width:100%;}& label{margin-block-end:1rem;&.half-w{width:50%;}}}textarea{tab-size:2;resize:vertical;width:100%;} #res-box{margin-block-end:1rem;background-color:rgb(13 18 28);border:1px solid light-dark(white, black);overflow:hidden;border-radius:0 0 1rem 1rem;& label{margin-inline:14px}& label textarea{width:calc(100% - 28px);resize:none;margin-inline:14px;}& #copy,#fileDwld,#share{font-weight:bold;border:.1em solid black;height:max(1rem,32px);background-color:blue;color:white;}}label:has(input,textarea,select){&.recommended:before{content:"+ ";color:blue}}/*#copy:before{content:'';mask-image: url(https://developer.mozilla.org/static/media/clippy.92fffda9d37d9c3a3b37.svg);}*/
+    li.todo{&::marker{content:counter(list-item)". [   ] "}&.done{&::marker{content:counter(list-item)". [✓] ";color:green}}&.wont{&::marker{content:counter(list-item)". [✗] ";color:red}}</style>
     <h1 style="display:flex;justify-content:center;">KB's RSS Generator</h1>
      <article class="window" id="main_win">
         <div class="title-bar">
@@ -66,24 +67,26 @@
         <div class="content">
         <noscript><p style="color:red;margin-block-end=0.625rem;">JavaScript is off, this won't load or work without it... sorry!</p></noscript>
         <form id="RSS-input">
-          <p>To make podcasts RSS feeds, use <a class="no-external" href="https://kbs-lucas.nekoweb.org/RSS-Gen-Podcast.html">this version</a>.</p>
+          <p>To make podcasts RSS feeds, use <a href="/RSS-Gen-Podcast.html">this version</a>.</p>
+          <p>Fields marked with <span style="color:red">*</span> are required, and ones marked with <span style="color:blue">+</span> are not technically required, but I'd strongly recomend adding them.</p>
           <label><input type="checkbox" name="chanCheck"> I need to define my RSS channel too </label>
-          <p>If you are starting from scratch, you will need to make your RSS channel. You only need to do this once, and when it's done you'll only need to make your items</p>
-          <span id="Channel" name="channel" style="display:none"><p style="dis">As defined in <a href="https://www.rssboard.org/rss-specification#requiredChannelElements" target="_blank">the specification</a>, a channel must have the title, link and description elements:</p>
+          <p>If you are starting from scratch, you will need to make your RSS channel. Maybe you want to <a href="#fetchFeed" onclick="revChan()">copy and edit an existing feed</a> for reference. You only need to do this once, and when it's done you'll only need to make your items.</p>
+          <span id="Channel" name="channel" style="display:none"><p>As defined in <a href="https://www.rssboard.org/rss-specification#requiredChannelElements" target="_blank">the specification</a>, a channel must have the title, link and description elements:</p>
           <fieldset name="channel"><legend>Channel data</legend>
           <label>Title of the website <input type="text" name="title" placeholder="The John Doe Blog" required></label>
           <label>Link to the website <input type="url" autocomplete="url" inputmode="url" placeholder="https://www.johndoe.org" name="link" required></label>
           <label>Description <input type="text" name="desc" placeholder="A website made by John Doe, about sports, games or cinema" required></label>
-          <label><input type="checkbox" name="imCheck"> Image </label>
-          <label style="display:none">Image URL <input type="url" autocomplete="url" inputmode="url" title="Publicly available GIF, JPEG or PNG URL" pattern="\S+[.](?:gif|jpeg|png|GIF|JPEG|PNG)\s*$" placeholder="https://www.johndoe.org/img.[gif/jpeg/png]" name="imURL"></label>
-          <span style="width:100%;display:flex;flex-wrap:wrap;flex:1;justify-content:space-between"><label class="half-w" style="display:none">Image width <input type="number" min="1" max="144" step="1" name="imWidth" placeholder="Def. is 88px. Width in pixels"></label>
+          <label class="recommended"><input type="checkbox" name="imCheck"> Image </label>
+          <label style="display:none">Image URL <input type="url" autocomplete="url" inputmode="url" title="Publicly available GIF, JPEG or PNG URL" pattern="\S+[.](?:gif|jpeg|png|GIF|JPEG|PNG)\s*$" placeholder="https://www.johndoe.org/img.[gif/jpeg/png]" name="imURL">(goes through <a href="https://test.cors.workers.dev/?" target="_blank">3rd party proxy</a> for image validation)</label>
+          <span id="imWidth" style="width:100%;display:flex;flex-wrap:wrap;flex:1;justify-content:space-between"><label class="half-w" style="display:none">Image width <input type="number" min="1" max="144" step="1" name="imWidth" placeholder="Def. is 88px. Width in pixels"></label>
           <label class="half-w" style="display:none">Image height <input type="number" min="1" max="400" step="1" name="imHeight" placeholder="Def. is 31px. Height in pixels"></label></span>
           <label style="display:none">Image description <input type="text" name="imDesc" placeholder="A website logo..."></label>
-          <label>Language (recommended) <input type="text" name="lang" autocomplete="language" list="ISO639-1langs" placeholder="en-US" pattern="^[a-z]{2,4}(-[A-Z][a-z]{3})?(-([A-Z]{2}|[0-9]{3}))?$"></label>
+          <label class="recommended">Language <input type="text" name="lang" autocomplete="language" list="ISO639-1langs" placeholder="en-US" pattern="^[a-z]{2,4}(-([A-Z]|[a-z]){2,3})?(-(([A-Z]|[a-z]){2}|[0-9]{3}))?$"></label>
           <datalist id="ISO639-1langs">
             <option value="">Enter a language code</option><option value="aa">Afar</option><option value="ab">Abkhazian</option><option value="af">Afrikaans</option><option value="ak">Akan</option><option value="sq">Albanian</option><option value="am">Amharic</option><option value="ar">Arabic</option><option value="an">Aragonese</option><option value="hy">Armenian</option><option value="as">Assamese</option><option value="av">Avaric</option><option value="ae">Avestan</option><option value="ay">Aymara</option><option value="az">Azerbaijani</option><option value="ba">Bashkir</option><option value="bm">Bambara</option><option value="eu">Basque</option><option value="be">Belarusian</option><option value="bn">Bengali</option><option value="bi">Bislama</option><option value="bo">Tibetan</option><option value="bs">Bosnian</option><option value="br">Breton</option><option value="bg">Bulgarian</option><option value="my">Burmese</option><option value="ca">Catalan; Valencian</option><option value="cs">Czech</option><option value="ch">Chamorro</option><option value="ce">Chechen</option><option value="zh">Chinese</option><option value="cu">Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic</option><option value="cv">Chuvash</option><option value="kw">Cornish</option><option value="co">Corsican</option><option value="cr">Cree</option><option value="cy">Welsh</option><option value="cs">Czech</option><option value="da">Danish</option><option value="de">German</option><option value="dv">Divehi; Dhivehi; Maldivian</option><option value="nl">Dutch; Flemish</option><option value="dz">Dzongkha</option><option value="el">Greek, Modern (1453-)</option><option value="en">English</option><option value="eo">Esperanto</option><option value="et">Estonian</option><option value="eu">Basque</option><option value="ee">Ewe</option><option value="fo">Faroese</option><option value="fa">Persian</option><option value="fj">Fijian</option><option value="fi">Finnish</option><option value="fr">French</option><option value="fy">Western Frisian</option><option value="ff">Fulah</option><option value="ka">Georgian</option><option value="de">German</option><option value="gd">Gaelic; Scottish Gaelic</option><option value="ga">Irish</option><option value="gl">Galician</option><option value="gv">Manx</option><option value="el">Greek, Modern (1453-)</option><option value="gn">Guarani</option><option value="gu">Gujarati</option><option value="ht">Haitian; Haitian Creole</option><option value="ha">Hausa</option><option value="he">Hebrew</option><option value="hz">Herero</option><option value="hi">Hindi</option><option value="ho">Hiri Motu</option><option value="hr">Croatian</option><option value="hu">Hungarian</option><option value="hy">Armenian</option><option value="ig">Igbo</option><option value="is">Icelandic</option><option value="io">Ido</option><option value="ii">Sichuan Yi; Nuosu</option><option value="iu">Inuktitut</option><option value="ie">Interlingue; Occidental</option><option value="ia">Interlingua (International Auxiliary Language Association)</option><option value="id">Indonesian</option><option value="ik">Inupiaq</option><option value="is">Icelandic</option><option value="it">Italian</option><option value="jv">Javanese</option><option value="ja">Japanese</option><option value="kl">Kalaallisut; Greenlandic</option><option value="kn">Kannada</option><option value="ks">Kashmiri</option><option value="ka">Georgian</option><option value="kr">Kanuri</option><option value="kk">Kazakh</option><option value="km">Central Khmer</option><option value="ki">Kikuyu; Gikuyu</option><option value="rw">Kinyarwanda</option><option value="ky">Kirghiz; Kyrgyz</option><option value="kv">Komi</option><option value="kg">Kongo</option><option value="ko">Korean</option><option value="kj">Kuanyama; Kwanyama</option><option value="ku">Kurdish</option><option value="lo">Lao</option><option value="la">Latin</option><option value="lv">Latvian</option><option value="li">Limburgan; Limburger; Limburgish</option><option value="ln">Lingala</option><option value="lt">Lithuanian</option><option value="lb">Luxembourgish; Letzeburgesch</option><option value="lu">Luba-Katanga</option><option value="lg">Ganda</option><option value="mk">Macedonian</option><option value="mh">Marshallese</option><option value="ml">Malayalam</option><option value="mi">Maori</option><option value="mr">Marathi</option><option value="ms">Malay</option><option value="mk">Macedonian</option><option value="mg">Malagasy</option><option value="mt">Maltese</option><option value="mn">Mongolian</option><option value="mi">Maori</option><option value="ms">Malay</option><option value="my">Burmese</option><option value="na">Nauru</option><option value="nv">Navajo; Navaho</option><option value="nr">Ndebele, South; South Ndebele</option><option value="nd">Ndebele, North; North Ndebele</option><option value="ng">Ndonga</option><option value="ne">Nepali</option><option value="nl">Dutch; Flemish</option><option value="nn">Norwegian Nynorsk; Nynorsk, Norwegian</option><option value="nb">Bokmål, Norwegian; Norwegian Bokmål</option><option value="no">Norwegian</option><option value="ny">Chichewa; Chewa; Nyanja</option><option value="oc">Occitan (post 1500)</option><option value="oj">Ojibwa</option><option value="or">Oriya</option><option value="om">Oromo</option><option value="os">Ossetian; Ossetic</option><option value="pa">Panjabi; Punjabi</option><option value="fa">Persian</option><option value="pi">Pali</option><option value="pl">Polish</option><option value="pt">Portuguese</option><option value="ps">Pushto; Pashto</option><option value="qu">Quechua</option><option value="rm">Romansh</option><option value="ro">Romanian; Moldavian; Moldovan</option><option value="rn">Rundi</option><option value="ru">Russian</option><option value="sg">Sango</option><option value="sa">Sanskrit</option><option value="si">Sinhala; Sinhalese</option><option value="sk">Slovak</option><option value="sl">Slovenian</option><option value="se">Northern Sami</option><option value="sm">Samoan</option><option value="sn">Shona</option><option value="sd">Sindhi</option><option value="so">Somali</option><option value="st">Sotho, Southern</option><option value="es">Spanish; Castilian</option><option value="sq">Albanian</option><option value="sc">Sardinian</option><option value="sr">Serbian</option><option value="ss">Swati</option><option value="su">Sundanese</option><option value="sw">Swahili</option><option value="sv">Swedish</option><option value="ty">Tahitian</option><option value="ta">Tamil</option><option value="tt">Tatar</option><option value="te">Telugu</option><option value="tg">Tajik</option><option value="tl">Tagalog</option><option value="th">Thai</option><option value="bo">Tibetan</option><option value="ti">Tigrinya</option><option value="to">Tonga (Tonga Islands)</option><option value="tn">Tswana</option><option value="ts">Tsonga</option><option value="tk">Turkmen</option><option value="tr">Turkish</option><option value="tw">Twi</option><option value="ug">Uighur; Uyghur</option><option value="uk">Ukrainian</option><option value="ur">Urdu</option><option value="uz">Uzbek</option><option value="ve">Venda</option><option value="vi">Vietnamese</option><option value="vo">Volapük</option><option value="cy">Welsh</option><option value="wa">Walloon</option><option value="wo">Wolof</option><option value="xh">Xhosa</option><option value="yi">Yiddish</option><option value="yo">Yoruba</option><option value="za">Zhuang; Chuang</option><option value="zh">Chinese</option><option value="zu">Zulu</option>
           </datalist>
-          <label>Link to the .xml file where your feed will be available (recommended) <input type="url" autocomplete="url" inputmode="url" placeholder="https://www.johndoe.org/RSS.xml" name="atomLink"></label>
+          <label class="recommended" style="margin-block-end:0">Link to the .xml file where your feed will be available <input type="url" autocomplete="url" inputmode="url" placeholder="https://www.johndoe.org/RSS.xml" name="atomLink"></label>
+          <button type="button" class="blue-button" id="fetchFeed">Copy this feed's contents to the generator</button><span style="margin-block-end:1rem">(goes through <a href="https://test.cors.workers.dev/?" target="_blank">3rd party proxy</a>)</span>
           <label>Categories or tags (comma separated) <input type="text" name="tags" placeholder="Sports,Games,Cinema"></label>
           <label>Managing Editor email (not recommended) <input type="email" inputmode="email" name="mEdit"></label>
           <label>Web Master email (not recommended) <input type="email" inputmode="email" name="webMast"></label>
@@ -104,37 +107,49 @@
           <p>As defined in <a href="https://www.rssboard.org/rss-specification#hrelementsOfLtitemgt" target="_blank">the specification</a>, all elements of an item are optional, but it must contain either a title or description. I recommend including all of these (except stated otherwise):</p>
           <fieldset name="item"><legend>Item/Article data</legend>
           <label>Title <input type="text" name="title" placeholder="Interesting article" required></label>
-          <label>Link to the article <input type="url" autocomplete="url" inputmode="url" name="link" placeholder="https://www.johndoe.org/interesting-article"></label>
-          <label>Description or headline <input type="text" name="desc" placeholder="An interesting article about interesting topics"></label>
-          <label>Content (HTML or plain text) <textarea name="content" placeholder="When inputing HTML, make sure to change relative URL's to absolute ones and to only enter the article part of the page, meaning no navbars, footers, <script> or <style> tags"></textarea></label>
+          <label class="recommended">Link to the article <input type="url" autocomplete="url" inputmode="url" name="link" placeholder="https://www.johndoe.org/interesting-article"></label>
+          <label class="recommended">Description or headline <input type="text" name="desc" placeholder="An interesting article about interesting topics"></label>
+          <label class="recommended">Content (HTML or plain text) <textarea class="CascadiaCode" name="content" placeholder="When inputing HTML, make sure to change relative URL's to absolute ones and to only enter the article part of the page, meaning no navbars, footers, <script> or <style> tags"></textarea></label>
+          Enclosure/attached file:
+          <label>File URL <input type="url" autocomplete="url" inputmode="url" name="encLink" placeholder="https://www.johndoe.org/files/CoolSong.mp3">(goes through <a href="https://test.cors.workers.dev/?" target="_blank">3rd party proxy</a>)</label>
+          <p>Or if you get an error, <strong>also</strong> use:</p>
+          <label>Local file (doesn't get uploaded anywhere) <input type="file" name="encFile"><div class="dropZone">Or drop file here</div></label>
           <label>Author's email (not recommended) <input type="email" inputmode="email" name="author"></label>
           <label>Categories or tags (comma separated) <input type="text" name="tags" placeholder="Sports,Games,Cinema"></label>
           </fieldset>
-          <span style="align-self:center;"><div id="res-box"><output form="RSS-input"><label style="margin-block-start:1rem">Result <textarea name="result" placeholder="RSS result here" readonly ></textarea></output></label>
-          <button id="copy" type="button">Copy result to clipboard</button></div>
+          <span style="align-self:center;"><div id="res-box"><output form="RSS-input"><label style="margin-block-start:1rem">Result <textarea class="CascadiaCode" name="result" placeholder="RSS result here. You can drop a .xml file or text selection here to process it" readonly ></textarea></output></label>
+          <button id="fileDwld" type="button">Download result as a file</button>
+          <button id="copy" type="button">Copy result to clipboard</button>
+          <button id="share" type="button">Share result</button></div>
           <div>If you don't want to use the current date, please change the &lt;pubDate&gt; tag with a RFC 2822 date. You can use <a href="https://timestampgenerator.com/" target="_blank">timestamp&shy;generator</a>.</div>
           <button style="width:49%;display:none" id="validate" type="button" class="blue-button">Validate generated feed (on primary validation pass, it will use <a href="https://www.rssboard.org/rss-validator/" target="_blank">the RSS Board's validator</a>)</button>
           <button style="width:49%;display:none" id="validateURL" type="button" class="blue-button">Validate the feed provided in "Link to the .xml file" using <a href="https://www.rssboard.org/rss-validator/" target="_blank">the RSS Board's validator</a></button></span>
         </form>
-        <script>const form=document.querySelector('form');const result=document.getElementsByName("result")[0];
-        let item, channel, chTitle, chDesc, chLink, imURL, imDesc, imHeight, imWidth, chaLink, chTags, mEdit, webMast, lang, title, link, desc, content, author, tags;
+        <script>function replacespecialChars(str){if(typeof str!=='string')return;
+          return str.replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll("’","&apos;").replaceAll("“","&quot;").replaceAll("©","&#xA9;").replaceAll("℗","&#x2117;").replaceAll("™","&#x2122;");}
+        const form=document.querySelector('form');const result=document.getElementsByName("result")[0];
+        let item, channel, chTitle, chDesc, chLink, imURL, imDesc, imHeight, imWidth, chaLink, chTags, mEdit, webMast, lang, title, link, desc, content, encLink, encFile, author, tags;
         let skipHB, skipMon, skipTue, skipWed, skipThu, skipFri, skipSat, skipSun, ttl;
         let skipHoursStr="";
         let dayBools = new Array(7);dayBools.fill(false);
         for(fieldset of form.children){if(fieldset.name==='item')item=fieldset;else if(fieldset.localName==="span"&&fieldset.id==="Channel"){channel=fieldset.children[1]}}
-        for(ch of item.children){switch(ch.children[0]?.name){case 'title': title=ch.children[0];break;case 'link': link=ch.children[0];break;case 'desc': desc=ch.children[0];break;case 'content': content=ch.children[0];break;case 'author': author=ch.children[0];break;case 'tags': tags=ch.children[0];break;default:}}
+        for(ch of item.children){switch(ch.children[0]?.name){case 'title': title=ch.children[0];break;case 'link': link=ch.children[0];break;case 'desc': desc=ch.children[0];break;case 'content': content=ch.children[0];break;case 'encLink': encLink=ch.children[0];break;case 'encFile': encFile=ch.children[0];break;case 'author': author=ch.children[0];break;case 'tags': tags=ch.children[0];break;default:}}
         content.style.height="1px";content.style.height=(content.scrollHeight)+"px";
-        function ParseItem(){let RSStext="";
-          if(title.value!=="")RSStext="\n\t<title>"+title.value.replaceAll("&","&#x26;").replaceAll("<","&#x3C;").replaceAll(">","&#x3E;")+"</title>";
-          let guid="";if(link.value!==""){RSStext+="\n\t<link>"+link.value+"</link>";guid="\n\t<guid>"+link.value+"</guid>"}
-          if(desc.value!=="")RSStext+="\n\t<description>"+desc.value+"</description>";
+        let itemEnc="";
+        function ParseItem(){
+          let RSStext="",guid="";
+          
+          if(title.value!=="")RSStext="\n\t<title><![CDATA["+title.value+"]]></title>";
+          if(link.value!==""){RSStext+="\n\t<link>"+link.value+"</link>";guid="\n\t<guid>"+link.value+"</guid>"}
+          if(desc.value!=="")RSStext+="\n\t<description><![CDATA["+desc.value+"]]></description>";
           if(content.value!==""){RSStext+="\n\t<content:encoded> <![CDATA[ \n\t\t"+content.value+"\n\t]]> </content:encoded>";}
           if(author.value!=="")RSStext+="\n\t<author>"+author.value+"</author>";
-          if(tags.value!==""){let tagarr=tags.value.replaceAll("&","&#x26;").replaceAll("<","&#x3C;").replaceAll(">","&#x3E;").split(",");for(tag of tagarr){RSStext+="\n\t<category>"+tag+"</category>";}}
-          if(RSStext!==""){let now=new Date().toUTCString();RSStext+="\n\t<pubDate>"+now+"</pubDate>";RSStext="<item>"+RSStext;RSStext+=guid+"\n</item>";}
+          if(tags.value!==""){let tagarr=replacespecialChars(tags.value).split(",");for(tag of tagarr){RSStext+="\n\t<category>"+tag+"</category>";}}
+          RSStext+=itemEnc;
+          if(RSStext!==""){RSStext+=`\n\t<pubDate>${new Date().toUTCString()}</pubDate>`;RSStext="<item>"+RSStext;RSStext+=guid+"\n</item>";}
           return RSStext;
         }
-        for(ch of channel.children){if(ch.localName==="span"){imWidth=ch.children[0].children[0];imHeight=ch.children[1].children[0];continue;}else if(ch.localName==="button"){
+        for(ch of channel.children){if((ch.localName==="span")&&(ch.id==="imWidth")){imWidth=ch.children[0].children[0];imHeight=ch.children[1].children[0];continue;}else if(ch.localName==="button"){
           switch(ch.id){case 'skipMon': skipMon=ch;break;case 'skipTue': skipTue=ch;break;case 'skipWed': skipWed=ch;break;case 'skipThu': skipThu=ch;break;case 'skipFri': skipFri=ch;break;case 'skipSat': skipSat=ch;break;case 'skipSun': skipSun=ch;break;case 'skipHB': skipHB=ch;break;default:}continue;
         }switch(ch.children[0]?.name){case 'title': chTitle=ch.children[0];break;case 'link': chLink=ch.children[0];break;case 'desc': chDesc=ch.children[0];break;case 'imURL': imURL=ch.children[0];break;case 'imDesc': imDesc=ch.children[0];break;case 'imHeight': imHeight=ch.children[0];break;case 'imWidth': imWidth=ch.children[0];case 'tags': chTags=ch.children[0];break;case 'atomLink': chaLink=ch.children[0];break;case 'lang': lang=ch.children[0];break;case 'mEdit': mEdit=ch.children[0];break;case 'webMast': webMast=ch.children[0];break;default:}if(ch.children[1]?.name==='ttl')ttl=ch.children[1];}
         const imCheck=document.querySelector('input[type="checkbox"][name="imCheck"]');
@@ -157,14 +172,15 @@
             updateRes();
           });
         }
-        function ParseChannel(){let RSStext="";
-          if(chTitle.value!=="")RSStext="\n\t\t<title>"+chTitle.value.replaceAll("&","&#x26;").replaceAll("<","&#x3C;").replaceAll(">","&#x3E;")+"</title>";
-          if(chLink.value!==""){RSStext+="\n\t\t<link>"+chLink.value+"</link>";}
-          if(chDesc.value!=="")RSStext+="\n\t\t<description>"+chDesc.value.replaceAll("&","&#x26;").replaceAll("<","&#x3C;").replaceAll(">","&#x3E;")+"</description>";
-          if(imCheck.checked){RSStext+="\n\t\t<image>";if(imURL.value!==""){RSStext+="\n\t\t\t<url>"+imURL.value+"</url>\n\t\t\t<title>"+chTitle.value.replaceAll("&","&#x26;").replaceAll("<","&#x3C;").replaceAll(">","&#x3E;")+"</title>\n\t\t\t<link>"+chLink.value+"</link>";}if(imDesc.value!==""){RSStext+="\n\t\t\t<description>"+imDesc.value.replaceAll("&","&#x26;").replaceAll("<","&#x3C;").replaceAll(">","&#x3E;")+"</description>";}if(imWidth.value!==""){RSStext+="\n\t\t\t<width>"+imWidth.value+"</width>";}if(imHeight.value!==""){RSStext+="\n\t\t\t<height>"+imHeight.value+"</height>";}RSStext+="\n\t\t</image>";}
+        function ParseChannel(){
+          let RSStext="";
+          if(chTitle.value!=="")RSStext="\n\t\t<title><![CDATA["+chTitle.value+"]]></title>";
+          if(chLink.value!=="")RSStext+="\n\t\t<link>"+chLink.value+"</link>";
+          if(chDesc.value!=="")RSStext+="\n\t\t<description><![CDATA["+chDesc.value+"]]></description>";
+          if(imCheck.checked){RSStext+="\n\t\t<image>";if(imURL.value!==""){RSStext+="\n\t\t\t<url>"+imURL.value+"</url>\n\t\t\t<title>"+replacespecialChars(chTitle.value)+"</title>\n\t\t\t<link>"+chLink.value+"</link>";}if(imDesc.value!==""){RSStext+="\n\t\t\t<description>"+replacespecialChars(imDesc.value)+"</description>";}if(imWidth.value!==""){RSStext+="\n\t\t\t<width>"+imWidth.value+"</width>";}if(imHeight.value!==""){RSStext+="\n\t\t\t<height>"+imHeight.value+"</height>";}RSStext+="\n\t\t</image>";}
           if(mEdit.value!=="")RSStext+="\n\t\t<managingEditor>"+mEdit.value+"</managingEditor>";
           if(webMast.value!=="")RSStext+="\n\t\t<webMaster>"+webMast.value+"</webMaster>";
-          if(chTags.value!==""){let tagarr=chTags.value.replaceAll("&","&#x26;").replaceAll("<","&#x3C;").replaceAll(">","&#x3E;").split(",");for(tag of tagarr){RSStext+="\n\t\t<category>"+tag+"</category>";}}
+          if(chTags.value!==""){let tagarr=replacespecialChars(chTags.value).split(",");for(tag of tagarr){RSStext+="\n\t\t<category>"+tag+"</category>";}}
           if(lang.value!=="")RSStext+="\n\t\t<language>"+lang.value+"</language>";
           if(chaLink.value!=="")RSStext+='\n\t\t<atom:link href="'+chaLink.value+'" rel="self" type="application/rss+xml"/>';
           if(dayBools.find((e)=> e === true)!==undefined){
@@ -174,8 +190,8 @@
             }
             RSStext+="\n\t\t</skipDays>";
           }RSStext+=skipHoursStr;
-          if((ttl?.value!==undefined)&&(!isNaN(parseInt(ttl.value)))&&(ttl.value>0))RSStext+=`\n\t\t<ttl>${ttl.value}</ttl>`;
-          if(RSStext!==""){let now=new Date().toUTCString();RSStext+="\n\t\t<pubDate>"+now+"</pubDate>\n\t\t<lastBuildDate>"+now+"</lastBuildDate>\n\t\t<docs>https://www.rssboard.org/rss-specification</docs>\n\t\t<generator>KB's RSS feed generator v1.0 (https://kbs-lucas.neocities.org/tools/RSS-Generator)</generator>";
+          if((ttl?.value!==undefined)&&(!isNaN(ttl.valueAsNumber))&&(ttl.valueAsNumber>0))RSStext+=`\n\t\t<ttl>${ttl.valueAsNumber}</ttl>`;
+          if(RSStext!==""){let now=new Date().toUTCString();RSStext+="\n\t\t<pubDate>"+now+"</pubDate>\n\t\t<lastBuildDate>"+now+"</lastBuildDate>\n\t\t<docs>https://www.rssboard.org/rss-specification</docs>\n\t\t<generator>KB's RSS feed generator v2.2 (https://pigamer37.github.io/tools/RSS-Generator)</generator>";
           }
           let itemRSS=ParseItem();
           if(itemRSS!=="")RSStext+="\n\t\t"+itemRSS.replaceAll("\n","\n\t\t");
@@ -183,23 +199,75 @@
           return RSStext;
         }
         
-        function updateRes(){if(chanCheck.checked){result.value=ParseChannel()}else{result.value=ParseItem();}result.style.height="1px";result.style.height=(result.scrollHeight)+"px";}
+        function updateRes(){if(chanCheck.checked){result.value=ParseChannel()}else{result.value=ParseItem()}result.style.height="1px";result.style.height=(result.scrollHeight)+"px";}
         const channelInput=document.getElementById('Channel');
         const valBtn=document.getElementById('validate');
         const valURLBtn=document.getElementById('validateURL');
         const chanCheck=document.querySelector('input[type="checkbox"][name="chanCheck"]');
         chanCheck.addEventListener('input', (event)=>{if(event.target.checked){channelInput.style.display="unset";valBtn.style.display="unset";valURLBtn.style.display="unset";title.required=false;}else{channelInput.style.display="none";valBtn.style.display="none";valURLBtn.style.display="none";title.required=true;}updateRes();});
+        function revChan(){if(!chanCheck.checked)chanCheck.click()}
+        encFile.addEventListener("change", ()=>{if(encFile.files.length>1){encFile.setCustomValidity(`Multiple files selected`);encFile.reportValidity();return;}
+            encFile.setCustomValidity("");
+            if(encLink.value){itemEnc=`\n\t<enclosure url="${encLink.value.trim()}`}
+            else{itemEnc=`\n\t<enclosure url="NOT DEFINED!!!`;encLink.setCustomValidity(`Provide a file URL (even if it's not valid)`);encLink.reportValidity()}
+            itemEnc+=`"\n\t\tlength="${encFile.files[0].size}"\n\t\ttype="${encFile.files[0].type}"\n\t/>`;
+            return itemEnc;
+            updateRes();
+        },false,);
         const itemFields=[title, link, desc, author, tags];
         const Fields=[chTitle, chLink, chDesc, chaLink, chTags, mEdit, imURL, imDesc, imHeight, imWidth, webMast, lang, ttl, ...itemFields];
         Fields.forEach((elem)=>{elem.addEventListener("input", updateRes);});
         content.addEventListener('input', (event)=>{event.target.style.height="1px";event.target.style.height=(event.target.scrollHeight)+"px";updateRes();})
-        title.addEventListener('blur', (event)=>{event.target.reportValidity();});
-        content.addEventListener('blur', (event)=>{
-          if(content.value.includes("<style>")||content.value.includes("<script>")){content.setCustomValidity("Don't use <style> or <script> tags, they probably wont be used");content.reportValidity();}else{content.setCustomValidity("");}
+        encLink.addEventListener("change", ()=>{encLink.setCustomValidity("");itemEnc="";
+          new Promise((resolve, reject)=>{
+          if(encLink.value!==""){const option={method:'HEAD'};
+            const url='https://test.cors.workers.dev/?'+encLink.value;
+            let blob=undefined;
+            fetch(url,option).then(res=>{if(!res.ok){
+                encLink.setCustomValidity(`Can't access file from this site (bad response)`);encLink.reportValidity();return;
+            }else{blob={size:res.headers.get('Content-Length'), type:res.headers.get('Content-Type')};
+                if(blob.size>0){
+                  itemEnc+=`\n\t<enclosure url="${encLink.value}"\n\t\tlength="${blob.size}"\n\t\ttype="${blob.type.split(';')[0]}"\n\t/>`;
+                }else{blob=undefined;encLink.setCustomValidity(`Invalid file size`);encLink.reportValidity();}
+            }}).catch(e=>{if(e.toString()==="TypeError: Failed to fetch"){
+                encLink.setCustomValidity(`Can't access file from this site`);encLink.reportValidity();
+            }else{encLink.setCustomValidity(e);encLink.reportValidity();}}).finally(e=>{
+              if((blob===undefined)&&(encFile.value!=="")){
+                itemEnc+=`\n\t<enclosure url="${encLink.value}"\n\t\tlength="${encFile.files[0].size}"\n\t\ttype="${encFile.files[0].type.split(';')[0]}"\n\t/>`;
+                resolve(itemEnc);return;
+              }else if(blob===undefined){itemEnc+=`\n\t<enclosure url="${encLink.value}"\n\t\tlength="COULDN'T GET (provide the local file)!!!"\n\t\ttype="COULDN'T GET (provide the local file)!!!"\n\t/>`;
+              resolve(itemEnc);return
+              }else{resolve(itemEnc);return}
+            });
+          }else{resolve(itemEnc);return}
+          }).finally(()=>{updateRes()});
+        });
+        title.addEventListener('change', (event)=>{event.target.reportValidity();});
+        content.addEventListener('change', (event)=>{
+          if(content.value.includes("<script>")){content.setCustomValidity("Don't use <script> tags, they probably wont be used");content.reportValidity();}else{content.setCustomValidity("");}
         });
         lang.addEventListener('invalid', (event)=>{event.target.setCustomValidity('Please enter a valid RFC 5646/BCP 47 language code');});
+        chaLink.addEventListener('change',(e)=>{e.target.setCustomValidity("")});
+        imURL.addEventListener('change',(e)=>{e.target.setCustomValidity("");TreatImage(e.target)});
         const copyBtn=document.getElementById('copy');
-        copyBtn.addEventListener('click', (event)=>{navigator.clipboard.writeText(result.value).then((e)=>{console.log("copied!");event.target.innerText="Copied!";setTimeout(function(){this.innerText="Copy result to clipboard";}.bind(event.target), 3000);}).catch((error)=>{console.error(error);});});
+        const fileDwld=document.getElementById('fileDwld');
+        const shareBtn=document.getElementById('share');
+        copyBtn.addEventListener('click', (event)=>{if(chanCheck.checked){form.reportValidity()}else{[content,...itemFields].forEach((e)=>{e.reportValidity()});}
+            navigator.clipboard.writeText(result.value).then((e)=>{console.log("copied!");event.target.innerText="Copied!";setTimeout(function(){this.innerText="Copy result to clipboard";}.bind(event.target), 3000);}).catch((error)=>{console.error(error);});});
+        fileDwld.addEventListener('click', (event)=>{if(result.value==="")alert('Your results are empty!');
+            else{if(chanCheck.checked){form.reportValidity()}else{[content,...itemFields].forEach((e)=>{e.reportValidity()});}
+                const link=document.createElement('a');
+                link.setAttribute('href', 'data:text/xml;charset=utf-8,'+encodeURIComponent(result.value));
+                link.setAttribute('download', 'RSS');
+                document.body.appendChild(link);
+                link.click();
+                window.URL.revokeObjectURL(link.href);
+                document.body.removeChild(link);
+            }
+        });
+        shareBtn.addEventListener('click', (event)=>{if(result.value==="")alert('Your results are empty!');
+            else{if(chanCheck.checked){form.reportValidity()}else{[content,...itemFields].forEach((e)=>{e.reportValidity()});}
+            navigator.share({title:"Feed results",text:result.value}).then((e)=>{console.log("shared!");}).catch((error)=>{console.error(error);});}});
         function validateRSSBoard(link=undefined, mode=false){
           const checker=new URL("https://www.rssboard.org/rss-validator/check.cgi");const params=new URLSearchParams(checker.search);
           mode?params.append("url", link.value):params.append("rawdata", result.value);
@@ -207,16 +275,168 @@
         }
         valBtn.addEventListener('click', (event)=>{if(chanCheck.checked){form.reportValidity();validateRSSBoard();}else{itemFields.forEach((e)=>{e.reportValidity();});}});
         valURLBtn.addEventListener('click', (event)=>{if(chanCheck.checked){if(chaLink.value===""){chaLink.setCustomValidity("Please provide a file to validate via URL");chaLink.reportValidity();setTimeout(()=>{chaLink.setCustomValidity("")},3000);}else{chaLink.reportValidity();validateRSSBoard(chaLink,true);}}});
+        //fetching existing feed
+        let extXML;
+        const fetchFeed=document.getElementById("fetchFeed");
+        fetchFeed.addEventListener('click',(e)=>{
+            extXML=undefined;
+            if(chaLink.value===""){chaLink.setCustomValidity(`Please provide a URL to the feed file`);chaLink.reportValidity();return;}
+            else if(!chaLink.checkValidity()){chaLink.reportValidity();return;}
+            new Promise((res, rej)=>{
+            fetchFeed.disabled=true;fetchFeed.textContent="Processing feed...";
+            console.log(`fetching https://test.cors.workers.dev/?${chaLink.value.trim()}`);
+            const option={method:'GET',mode:'cors'};
+            fetch(`https://test.cors.workers.dev/?${chaLink.value.trim()}`,option).then(res=>{if(!res.ok){
+              chaLink.setCustomValidity(`Can't access file from this site (bad response)`);chaLink.reportValidity();rej(chaLink.validationMessage);return;
+            }else{return res.text()}
+            }).catch(e=>{if(e.toString()==="TypeError: Failed to fetch"){
+                chaLink.setCustomValidity(`Can't access file from this site, probably due to CORS policies. If that's the case, you need to fix it!`);chaLink.reportValidity();
+            }else{chaLink.setCustomValidity(e);chaLink.reportValidity()}
+            }).then(e=>{
+              if(e!==undefined){const pars=new DOMParser();extXML=pars.parseFromString(e,"text/xml");GetAndApplyExtFeedValues(extXML)}
+              //updateRes();
+              res(extXML);
+            });
+            }).catch(e=>console.log("Caught rejection: ",e)).finally(()=>{fetchFeed.disabled=false;fetchFeed.textContent="Copy this feed's contents to the generator"});
+        });
+        function GetAndApplyExtFeedValues(feed){if(feed===undefined)return;
+            const chan=feed.getElementsByTagName('channel')[0];const item=chan.getElementsByTagName('item')[0];
+            for(const ch of chan.children){
+                switch(ch.tagName){case 'title': chTitle.value=ch.textContent;break;
+                case 'link': chLink.value=ch.textContent;break;
+                case 'description': chDesc.value=ch.textContent;break;
+                case 'language': lang.value=ch.textContent;break;
+                case 'image': {let temp;imCheck.checked=false;imCheck.click();
+                    temp=ch.getElementsByTagName("url")[0]?.textContent;if(temp){imURL.value=temp;imURL.dispatchEvent(new Event("change"))}
+                    temp=ch.getElementsByTagName("description")[0]?.textContent;if(temp)imDesc.value=temp;
+                    temp=parseInt(ch.getElementsByTagName("width")[0]?.textContent);if(temp)imWidth.valueAsNumber=temp;
+                    temp=parseInt(ch.getElementsByTagName("height")[0]?.textContent);if(temp)imHeight.valueAsNumber=temp;break;}
+                case 'atom:link': {if(ch.getAttribute('rel')==='self'){if(chaLink.value==="")chaLink.value=ch.getAttribute('href')};break;}
+                case 'managingEditor': mEdit.value=ch.textContent;break;case 'webMaster': webMast.value=ch.textContent;break;
+                case 'ttl': ttl.valueAsNumber=parseInt(ch.textContent);break;
+                case 'category': {if(chTags.value!==""){chTags.value+=','}chTags.value+=ch.textContent;break;}
+                case 'skipDays': {dayBools.fill(false);const daytgs=ch.getElementsByTagName('day');
+                for(const d of daytgs){switch(d.textContent){case "Monday": skipMon.click();break;case "Tuesday": skipTue.click();break;case "Wednesday": skipWed.click();break;case "Thursday": skipThu.click();break;case "Friday": skipFri.click();break;case "Saturday": skipSat.click();break;case "Sunday": skipSun.click();break;}}break;}
+                default:}
+            }
+            for(const ch of item.children){
+                switch(ch.tagName){case 'title': title.value=ch.textContent;break;
+                case 'link': link.value=ch.textContent;break;
+                case 'description': desc.value=ch.textContent;break;
+                case 'content:encoded': content.value=ch.textContent.trim();break;
+                case 'enclosure': content.value=ch.getAttribute('url');itemEnc=`\n\t${ch.outerHTML}`;break;
+                case 'category': {if(tags.value!==""){tags.value+=','}tags.value+=ch.textContent;break;}
+                case 'author': author.value=ch.textContent;break;
+                }
+            }
+            updateRes();
+        }
+        document.querySelectorAll('.dropZone').forEach(dz=>{
+          dz.style.display='revert';
+          dz.addEventListener('dragover',(ev)=>{ev.preventDefault()});
+          dz.addEventListener('dragenter',(ev)=>{ev.target.classList.add("dragOver");});
+          dz.addEventListener('dragleave',(ev)=>{ev.target.classList.remove("dragOver");});
+          dz.addEventListener('drop',(ev)=>{ev.preventDefault();ev.target.classList.remove("dragOver");
+            const fInp=ev.target.parentNode.getElementsByTagName('input')[0];
+            fInp.files=ev.dataTransfer.files;
+            fInp.dispatchEvent(new Event("change"));
+            if(ev.dataTransfer.items){ev.dataTransfer.items.clear()}
+          });
+        });
+        result.addEventListener('dragover',(ev)=>{ev.preventDefault()});
+        result.addEventListener('dragenter',(ev)=>{ev.target.classList.add("dropZone","dragOver");result.style.display='revert';});
+        result.addEventListener('dragleave',(ev)=>{ev.target.classList.remove("dropZone","dragOver");});
+        result.addEventListener('drop',(ev)=>{ev.preventDefault();ev.target.classList.remove("dropZone","dragOver");
+          const f=ev.dataTransfer.files[0];
+          if(f){
+              if(!f.name.endsWith('.xml')){result.value="Invalid file extension";return}
+              else{const read=new FileReader();
+                read.onload=(e)=>{const pars=new DOMParser();extXML=pars.parseFromString(e.target.result,"text/xml");GetAndApplyExtFeedValues(extXML)};
+                read.readAsText(f);
+              }
+          }else{
+              const s=ev.dataTransfer.items[0];
+              if(s?.kind!=='string'){result.value="Unespected drop";return}
+              else{s.getAsString((str)=>{const pars=new DOMParser();extXML=pars.parseFromString(str,"text/xml");GetAndApplyExtFeedValues(extXML)})}
+          }
+          if(ev.dataTransfer.items){ev.dataTransfer.items.clear()}
+        });
+        function IsValidType(blob, typesString){
+            blob.type=blob.type.split(';')[0];//remove charsets
+            return typesString.split(',').some((type)=>{if((blob.type.includes(type))||((blob?.name!==undefined)&&(blob.name.endsWith(type)))){return true}else{return false}})
+        }
+        async function TreatImage(imgField){
+            function delPreview(){if(imgField.parentElement.nextElementSibling?.tagName==='IMG'){imgField.parentElement.nextElementSibling.remove();imgField.parentElement.style.marginBlockEnd="revert";}}
+            const res=await fetch(`https://test.cors.workers.dev/?${imgField.value.trim()}`,{method:'HEAD'}).catch(e=>{if(e.toString()==="TypeError: Failed to fetch"){imgField.setCustomValidity(`Can't access file from this site`);imgField.reportValidity();}
+                else{imgField.setCustomValidity(e);imgField.reportValidity();}delPreview();return ""});
+            if(!res.ok){imgField.setCustomValidity(`Can't access file from this site (bad response)`);imgField.reportValidity();delPreview();return "";
+            }else{blob={size:res.headers.get('Content-Length'), type:res.headers.get('Content-Type'), lastMod:res.headers.get('Last-Modified')};
+                if(blob.size<=0){blob=undefined;imgField.setCustomValidity(`Invalid file size`);imgField.reportValidity();delPreview();return ""}
+                if(!IsValidType(blob,'image/png,image/jpeg,image/gif,.jpeg,.png,.gif')){imgField.setCustomValidity(`Invalid type "${blob.type}", please provide a JPEG, PNG or GIF file`);imgField.reportValidity();blob=undefined;delPreview();return ""}
+                else{
+                  const imRes=await fetch(`https://test.cors.workers.dev/?${imgField.value.trim()}`,{method:'GET'}).catch(e=>{if(e.toString()==="TypeError: Failed to fetch"){imgField.setCustomValidity(`Can't access image for preview from this site`);imgField.reportValidity();}
+                  else{imgField.setCustomValidity(e);imgField.reportValidity();}delPreview();return ""});
+                  if(!imRes.ok){imgField.setCustomValidity(`Can't access image preview from this site (bad response)`);imgField.reportValidity();delPreview();return "";
+                  }else{
+                    const bytes=new Uint8Array(await imRes.clone().arrayBuffer());
+                    const data=await imRes.blob();
+                    let img;
+                    if(imgField.parentElement.nextElementSibling?.tagName==='IMG'){
+                      img=imgField.parentElement.nextElementSibling;
+                      URL.revokeObjectURL(img.src);
+                    }else{
+                        console.log('got here');
+                      img=document.createElement('img');
+                      imgField.parentElement.after(img);imgField.parentElement.style.marginBlockEnd="0";
+                    }
+                    async function loadImage(url,elem){
+                      return new Promise((resolve, reject)=>{elem.onload=()=>resolve(elem);elem.onerror=reject;
+                        elem.src=url});
+                    }
+                    await loadImage(URL.createObjectURL(data), img).catch(e=>{imgField.setCustomValidity(`Error while loading image: ${e}`);imgField.reportValidity();delPreview();return ""})
+                    img.alt="Image preview";img.style.height='12.5em';img.style.width='fit-content';img.style.alignSelf='center';
+                    if(bytes[0]===137&&bytes[1]===80&&bytes[2]===78&&bytes[3]===71&&bytes[4]===13&&bytes[5]===10&&bytes[6]=== 26&&bytes[7]===10){
+                      console.log('PNG');
+                      let offset=8,pxPerMX=0,pxPerMY=0;
+                      while(offset<bytes.length){
+                        const chunkLength=(bytes[offset]<<24)|(bytes[offset+1]<<16)|(bytes[offset+2]<<8)|bytes[offset+3];
+                        console.log(`PNG chunk ${String.fromCharCode(bytes[offset+4],bytes[offset+5],bytes[offset+6],bytes[offset+7])} found`);
+                        if(String.fromCharCode(bytes[offset+4],bytes[offset+5],bytes[offset+6],bytes[offset+7])==='IHDR'){
+                          let tWidth=(bytes[offset+8]<<24)|(bytes[offset+9]<<16)|(bytes[offset+10]<<8)|bytes[offset+11],
+                          tHeight=(bytes[offset+12]<<24)|(bytes[offset+13]<<16)|(bytes[offset+14]<<8)|bytes[offset+15];
+                          if((tWidth>144)||(tHeight>400)){imgField.setCustomValidity(imgField.validationMessage+`Image is too big: ${tWidth} x ${tHeight}px (maximum 144 x 400px)\n`);imgField.reportValidity()}
+                          if((imWidth.value!=="")&&(tWidth!==imWidth.valueAsNumber)){imgField.setCustomValidity(imgField.validationMessage+`Declared image width (${imWidth.valueAsNumber}) and detected width (${tWidth}) don't match\n`);imgField.reportValidity()}
+                          else{imWidth.value||=tWidth}
+                          if((imHeight.value!=="")&&(tHeight!==imHeight.valueAsNumber)){imgField.setCustomValidity(imgField.validationMessage+`Declared image height (${imHeight.valueAsNumber}) and detected height (${tHeight}) don't match\n`);imgField.reportValidity()}
+                          else{imHeight.value||=tHeight}
+                        }
+                        offset+=chunkLength+12;
+                      }
+                      if(!imgField.value.trim().endsWith('.png')){imgField.setCustomValidity(imgField.validationMessage+"Image is in PNG format but the extension in the URL doesn't match\n");imgField.reportValidity()}
+                    }else{console.log('JPEG or GIF');if((img.naturalHeight>400)||(img.naturalWidth>144)){imgField.setCustomValidity(imgField.validationMessage+`Image is too big: ${tWidth} x ${tHeight}px (maximum 144 x 400px)\n`);imgField.reportValidity()}
+                      if((!imgField.value.trim().endsWith('.jpeg'))&&(!imgField.value.trim().endsWith('.gif'))){imgField.setCustomValidity(imgField.validationMessage+"Image is not PNG (assumed JPEG or GIF) but the extension in the URL doesn't match either\n");imgField.reportValidity()}
+                    }
+                    return "";
+                  }
+                }
+            }
+        }
         </script>
+        <p>This generator fully complies with the RSS board's specs.</p>
         <p>TODO/Future enhancements (in order of importance):
         <ol>
-          <li>✓ DONE! Support channel's image tag</li>
-          <li>✓ DONE! Support skipDays and skipHours tags</li>
-          <li>✓ DONE! Support ttl tag (caching indicator)</li>
-          <li>✓ DONE! Added comprehensive list of ISO 639-1 language codes for ease</li>
-          <li>✗ Wont do: Detect relative URL's on Content field and notify the user (The Regular Expressions are so complicated it doesn't make sense, the user can validate using the RSS Board Validator, which implements them, and most readers should be able to resolve relative paths based on the feed channel properties anyways)</li>
-          <li>Support comments tag</li>
-          <li>Support enclosure tag (for podcasts visit <a class="no-external" href="https://kbs-lucas.nekoweb.org/RSS-Gen-Podcast.html">this version</a>)</li>
+          <li class="todo done">Support channel's image tag</li>
+          <li class="todo done">Support skipDays and skipHours tags</li>
+          <li class="todo done">Support ttl tag (caching indicator)</li>
+          <li class="todo done">Added comprehensive list of ISO 639-1 language codes for ease</li>
+          <li class="todo done">Support enclosure tag (attached file in item tag)</li>
+          <li class="todo done">Added <a href="#fileDwld">button to download results as a file</a></li>
+          <li class="todo done">Added <a href="#fetchFeed">button to copy an existing feed's contents</a> to fields, and thus the result</li>
+          <li class="todo done">Fix change event on enclosure file to update properly</li>
+          <li class="todo done">Added functionallity to drag an feed file (.xml) to the result box to be copied to fields, and thus the result. A text selection can also be dragged and parsed</li>
+          <li class="todo done">Add HTTP HEAD requesting to images to <a href="https://www.rssboard.org/rss-specification#ltimagegtSubelementOfLtchannelgt" target="_blank">verify requirements</a> and possibly show a preview</li>
+          <li class="todo">Support comments tag</li>
+          <li class="todo wont"> Wont do: Detect relative URL's on Content field and notify the user (The Regular Expressions are so complicated it doesn't make sense, the user can validate using the RSS Board Validator, which implements them, and most readers should be able to resolve relative paths based on the feed channel properties anyways)</li>
         </ol></p>
         <p>Privacy notice: This demo runs entirely within your browser. In other words, no data is sent to me, the code is sent to your browser and runs locally. You could theoretically load the page, cut your network connection and then start it.</p>
         </div>
@@ -227,5 +447,14 @@
       <p><a href="#">Back to top</a></p>
     </footer>
     <script defer src="/scripts/window.js"></script>
+    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+    <script>
+      kofiWidgetOverlay.draw('pigamer37', {
+        'type': 'floating-chat',
+        'floating-chat.donateButton.text': 'Tip Me',
+        'floating-chat.donateButton.background-color': getComputedStyle(document.body).getPropertyValue('--accent-orange'),
+        'floating-chat.donateButton.text-color': '#fff'
+      });
+    </script>
   </body>
 </html>
