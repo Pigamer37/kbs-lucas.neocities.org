@@ -266,7 +266,7 @@ a:is(:hover, :focus-visible){
 a:active{color:blue;}
 a:not(.no-external, :has(img)){
   &[href^="http"]::after, &[rel="external"]::after, &.external::after{
-    content:"⬀";
+    content:"⬀" / "(Opens in new tab)";
     display:inline-block;
     width:0.8em;height:0.8em;
     margin-inline-start:0.1em;
