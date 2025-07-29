@@ -21,7 +21,7 @@ function bindVidFile(reshand){
     reshand.vidBinded();
     if(reshand?.vid===undefined){console.log("this.vid is undefined");}
     let capt=reshand.vid.parentNode.getElementsByTagName("figcaption")[0];
-    capt.textContent="Using video file";
+    capt.textContent="Using video file";console.log("Using video file")
     capt.style.color="unset";
     reshand.setResolveVid();
     }else{alert("The selected file is not valid");}
@@ -90,12 +90,12 @@ class ResourceHandler{
   vidBinded(){
     this.#gotVid=true;
     updateProgBar(prog_bar.value+25);
+    this.vid.parentNode.getElementsByTagName("figcaption")[0].textContent="Camera Input";
     let resoH= (event) => {
       console.log("The size of the video element has changed!");
       this.resizeVideo();
       if(this.#gotVid){
         this.vid.removeEventListener('resize', resoH);
-        this.vid.parentNode.getElementsByTagName("figcaption")[0].textContent="Camera Input";
         updateProgBar(prog_bar.value+25, this.vid, this.out);
         console.trace("PuñetaTrace");
         console.log("PuñetaTimeoutBefore");
@@ -104,6 +104,26 @@ class ResourceHandler{
       }
     };
     this.vid.addEventListener("resize", resoH);
+
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.metadata=new MediaMetadata({
+        title:'Edge detection video',
+    		artist:'User'
+      });
+      const actionHandlers=[
+        ['play', () => {document.querySelector('video').pause();playing=false;document.getElementById("startStop").textContent="Start";}],
+        ['pause', () => {document.querySelector('video').play();playing=false;document.getElementById("startStop").textContent="Stop";}],
+      ];
+      //not working, don't know why
+      for (const [action, handler] of actionHandlers) {
+        try {navigator.mediaSession.setActionHandler(action, handler);console.log(`Added media session action "${action}"`)}catch (error){console.log(`The media session action "${action}" is not supported yet.`)}
+      }
+      function updateMediaSes(){const video=document.querySelector('video');navigator.mediaSession.setPositionState({duration:video.duration,playbackRate:video.playbackRate,position:video.currentTime})}
+      const evs=["durationchange","ratechange","timechange"];
+      for (const ev of evs){this.vid.addEventListener(ev,updateMediaSes)}
+      this.vid.addEventListener('play', ()=>{navigator.mediaSession.playbackState='playing'});
+      this.vid.addEventListener('pause', ()=>{navigator.mediaSession.playbackState='paused'});
+    }
   }
   frame; frameCpy; morphOut; imgHSV; imgCanny;
   closeKern;
@@ -225,7 +245,6 @@ bindVidFile(resHandler);
 let playing=false;
 document.getElementById("startStop").addEventListener("click", function (event){
   playing=!playing;
-  console.log(this);
   playing?this.textContent="Stop":this.textContent="Start";
   resHandler.pauseVid(playing);
 });

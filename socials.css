@@ -1,10 +1,9 @@
-#main_win .content ul{
+#main .content ul.list{
   list-style-type:none;
-  width:100%;
   column-width:12em;
   column-gap:1em;
   column-fill:balance;
-  padding-inline:1rem;
+  padding-inline:1em;
 }
 #bands .content{
   display:flex;
@@ -26,19 +25,20 @@
 }
 .Email:before{
   content:"📩";
-  font-size:.75rem;
+  font-size:.75em;
   /*Thkfully rms underline for some reason*/
   display:inline-block;
 }
-.Instagram,.Twitter,.Spotify,.GitHub,.LinkedIn,.YT,.lastfm,.letterboxd,.linktree,.Twitch,.TikTok,.Ko-fi {
+.Instagram,.Twitter,.Bluesky,.Spotify,.GitHub,.LinkedIn,.YT,.lastfm,.letterboxd,.linktree,.Twitch,.TikTok,.Ko-fi {
   &:before{
   content:"";
   display:inline-block;
-  height:1rem;
-  width:1rem;
-  background-size:1rem 1rem;
+  translate:0 .13em;
+  height:1em;
+  width:1em;
+  background-size:1em 1em;
   background-position:center;
-  margin-inline-end:.5rem;
+  margin-inline-end:.5em;
   }
 }
 .Instagram:before{
@@ -46,6 +46,11 @@
 }
 .Twitter:before{
   background-image:url('https://abs.twimg.com/favicons/twitter.3.ico');
+}
+.Bluesky:before{
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Bluesky_Logo.svg/1200px-Bluesky_Logo.svg.png');
 }
 .Spotify:before{
   background-image:url('https://open.spotifycdn.com/cdn/images/favicon32.b64ecc03.png');

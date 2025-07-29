@@ -16,10 +16,10 @@ function handlePickedEvent(event){handlePickedColor(event.target.value);}
 function handlePickedColor(acolor){
   if((acolor===null)||(acolor===undefined)){return;}
   r.style.setProperty('--accent-orange',acolor);
-  r.style.setProperty('--visited-orange',hexColorDiff(acolor,'004033'));
+  /*r.style.setProperty('--visited-orange',hexColorDiff(acolor,'004033'));
   r.style.setProperty('--dark-grad-orage',hexColorDiff(acolor,'001A33'));
   r.style.setProperty('--light-grad-orage',hexColorDiff(acolor,'01EDDB'));
-  r.style.setProperty('--hover-button-orange:#ffb870',hexColorSum(acolor,'001F3D'));
+  r.style.setProperty('--hover-button-orange:#ffb870',hexColorSum(acolor,'001F3D'));*/
   t_c?.setAttribute("content",acolor);
 }
 if(resBut){

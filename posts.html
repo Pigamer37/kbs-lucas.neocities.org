@@ -44,7 +44,7 @@
           <ul role="list">
             <li><a href="/index" role="menuitem" tabindex="0" style="margin: 1ch">Home</a></li>
             <li><a href="/es-posts" hreflang="es-ES" lang="es-ES" role="menuitem" tabindex="0" style="margin: 1ch">Página en Español</a>
-            <li><a aria-current="page" href="#main_win" role="menuitem" tabindex="0" style="margin: 1ch">Posts</a></li>
+            <li><a aria-current="page" href="/posts" role="menuitem" tabindex="0" style="margin: 1ch">Posts</a></li>
             <li><a href="/socials" role="menuitem" tabindex="0" style="margin: 1ch">Socials/Contact</a></li>
             <li><a href="/about" role="menuitem" tabindex="0" style="margin: 1ch">About</a></li>
             <li><a href="#footer" role="menuitem" tabindex="0" style="margin: 1ch">More Info</a></li>
@@ -53,7 +53,10 @@
       </nav>
     </header>
     <main>
-     <article class="window" id="main_win">
+      <script async src="https://cse.google.com/cse.js?cx=66000986815e54606">
+      </script>
+      <div style="color:black" class="gcse-search" enableAutoComplete="true"></div>
+     <article class="window" id="main">
         <div class="title-bar">
           <span class="title" role="heading">Posts</span>
           <div class="buttons">
@@ -69,6 +72,7 @@
               <option value="Personal">
               <option value="Media">
               <option value="Anime">
+              <option value="VideoGames">
               </datalist>
             </form>
             </search>
@@ -97,6 +101,8 @@
           </div>
         <div class="content">
           <ul class="blog_posts">
+            <li><a href="/posts/I_made_a_Stremio_Addon">I made a Stremio Addon <time datetime="2025-06-24">(24/<wbr>06/<wbr>2025)</time></a> (Programming/<wbr>Media/<wbr>Anime)</li>
+            <li><a href="/posts/The_Literal_Legend_of_Zelda">The Literal Legend of Zelda <time datetime="2025-04-15">(15/<wbr>04/<wbr>2025)</time></a> (VideoGames)</li>
             <li><a href="/posts/UUIDv5_Explanation"><abbr title="Universally Unique IDentifier version 5">UUIDv5</abbr> Explanation <time datetime="2025-02-04">(04/<wbr>02/<wbr>2025)</time></a> (Programming)</li>
             <li><a href="/posts/A_Robot_Thought">A Robot Thought <time datetime="2025-01-21">(21/<wbr>01/<wbr>2025)</time></a> (Personal/<wbr>Robotics)</li>
             <li><a href="/posts/RSS_Explanation"><abbr title="Really Simple Syndication">RSS</abbr> Explanation (Last updated: <time datetime="2024-01-16">16/<wbr>01/<wbr>2025)</time>, <time datetime="2024-11-13">(13/<wbr>11/<wbr>2024)</time></a> (Programming)
@@ -113,6 +119,6 @@
       <p><a href="#">Back to top</a></p>
     </footer>
     <script defer src="/scripts/window.js"></script>
-    <script type="speculationrules">{ "prerender": [{"urls": ["/posts/UUIDv5_Explanation"]}], "prefetch": [{"urls": ["/posts/A_Robot_Thought", "/posts/RSS_Explanation"]}]}</script>
+    <script type="speculationrules">{ "prerender": [{"urls": ["/posts/I_made_a_Stremio_Addon"]}], "prefetch": [{"urls": ["/posts/The_Literal_Legend_of_Zelda", "/posts/UUIDv5_Explanation"]}]}</script>
   </body>
 </html>

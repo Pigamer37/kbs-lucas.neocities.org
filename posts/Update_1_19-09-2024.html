@@ -28,8 +28,8 @@
     <script src="/scripts/user-color.js"></script>
   </head>
   <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
     <header>
-      <!-- Navigation Window -->
       <nav class="window" id="navigation" role="menubar" tabindex="0">
         <div class="title-bar">
           <span class="title" role="heading">Site Content Navigation</span>
@@ -52,8 +52,8 @@
       </nav>
     </header>
     <main>
-    <h1 style="display: flex; justify-content: center;">KB's first article!</h1>
-      <article class="window">
+    <h1 style="text-align:center">KB's first article!</h1>
+      <article id="main" class="window">
         <div class="title-bar">
           <span class="title" role="heading">Update 1 <time datetime="2024-09-19">(19/09/2024)</time> (yes, I'm using dd/MM/yyyy notation)</span>
           <div class="buttons">
@@ -75,9 +75,10 @@
       </article>
     </main>
     <footer id="footer">
-      <p style="display: flex; justify-content: center;">This webpage's HTML is licensed under a MIT license, CSS and site contents are protected by copyright&copy; law. <br></p>
-      <p><a style="display: flex; justify-content: center;" href="#">Back to top</a></p>
+      <p style="display:flex;justify-content:center">This webpage's HTML is licensed under a MIT license, CSS and site contents are protected by copyright&copy; law. <br></p>
+      <p><a style="display:flex;justify-content:center" href="#">Back to top</a></p>
     </footer>
     <script defer src="/scripts/window.js"></script>
+    <script src="/scripts/oneko.js"></script>
   </body>
 </html>

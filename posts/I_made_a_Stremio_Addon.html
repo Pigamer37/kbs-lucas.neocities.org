@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>I made a Stremio Addon | KB</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A description of how I made a subtitle addon for the Stremio platform" />
+<!-- Social media stuff -->
+    <meta property="og:title" content="I made a Stremio Addon" />
+    <meta property="og:description" content="A description of how I made a subtitle addon for the Stremio platform" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://www.stremio.com/website/stremio-logo-small.png" />
+    <meta property="og:image:alt" content="Stremio Logo" />
+    
+    <meta name="twitter:title" content="I made a Stremio Addon" />
+    <meta name="twitter:description" content="A description of how I made a subtitle addon for the Stremio platform" />
+    <meta name="twitter:url" content="https://kbs-lucas.neocities.org/posts/I_made_a_Stremio_Addon?src=twitter" />
+    <meta name="twitter:image:src" content="https://www.stremio.com/website/stremio-logo-small.png" />
+    <meta name="twitter:image:alt" content="Stremio Logo" />
+    <meta name="twitter:creator" content="@KBs__Lucas" />
+    <meta name="twitter:site" content="@KBs__Lucas" />
+<!-- Social media end -->
+    <link href="/window.css" rel="stylesheet" type="text/css" media="all">
+    <link href="/styles/anims.css" rel="stylesheet" type="text/css" media="all">
+    <meta name="theme-color" content="#ff9933" />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="alternate" href="https://kbs-lucas.neocities.org/es-posts/Hice_un_complemento_de_Stremio" hreflang="es-ES" />
+    <link rel="canonical" href="https://kbs-lucas.neocities.org/posts/I_made_a_Stremio_Addon" />
+    <script src="/scripts/user-color.js"></script>
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <header>
+      <nav class="window" id="navigation" role="menubar" tabindex="0">
+        <div class="title-bar">
+          <span class="title" role="heading">Site Content Navigation</span>
+          <div class="buttons">
+            <button tabindex="-1">_</button>
+            <button tabindex="-1">&#x26F6;</button>
+            <button tabindex="-1">✕</button>
+          </div>
+        </div>
+        <div class="content">
+          <ul role="list">
+            <li><a href="/index" role="menuitem" tabindex="0" style="margin:1ch">Home</a>
+            <li><a href="/es-posts/Hice_un_complemento_de_Stremio" hreflang="es-ES" lang="es-ES" role="menuitem" tabindex="0" style="margin:1ch">Página en Español</a>
+            <li><a href="/posts" role="menuitem" tabindex="0" style="margin:1ch">Posts</a>
+            <li><a href="/socials" role="menuitem" tabindex="0" style="margin:1ch">Socials/Contact</a>
+            <li><a href="/about" role="menuitem" tabindex="0" style="margin:1ch">About</a>
+            <li><a href="#footer" role="menuitem" tabindex="0" style="margin:1ch">More Info</a>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+    <h1 style="text-align:center">I made a Stremio Addon</h1>
+      <article id="main" class="window">
+        <div class="title-bar">
+          <span class="title" role="heading">I made a Stremio Addon <time datetime="2025-06-24">(24/06/2025)</time></span>
+          <div class="buttons">
+            <button tabindex="-1">_</button>
+            <button tabindex="-1">&#x26F6;</button>
+            <button tabindex="-1">✕</button>
+          </div>
+          </div>
+        <div class="content">
+          <h2>Do you know what Stremio is?</h2>
+          <img style="float:left;max-height:100%;max-width:30%;shape-outside:polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%) content-box;shape-margin:.5em;margin:0 .5em .5em 0" decoding="async" class="center animate slideL fullEntry" src="https://www.stremio.com/website/stremio-logo-small.png" alt="Stremio logo" fetchpriority="high">
+          <p><a href="https://www.stremio.com" target="_blank">Stremio</a> is an open source streaming platform, which has been my go to for a while now. <a href="https://guides.viren070.me/stremio" target="_blank">Here's a super thorough guide about what Stremio is and how to set it up</a>. It's very easy to use and makes it possible to access almost everything I want to watch thanks to the modularity on which it is built.</p>
+          <p>What do I mean by modularity? Everything works based on a protocol defined by the platform, which requests resources to the addons the user has installed. For example, you may have an addon that has a list for the trending page on Netflix, if you click on a series, another addon may get the metadata (title, release date, cast...) from IMDB, another addon may get you some links where you can watch it, and when you click on an episode another addon may gather subtitles from OpenSubtitles. The thing is you don't have to think about any of this. All you need to do is "install" (that's the word they use, but you don't have to download anything, they get saved on your account) the addons you want once and all of that will be done in the background, and displayed to you in a user friendly way like in any other streaming service. Also, the stock official addons make it very much usable except for providing the content itself, so you'll have to look out for stream addons (which give access to the streams/videos themselves). You can find info about these on <a href="https://www.reddit.com/r/StremioAddons/top/?t=all" target="_blank">the Stremio Addons subreddit</a> or use <a href="https://beta.stremio-addons.net/" target="_blank">a list of community addons</a> (I personally followed <a href="https://x.com/political_moods/status/1582682409501589504?t=swT_Y50s2CAfLkfmQbe07w" hreflang="es-ES" target="_blank">this guide</a>, but it is written in spanish). Now you know it and maybe I made you discover your new favorite platform, but...</p>
+          <h2>Why did I make an addon?</h2>
+          <p>As you may have seen, there's A BUNCH of addons, for many different purposes. And I just use the stock addons (Cinemeta, OpenSubtitles v3...), a stream provider one and the fantastic <a href="https://beta.stremio-addons.net/addons/mal-stremio-addon" target="_blank">MAL-Stremio Addon</a> anyways. So why make one?</p>
+          <figure class="animate slideR fullEntry" style="margin:0 0 .5em .35em;text-align:center;width:clamp(30%,136px,100%);display:table;float:right">
+          <img decoding="async" style="width:100%;max-width:120px" class="center" src="https://i.imgur.com/VZK8qw2.jpeg" alt="Buta no Subs Stremio Addon Logo" fetchpriority="high">
+          <figcaption style="display:table-caption;caption-side:bottom">The Buta no Subs Stremio Addon Logo, made by the friend I made the addon for</figcaption></figure>
+          <p>A dear friend of mine studies Japanese by himself. A lot of the time, Animelon had subtitles which timing was offset from the video, which made it tedious or impossible to use, so I recommended the platform to him, because it has a subtitle timing offset feature built right in. That's where the problem arose: the base subtitle addons didn't usually return results in Japanese, and the one community addon that claimed it would didn't work either.</p>
+          <p>I don't know Japanese at all, but I didn't let that stop me. So, with <a href="https://github.com/Pigamer37/letterboxd-stremio-addon" target="_blank">a failed addon project</a> on my past, I cloned that repo to get a "template" and started researching the protocol (again), japanese subtitle providers, and started making changes. I had a working prototype within 3 days, which was a surprise even for myself! I just had to wait for the Stremio team to help me with a bug on the tool they provide to publish addons. I opened issues, wrote emails, and waited while making improvements on the addon... But I finally was tired of waiting and published it on <a href="https://render.com/" target="_blank">Render</a>. The project has changed a lot since then, adding more subtitle sources and changing the flow of the program so it is faster and more accurate. There's still progress to be made, because this is one of my first experiences using Node.js, Express.js, and doing backend, so the code is not the cleanest, for example. The current list of issues and future enhancements will always be updated on the <a href="https://github.com/Pigamer37/buta-no-subs-stremio-addon" target="_blank">GitHub repository</a>, so feel free to check it out and/or contribute to it there!</p>
+        </div>
+      </article>
+    </main>
+    <footer id="footer">
+      <p style="display:flex;justify-content:center">This webpage's HTML is licensed under a MIT license, CSS and site contents are protected by copyright&copy; law.<br></p>
+      <p><a style="display:flex;justify-content:center" href="#">Back to top</a></p>
+    </footer>
+    <script defer src="/scripts/window.js"></script>
+    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+    <script>
+      kofiWidgetOverlay.draw('pigamer37', {
+        'type': 'floating-chat',
+        'floating-chat.donateButton.text': 'Tip Me',
+        'floating-chat.donateButton.background-color': getComputedStyle(document.body).getPropertyValue('--accent-orange'),
+        'floating-chat.donateButton.text-color': '#fff'
+      });
+    </script>
+  </body>
+</html>

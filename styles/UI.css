@@ -107,11 +107,12 @@ progress[value]::-moz-progress-bar{
   background-color:var(--accent-orange);
   transition:width .25s ease-out;
 }
-pre:has(.copy-btn){position:relative;& code{border-radius:.3em}&:hover .copy-btn{opacity:1}}
-.copy-btn{position:absolute;top:0px;right:0px;
+pre:has(.copy-btn){position:relative;& code{border-radius:.3em}&:hover .copy-btn{opacity:1}&:focus-visible .copy-btn{opacity:1}}
+.copy-btn{position:absolute;top:0;right:0;
     background-color:var(--accent-orange);color:white;border:none;border-radius:.3em;opacity:0;
-    font-size:1rem;display:none;
-    transition:opacity 0.2s;
+    font-size:1rem;
+    transition:opacity 0.2s;display:none;
+    &:focus-visible{opacity:1}
 }
 .blue-button{
  font-weight:bold;background-color:blue;border-radius:1em;color:white;

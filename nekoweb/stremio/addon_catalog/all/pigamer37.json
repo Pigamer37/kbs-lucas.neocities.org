@@ -1,0 +1,86 @@
+{
+  "addons": [
+    {
+      "transportUrl": "https://buta-no-subs-stremio-addon.onrender.com/manifest.json",
+      "transportName": "http",
+      "manifest":{
+        "id": "com.buta.no.subs.stremio.addon",
+        "version": "1.0.0",
+        "name": "Buta No Subs Stremio Addon",
+         "logo": "https://i.imgur.com/VZK8qw2.png",
+        "description": "Node.js addon to add japanese subtitles to Stremio. GitHub repo: https://github.com/Pigamer37/buta-no-subs-stremio-addon",
+        "catalogs": [],
+        "resources": [
+           "subtitles"
+         ],
+         "types": [
+          "movie",
+          "series",
+          "anime",
+          "other"
+         ],
+         "idPrefixes": [
+           "tt",
+           "tmdb",
+           "anilist",
+           "kitsu",
+           "mal",
+            "anidb"
+        ]
+      }
+    },
+    {
+      "transportUrl": "https://buta-no-subs-stremio-addon.onrender.com/manifest.json",
+      "transportName": "http",
+      "manifest":{
+        "id": "com.animeflv.stremio.addon",
+        "version": "0.2.0",
+        "name": "AnimeFLV",
+        "logo": "https://play-lh.googleusercontent.com/ZIjIwO5FJe9R1rplSd4uz54OwBxQhwDcznjljSPl2MgHaCoyF3qG6R4kRMCB40f4l2A=w256",
+        "description": "Node.js addon to add AnimeFLV functionallity to Stremio, not affiliated with AnimeFLV. GitHub repo: https://github.com/Pigamer37/animeflv-stremio-addon",
+        "catalogs": [
+          {
+            "id": "animeflv",
+            "type": "AnimeFLV",
+            "name": "search results",
+            "extra": [
+              {
+                "name": "search",
+                "isRequired": true
+              }
+            ]
+          },
+          {
+            "id": "animeflv|onair",
+            "type": "AnimeFLV",
+            "name": "On Air"
+          }
+        ],
+        "resources": [
+          "stream",
+          "meta",
+          "catalog"
+        ],
+        "types": [
+          "movie",
+          "series",
+          "anime",
+          "other"
+        ],
+        "idPrefixes": [
+          "tt",
+          "animeflv:",
+          "tmdb:",
+          "anilist:",
+          "kitsu:",
+          "mal:",
+          "anidb:"
+        ],
+        "stremioAddonsConfig": {
+          "issuer": "https://stremio-addons.net",
+          "signature": "eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..0XN39hJS4zjNV5ES2brUeQ.sjRgcAHGPIUA0GXXbZI2BZLuKUOiT3jfI8ALp-QlUcWNuW_9qcVjARUxKCE6ncTE1rdK9yCma3IlgdCbI8-3ZV1E5WsKdS3LncHDeqlXThTZ9V7Znc1rATu7kJE_NDxE.Y8gIKpiHqAVypGGOvEXVqw"
+        }
+      }
+    }
+  ]
+}

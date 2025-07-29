@@ -53,13 +53,14 @@
       </nav>
     </header>
     <main>
-    <style>#visualization{display:flex;text-align:center;margin-inline:-0.625rem;margin-block-start:-0.625rem;flex-direction:row;justify-content:space-between;& figure{margin-inline:.5ch;}& figure:first-of-type{margin-inline-start:0;}& figure:last-of-type{margin-inline-end:0;}}
+    <style>*{user-select:none}#visualization{display:flex;text-align:center;margin-inline:-0.625rem;margin-block-start:-0.625rem;flex-direction:row;justify-content:space-between;& figure{margin-inline:.5ch;}& figure:first-of-type{margin-inline-start:0;}& figure:last-of-type{margin-inline-end:0;}}
     @media screen and ((max-width: 480px) or (orientation: portrait)){
       #visualization{
         flex-direction:column;
         & figure{margin-inline:0;}
       }
-    }</style>
+    }
+    li.todo{&::marker{content:counter(list-item)". [   ] "} &.done{&::marker{content:counter(list-item)". [✓] ";color:chartreuse}}}</style>
     <h1 style="display:flex;justify-content:center;">Lane Detector</h1>
      <article class="window" id="main_win">
         <div class="title-bar">
@@ -102,8 +103,8 @@
         <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Tip me via Ko-fi', '#ff9933', 'M4M219PJVI');kofiwidget2.draw();</script> 
         <p>TODO:
         <ol>
-          <li>Add functionallity to be able to load a video (as stated below, everything runs on the browser) to be processed instead of the webcam. Displaying should be the same</li>
-          <li>Add PWA specific OS functionallity. Mainly being able to "share" a video to be processed from another app or the OS's filesystem directly, or add a share button that let's you text this website on messaging apps</li>
+          <li class="todo done">Add functionallity to be able to load a video (as stated below, everything runs on the browser) to be processed instead of the webcam. Displaying should be the same</li>
+          <li class="todo">Add PWA specific OS functionallity. Mainly being able to "share" a video to be processed from another app or the OS's filesystem directly, or add a share button that let's you text this website on messaging apps</li>
         </ol>
         </p>
         <p>Privacy notice: This demo runs entirely within your browser. In other words, no data is sent to me, the code is sent to your browser and runs locally. You could theoretically load the page, cut your network connection and then start it.</p>

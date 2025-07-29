@@ -1,0 +1,24 @@
+{
+  "id": "com.pigamer37.addon.catalog",
+  "logo": "https://kbs-lucas.neocities.org/images/icon400.png",
+  "version": "0.0.1",
+  "name": "Pigamer37's addons",
+  "description": "A list of Stremio addons developed or contributed to by Pigamer37.",
+  "types": [
+    "movie",
+    "series",
+    "channel",
+    "tv"
+  ],
+  "resources": [
+    "addon_catalog"
+  ],
+  "catalogs": [],
+  "addonCatalogs": [
+    {
+      "type": "all",
+      "id": "pigamer37",
+      "name": "Pigamer37's addons"
+    }
+  ]
+}

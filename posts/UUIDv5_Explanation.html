@@ -33,6 +33,7 @@
     <script>hljs.highlightAll();</script>
   </head>
   <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
     <header style="z-index:2">
       <nav class="window" id="navigation" role="menubar" tabindex="0">
         <div class="title-bar">
@@ -56,8 +57,8 @@
       </nav>
     </header>
     <main>
-    <h1 style="display:flex;justify-content:center;"><abbr title="Universally Unique IDentifier version 5">UUIDv5</abbr>&nbsp;Explanation</h1>
-      <article class="window">
+    <h1 style="text-align:center"><abbr title="Universally Unique IDentifier version 5">UUIDv5</abbr> Explanation</h1>
+      <article id="main" class="window">
         <div class="title-bar">
           <span class="title" role="heading"><abbr title="Universally Unique IDentifier version 5">UUIDv5</abbr> Explanation <time datetime="2025-02-04">(04/02/2025)</time></span>
           <div class="buttons">
@@ -112,12 +113,12 @@
 bytes[8] = (bytes[8] & 0x3f) | 0x80;</code><button class="copy-btn">Copy 📋</button></pre>
           <p>To set the 5, we zero out the first half of the byte by bitwise ANDing with <code>0x0f (0b0000.1111)</code>, then setting it to 5 by ORing it with <code>0x50 (0b0101.0000)</code>. To set the <code>0b10</code>, we do a similar operation. First we zero the bits with a bitwise AND with <code>0x3f (0b0011.1111)</code> and then we set them with an OR with <code>0x80 (0b1000.0000)</code> (Added dots in binary notation for legibility).</p></li>
           <li><h3>Aaaand, from byte array to final string we gooooo!</h3>
-          <p>Finally, take that manipulated byte array, and make each byte into a UTF-16 character (flip what we did in step 1 on it's head, it all comes full circle!). Place dahses after character 7, 11, 15 and 19. To do this in JS, we can use the handy <code>map()</code> method to apply the <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString" target="_blank">toString()</a></code> function to each element of the array. This can leave us with unique values instead of pairs, for example 'b' instead of '0b', so we use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart" target="_blank">padStart()</a> to detect and remedy those cases all in one. Then, <code>join('')</code> just converts the character array into a proper string object. To add the dashes, I use a template literal:</p>
+          <p>Finally, take that manipulated byte array, and make each byte into a UTF-16 character (flip what we did in step 1 on it's head, it all comes full circle!). Place dahses after character 7, 11, 15 and 19. To do this in JS, we can use the handy <code>map()</code> method to apply the <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString" target="_blank">toString()</a></code> function to each element of the array. This can leave us with unique values instead of pairs, for example 'b' instead of '0b', so we use <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart" target="_blank">padStart()</a></code> to detect and remedy those cases all in one. Then, <code>join('')</code> just converts the character array into a proper string object. To add the dashes, I use a template literal:</p>
           <pre><code class="language-js">let uuidS = bytes.map( v => v.toString(16).padStart(2,'0') ).join('');
 uuidS = `${uuidS.substring(0,8)}-${uuidS.substring(8,12)}-${uuidS.substring(12,16)}-${uuidS.substring(16,20)}-${uuidS.substring(20)}`;</code><button class="copy-btn">Copy 📋</button></pre></li>
           </ol>
           <h2>All together, your 3 functions for success:</h2>
-          <p>Here is all the steps we took, compiled into 3 functions with some additional error handling:</p>
+          <p>Here are all the steps we took, compiled into 3 functions with some additional error handling:</p>
           <pre><code class="language-js">function uuidToBytes(uuid) {
   let bytes = [];
   uuid.replace(/[a-fA-F0-9]{2}/g, function(hex){ bytes.push(parseInt(hex, 16)) });
@@ -150,7 +151,7 @@ function v5(name, namespace) {
         </div>
         <script>let copyBtns=document.getElementsByClassName('copy-btn');[...copyBtns].forEach(e=>{e.style.display="unset";e.addEventListener('click', (event)=>{
           let code=e.parentElement.getElementsByTagName('code');let res="";[...code].forEach(c=>{res+=c.textContent});
-            navigator.clipboard.writeText(res).then((e)=>{console.log("copied!\n",res);event.target.innerText="Copied!📋";setTimeout(function(){this.innerText="Copy 📋";}.bind(event.target), 3000);}).catch((error)=>{console.error(error);});
+            navigator.clipboard.writeText(res).then((e)=>{console.log("copied!\n",res);event.target.innerText="Copied!📋";setTimeout(function(){this.innerText="Copy 📋";}.bind(event.target), 3000);}).catch((error)=>{console.error(error)});
           });})</script>
       </article>
     </main>

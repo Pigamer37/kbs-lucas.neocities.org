@@ -1,0 +1,135 @@
+/*<dialog>
+  <div class="dlg-title-bar">Title wow, very titly<div class="buttons"><button id="close-button"tabindex="-1">X</button></div>
+  </div>
+  <div class="dlg-content">
+    <p>Text, very cool</p>
+    <p>let's just see how much this can stretch, you know, responsive design and all that</p>
+  </div>
+</dialog>
+<script>const dialog = document.querySelector("dialog");document.querySelector("#open-button").addEventListener("click", () => {dialog.showModal();});
+document.querySelector("#close-button").addEventListener("click", () => {dialog.close();});</script>
+*/
+/*<span class="info" id="open-button">🛈</span>
+<dialog>
+    <div class="dlg-title-bar">Title<div class="buttons"><button type="button" class="close-button" tabindex="-1">X</button></div>
+    </div>
+    <div class="dlg-content">
+      <p>InfoInfo infoinfo....</p>
+    </div>
+  </dialog></label>
+  <script>const dialogs=document.querySelectorAll(".info");dialogs.forEach((elem)=>{const dialog=elem.nextElementSibling;
+  dialog.getElementsByClassName("close-button")[0].addEventListener("click", ()=>{dialog.close()});elem.addEventListener("click", ()=>{dialog.showModal()})});</script>*/
+dialog {
+  --d-background-color:#0f3460;
+  --d-border-color:#29799b;
+  border:.25rem solid var(--d-border-color);
+  background-color:var(--d-background-color);
+  width:calc-size(fit-content, clamp(1rem, size, 90%));
+  padding:0;
+  font-family:'Gunship', 'Gunship Half','Octuple max Solid', Helvetica, sans-serif;
+  /*position:absolute;*/
+  /*top: 50px;*/
+  margin-inline:auto;
+  & *{
+    --dialog-color:lightblue;
+    display:none;
+    opacity:0;
+    color:var(--dialog-color)
+  }
+  & button{
+    --dialog-btn-bg:#03425d;
+    font-family:'Gunship', 'Gunship Half','Octuple max Solid', Helvetica, sans-serif !important;
+    font-size:1em;
+    background-color:var(--dialog-btn-bg);
+    border:none;
+  }
+  & .dlg-title-bar{background-color:var(--d-border-color);padding:.25rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    & .buttons{display:flex;
+      & button{
+        cursor:url(https://www.cursor.cc/cursor/533/209/cursor.png) 11 2, pointer;
+        margin-inline-start:.3125rem;
+      }
+    }
+  }
+  & .dlg-content{display:block;padding:.25rem;margin:.25em;box-shadow:0 0 0 .25rem black}
+}
+dialog[open]{
+  & *{display:unset}
+  & .dlg-title-bar{display:flex;
+    & .buttons{display:flex}
+  }
+  & .dlg-content{display:block}
+}
+@media (prefers-reduced-motion: no-preference) {
+  dialog{
+    --dialog-duration:1s;
+    --dialog-duration-extra:calc(var(--dialog-duration) + var(--txt-flsh-dur));
+    --txt-flsh-dur:500ms;
+    transition: display var(--dialog-duration-extra) allow-discrete, overlay var(--dialog-duration-extra) allow-discrete;
+    animation:closing var(--dialog-duration) ease normal both;
+    animation-delay:var(--txt-flsh-dur);
+    & *{
+      transition:display var(--dialog-duration) allow-discrete;
+      animation:txt-unflash var(--txt-flsh-dur) ease;
+    }
+  }
+  dialog[open]{
+    animation: opening var(--dialog-duration) ease;
+    & *{
+      animation:txt-flash var(--txt-flsh-dur) ease forwards;
+      animation-delay:var(--dialog-duration)
+    }
+  }
+}
+@keyframes txt-flash{
+  0%{opacity:0;text-shadow:none}
+  75%{text-shadow:0 0 .3em white;opacity:1}
+  100%{text-shadow:none;opacity:1}
+}
+@keyframes txt-unflash{
+  0%{opacity:1;text-shadow:none}
+  25%{text-shadow:0 0 .3em white;opacity:1}
+  100%{text-shadow:none;opacity:0}
+}
+@keyframes opening{
+  0%{
+    opacity:0;
+    overflow:hidden;
+    background-color:var(--d-background-color);
+    width:5%;
+    height:1.5rem
+  }
+  20%{opacity:1}
+  40%{width:calc-size(fit-content, clamp(1rem, size, 90%));background-color:white}
+  50%{height:1.5rem;min-height:1.5rem;background-color:var(--d-background-color);}
+  100%{
+    opacity:1;
+    background-color:var(--d-background-color);
+    overflow:hidden;
+    height:calc-size(fit-content,size);
+    overflow:unset;
+    width:calc-size(fit-content, clamp(1rem, size, 90%))
+  }
+}
+@keyframes closing{
+  0%{
+    opacity:1;
+    overflow:hidden;
+    background-color:var(--d-background-color);
+    height:calc-size(fit-content,size);
+    min-height:1.5rem;
+    width:calc-size(fit-content, clamp(1rem, size, 90%));
+  }
+  50%{height:1.5rem;width:calc-size(fit-content, clamp(1rem, size, 90%))}
+  /*80%{opacity:1}*/
+  100%{
+    /*opacity:0;*/
+    background-color:var(--d-background-color);
+    width:0;
+    height:1.5rem;
+    overflow:hidden;
+  }
+}

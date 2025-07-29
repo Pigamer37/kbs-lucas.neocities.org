@@ -29,6 +29,7 @@
     <script src="/scripts/user-color.js"></script>
   </head>
   <body class="crt">
+    <a href="#main" class="skip-link">Skip to main content</a>
     <header>
       <nav class="window" id="navigation" role="menubar" tabindex="0">
         <div class="title-bar">
@@ -52,8 +53,8 @@
       </nav>
     </header>
     <main>
-    <h1 style="display:flex; justify-content:center;" class="colorSepar">Horror antes de Halloween</h1>
-      <article class="window">
+    <h1 style="text-align:center" class="colorSepar">Horror antes de Halloween</h1>
+      <article id="main" class="window">
         <div class="title-bar">
           <span class="title" role="heading">Horror antes de Halloween <time datetime="2024-10-29">(29/10/2024)</time></span>
           <div class="buttons">
@@ -92,6 +93,17 @@
           <p>* Aparte de que a mí me ha servido para procesarlo y empezar a "pasar página", y a ella parece que le hizo ilusión, según me dijo. Supongo que sienta bien que alguien te diga que le gustas.</p>
           <p>Me han pasado más cosillas, que me han quitado bastante motivación, y alguna que directamente me ha puesto triste, pero no voy a entrar en ello, estoy procesándolo todo y sigo adelante. Quizá es que simplemente estoy disociando y me vuelvan a dar venazos en un tiempo, es posible. A ver si algo que me hace ilusión sale bien de una puñetera vez.</p>
           <p>P.D: Infinitas gracias si te estás tomando el tiempo de leer esto.</p>
+          <div class="window envelop" style="margin-inline:auto">
+            <div class="title-bar">
+              <span class="title" role="heading">Weird GIF I like</span>
+              <div class="buttons">
+                <button tabindex="-1">_</button>
+                <button tabindex="-1">&#x26F6;</button>
+                <button tabindex="-1">✕</button>
+              </div>
+            </div>
+            <div class="content" style="width:20em"><img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3N4dTg4M3c4Z2ZjbXB1ZnN1eDkwaDJlM2VlaTN0aHQ3NXFwb25teSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/d86UOOs7R7i6eM7Nxe/giphy.gif" decoding="async" style="width:100%" alt="weird GIF" fetchpriority="high"></div>
+          </div>
           </ins>
         </div>
       </article>
@@ -101,6 +113,8 @@
       <p><a style="display: flex; justify-content: center;" href="#">Back to top</a></p>
     </footer>
     <script defer src="/scripts/window.js"></script>
+    <script src="/scripts/oneko.js"></script>
+    <script defer>document.getElementById('oneko').style.zIndex=49</script>
     <audio autoplay="on" loop="on">
       <source src="https://fauux.neocities.org/sound/boon_loop.wav" type="audio/wav">
     </audio>

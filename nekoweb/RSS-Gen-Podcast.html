@@ -21,6 +21,7 @@
     <meta name="twitter:site" content="@KBs__Lucas" />
 <!-- Social media end -->
     <link href="https://kbs-lucas.neocities.org/window.css" rel="stylesheet" type="text/css" media="all">
+    <link href="https://kbs-lucas.neocities.org/styles/dialog.css" rel="stylesheet" type="text/css" media="all">
     <meta name="theme-color" content="#ff9933" />
     <link href="https://kbs-lucas.neocities.org/styles/UI.css" rel="stylesheet" type="text/css" media="all">
     <link rel="icon" type="image/png" href="https://kbs-lucas.neocities.org/images/favicon.png" />
@@ -52,7 +53,7 @@
       </nav>
     </header>
     <main>
-    <style>form{display:flex;flex-direction:column;align-content:center;flex-wrap:wrap;& p,& > span,& > div{width:clamp(60px,100%,40rem);}& button{width:100%}}fieldset{box-sizing:border-box;display:flex;flex-direction:column;width:clamp(60px,100%,40rem);line-height:1.2;& input[type="text"],& input[type="url"],& input[type="email"],& input[type="number"]{width:100%;}& label{margin-block-end:1rem;&.half-w{width:50%;}}}textarea{tab-size:2;resize:vertical;width:100%;} #res-box{margin-block-end:1rem;color-scheme:light dark;background-color:light-dark(white,rgb(13 18 28));border:1px solid light-dark(white, black);overflow:hidden;border-radius:0 0 1rem 1rem;& label{margin-inline:14px}& label textarea{width:calc(100% - 28px);resize:none;margin-inline:14px;}& #copy,#fileDwld{font-weight:bold;border:.1em solid black;height:max(1rem,32px);background-color:blue;color:white;}}#epType{color:inherit}label:has(input,textarea,select){&.recommended:before{content:"+ ";color:blue}}/*#copy:before{content:'';mask-image: url(https://developer.mozilla.org/static/media/clippy.92fffda9d37d9c3a3b37.svg);}*/
+    <style>.info{cursor: url(https://www.cursor.cc/cursor/533/209/cursor.png) 11 2, pointer;}form{display:flex;flex-direction:column;align-content:center;flex-wrap:wrap;& p,& > span,& > div{width:clamp(60px,100%,40rem);}& button{width:100%}}fieldset{box-sizing:border-box;display:flex;flex-direction:column;width:clamp(60px,100%,40rem);line-height:1.2;& input[type="text"],& input[type="url"],& input[type="email"],& input[type="number"]{width:100%;}& label{margin-block-end:1rem;&.half-w{width:50%;}}}textarea{tab-size:2;resize:vertical;width:100%;} #res-box{margin-block-end:1rem;color-scheme:light dark;background-color:light-dark(white,rgb(13 18 28));border:1px solid light-dark(white, black);overflow:hidden;border-radius:0 0 1rem 1rem;& label{margin-inline:14px}& label textarea{width:calc(100% - 28px);resize:none;margin-inline:14px;}& #copy,#fileDwld,#share{font-weight:bold;border:.1em solid black;height:max(1rem,32px);background-color:blue;color:white;}}#epType{color:inherit}label:has(input,textarea,select){&.recommended:before{content:"+ ";color:blue}}/*#copy:before{content:'';mask-image: url(https://developer.mozilla.org/static/media/clippy.92fffda9d37d9c3a3b37.svg);}*/
     li.todo{&::marker{content:counter(list-item)". [   ] "}&.done{&::marker{content:counter(list-item)". [✓] ";color:chartreuse}}&.wont{&::marker{content:counter(list-item)". [✗] ";color:red}}</style>
     <h1 style="display:flex;justify-content:center;">KB's RSS Generator for Podcasts</h1>
      <article class="window" id="main_win">
@@ -71,7 +72,7 @@
           <p>Fields marked with <span style="color:red">*</span> are required, and ones marked with <span style="color:blue">+</span> are not technically required, but I'd strongly recomend adding them.</p>
           <label><input type="checkbox" name="chanCheck"> I need to define my RSS channel too </label>
           <p>If you are starting from scratch, you will need to make your RSS channel. Maybe you want to <a href="#fetchFeed" onclick="revChan()">copy and edit an existing feed</a> for reference. You only need to do this once for each podcast (not each episode), and when it's done you'll only need to add your items/episodes inside it.</p>
-          <span id="Channel" name="channel" style="display:none"><p style="dis">As defined in <a href="https://help.apple.com/itc/podcasts_connect/#/itcb54353390#:~:text=Show%20tags,%3Cchannel%3E,-The" target="_blank">the specification</a>, a podcast's channel must have the title, description, image, language, category and &lt;itunes:explicit&gt; elements, and at least one item:</p>
+          <span id="Channel" name="channel" style="display:none"><p>As defined in <a href="https://help.apple.com/itc/podcasts_connect/#/itcb54353390#:~:text=Show%20tags,%3Cchannel%3E,-The" target="_blank">the specification</a>, a podcast's channel must have the title, description, image, language, category and &lt;itunes:explicit&gt; elements, and at least one item:</p>
           <fieldset name="channel"><legend>Podcast/Channel data</legend>
           <label>Title of the podcast <input type="text" name="title" placeholder="The John Doe Podcast" required maxlength="255"></label>
           <label class="recommended">Podcast Author(s) <input type="text" name="podAuthor" placeholder="John Doe" maxlength="255"></label>
@@ -94,10 +95,25 @@
           <label class="recommended">This podcast is <select name="Type" id="Type">
             <option value="episodic">episodic</option>
             <option value="serial">serial</option>
-          </select>. Serial means episodes are meant to be consumed sequentially, and episodic without any specific order.<br>See <a href="https://help.apple.com/itc/podcasts_connect/#/itcb54353390#:~:text=%3Citunes:type%3E,Learn%20more." target="_blank">this documentation</a> for more info</label>
+          </select>. <span class="info">🛈</span>
+          <dialog>
+              <div class="dlg-title-bar">Serial or episodic?<div class="buttons"><button type="button" class="close-button" tabindex="-1">X</button></div>
+              </div>
+              <div class="dlg-content">
+                <p>Serial means episodes are meant to be consumed sequentially, and episodic without any specific order.<br>See <a href="https://help.apple.com/itc/podcasts_connect/#/itcb54353390#:~:text=%3Citunes:type%3E,Learn%20more." target="_blank">this documentation</a> for more info</p>
+              </div>
+            </dialog></label>
+          
           <label>Funding/patronage/membership link <input type="url" autocomplete="url" inputmode="url" placeholder="https://www.patreon.com/johndoe" name="funding" maxlength="255"></label>
-          <label>Funding/patronage/membership text (max. 128 characters) <input type="text" maxlength="128" placeholder="Become a patreon!" name="fundTxt"></label>
-          <span style="margin-block-end:1rem">If your podcast has multiple links for funding, please duplicate the &lt;podcast:funding&gt; tag generated changing the attribute(s)</span>
+          <label>Funding/patronage/membership text (max. 128 characters) <input type="text" maxlength="128" placeholder="Become a patreon!" name="fundTxt">
+          <span class="info">🛈</span>
+          <dialog>
+              <div class="dlg-title-bar">Multiple funding links<div class="buttons"><button type="button" class="close-button" tabindex="-1">X</button></div>
+              </div>
+              <div class="dlg-content">
+                <p>If your podcast has multiple links for funding, please duplicate the &lt;podcast:funding&gt; tag generated changing the attribute(s)</p>
+              </div>
+            </dialog></label>
           <span>If your podcast already has been assigned a GUID, please input it here. Otherwise, it will be generated automatically based on <a href="#chaLink">your inputed feed link</a>, as mandated by <a target="_blank" href="https://podcasting2.org/podcast-namespace/tags/guid">the specification</a></span>
           <label>Manual guid <input type="text" placeholder="df13535d-6d6a-557f-90fb-bbbbc23722d7" maxlength="36" title="Valid GUID" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" name="manguid"></label>
           <label><input type="checkbox" name="complete"> This podcast is complete / finished </label>
@@ -116,9 +132,23 @@
           <button id="skipSun" type="button" class="blue-button" style="margin-block-end:1rem">Skip Sunday</button>
           <label>Time to live (<abbr>ttl</abbr>): how many minutes the channel can be cached before refreshing from the source (not recommended)<input type="number" min="0" step="1" name="ttl" placeholder="Ex: 60 (1 hour), use 0 to disable"></label>
           </fieldset>
-          <p>As defined in <a href="https://www.rssboard.org/rss-specification" target="_blank">the RSS specification</a>, &lt;item&gt; elements should be inside the &lt;channel&gt; tag, after all its other elements, and their order is not important. However, I recommend ordering items by date, keeping newer ones near the top, just to be consistent.</p>
+          <span class="info">🛈</span>
+          <dialog>
+              <div class="dlg-title-bar">The RSS Board's spec<div class="buttons"><button type="button" class="close-button" tabindex="-1">X</button></div>
+              </div>
+              <div class="dlg-content">
+                  <p>As defined in <a href="https://www.rssboard.org/rss-specification" target="_blank">the RSS specification</a>, &lt;item&gt; elements should be inside the &lt;channel&gt; tag, after all its other elements, and their order is not important. However, I recommend ordering items by date, keeping newer ones near the top, just to be consistent.</p>
+              </div>
+            </dialog>
           </span>
-          <p>As defined in <a href="https://help.apple.com/itc/podcasts_connect/#/itcb54353390#:~:text=Episode%20tags,%3Citem%3E,-Apple" target="_blank">the Apple Podcasts specification</a>, there must be at least one &lt;item&gt; element, meaning at least one episode, and it must contain at least a title, enclosure (the file for the podcast) and guid (basically a link or a unique identifier for the episode). I recommend including all of these (except stated otherwise):</p>
+          <span class="info">🛈</span>
+          <dialog>
+              <div class="dlg-title-bar">Apple's spec<div class="buttons"><button type="button" class="close-button" tabindex="-1">X</button></div>
+              </div>
+              <div class="dlg-content">
+              <p>As defined in <a href="https://help.apple.com/itc/podcasts_connect/#/itcb54353390#:~:text=Episode%20tags,%3Citem%3E,-Apple" target="_blank">the Apple Podcasts specification</a>, there must be at least one &lt;item&gt; element, meaning at least one episode, and it must contain at least a title, enclosure (the file for the podcast) and guid (basically a link or a unique identifier for the episode). I recommend including all of these (except stated otherwise)</p>
+              </div>
+            </dialog>
           <fieldset name="item"><legend>Item/Episode data</legend>
           <label>This item is a <select name="epType" id="epType">
             <option value="full">full episode</option>
@@ -126,7 +156,15 @@
             <option value="bonus">bonus episode</option>
           </select><br>See <a href="https://help.apple.com/itc/podcasts_connect/#/itcb54353390#:~:text=%3Citunes:episodeType%3E,specific%20episode" target="_blank">this documentation</a> for more info</label>
           <label>Title (don't include season or episode numbers)<input type="text" name="title" placeholder="Interesting episode" required maxlength="255"></label>
-          <label class="recommended">Link to the episode's webpage or similar <input type="url" autocomplete="url" inputmode="url" name="link" placeholder="https://www.johndoe.org/podcast/episode1" maxlength="255"> (if not provided, the <a href="#EpFileURL">episode file URL</a> is used as the episode's unique permanent identifier or guid instead)</label>
+          <label class="recommended">Link to the episode's webpage or similar <input type="url" autocomplete="url" inputmode="url" name="link" placeholder="https://www.johndoe.org/podcast/episode1" maxlength="255">
+          <span class="info">🛈</span>
+          <dialog>
+              <div class="dlg-title-bar">Episode GUID<div class="buttons"><button type="button" class="close-button" tabindex="-1">X</button></div>
+              </div>
+              <div class="dlg-content">
+              <p>If not provided, the <a href="#EpFileURL">episode file URL</a> is used as the episode's unique permanent identifier or guid instead</p>
+              </div>
+            </dialog></label>
           <label class="recommended">Description / summary / show notes <input type="text" name="desc" placeholder="An interesting episode about interesting topics" maxlength="1000"> <a href="https://support.spotify.com/us/creators/article/formatting-your-show-notes/" target="_blank"><strong>Some</strong> platforms support minimal HTML here</a> </label>
           <span id="sep" style="width:100%;display:flex;flex-wrap:wrap;flex:1;justify-content:space-between"><label class="half-w">Season number <input type="number" min="1" step="1" name="season" placeholder="1"></label>
           <label class="half-w">Episode number <input type="number" min="1" step="1" name="episode" placeholder="1"></label></span>
@@ -137,9 +175,26 @@
           Image / Episode specific artwork:
           <label class="recommended">Image URL <input type="url" autocomplete="url" inputmode="url" title="Publicly available square JPEG or PNG URL between 1400 & 3000px" pattern="\S+[.](?:jpeg|png|JPEG|PNG)\s*$" placeholder="https://www.johndoe.org/Episode1Img.[jpeg/png]" name="epImURL" maxlength="255">(goes through <a href="https://test.cors.workers.dev/?" target="_blank">3rd party proxy</a> for image validation)</label>
           <label class="recommended"><input type="checkbox" name="explicEP"> This episode is explicit </label>
-          <p>Note that Itunes only supports embedded chapters on the episode file and <a href="https://support.spotify.com/us/creators/article/creating-and-managing-chapters/" target="_blank">Spotify requires you to use their proprietary tool or format the episode's description</a> 😡.</p>
-          <label>Episode chapters URL <input type="url" autocomplete="url" inputmode="url" name="chapURL" title="URL to a CORS accessible JSON file" pattern="\S+[.](?:json|JSON)\s*$" placeholder="https://www.johndoe.org/podcast/chapters-ep1.json" maxlength="255">(must meet <a href="https://github.com/Podcastindex-org/podcast-namespace/blob/main/chapters/jsonChapters.md" target="_blank">some requirements</a>) See <a href="#chapterTool">below</a> for a free tool to generate chapters and more documentation </label>
-          <span style="margin-block-end:1rem"><span style="color:blue">+</span> Episode transcription(s) (see <a href="#subParag">*</a> for a list of tools to get transcription files). Note that transcription files can be HTML, JSON, VTT or STR files, but Itunes will only accept VTT or SRT, and that Spotify doesn't support this at all atm (not cool 😡):</span>
+          <label>Episode chapters URL <input type="url" autocomplete="url" inputmode="url" name="chapURL" title="URL to a CORS accessible JSON file" pattern="\S+[.](?:json|JSON)\s*$" placeholder="https://www.johndoe.org/podcast/chapters-ep1.json" maxlength="255">
+          <span class="info">🛈</span>
+          <dialog>
+              <div class="dlg-title-bar">Some note on chapters<div class="buttons"><button type="button" class="close-button" tabindex="-1">X</button></div>
+              </div>
+              <div class="dlg-content">
+                <p>Note that Itunes only supports embedded chapters on the episode file and <a href="https://support.spotify.com/us/creators/article/creating-and-managing-chapters/" target="_blank">Spotify requires you to use their proprietary tool or format the episode's description</a> 😡.</p>
+                <p>(must meet <a href="https://github.com/Podcastindex-org/podcast-namespace/blob/main/chapters/jsonChapters.md" target="_blank">some requirements</a>)</p>
+                </div>
+            </dialog>
+            See <a href="#chapterTool">below</a> for a free tool to generate chapters and more documentation </label>
+          <span style="margin-block-end:1rem"><span style="color:blue">+</span> Episode transcription(s) (see <a href="#subParag">*</a> for a list of tools to get transcription files). 
+          <span class="info">🛈</span>
+          <dialog>
+              <div class="dlg-title-bar">Some notes on subtitles<div class="buttons"><button type="button" class="close-button" tabindex="-1">X</button></div>
+              </div>
+              <div class="dlg-content">
+                <p>Note that transcription files can be HTML, JSON, VTT or STR files, but Itunes will only accept VTT or SRT, and that Spotify doesn't support this at all atm (not cool 😡)</p>
+                </div>
+            </dialog></span>
           <label>Episode transcription URL <input type="url" autocomplete="url" inputmode="url" name="transURL" title="URL to a CORS accessible HTML, JSON, SRT or VTT file" pattern="\S+[.](?:html|htm|json|srt|vtt|HTML|HTM|JSON|SRT|VTT)\s*$" placeholder="https://www.johndoe.org/podcast/subtitles-ep1.json" maxlength="255">(must meet <a href="https://github.com/Podcastindex-org/podcast-namespace/blob/main/transcripts/transcripts.md" target="_blank">some requirements</a>)</label>
           <p>Or if you get an error, <strong>also</strong> use:</p>
           <label>Episode transcription file (doesn't get uploaded anywhere) <input type="file" name="transFile" accept="text/plain,text/html,text/vtt,application/json,application/x-subrip,.srt"><div class="dropZone">Or drop file here</div></label>
@@ -150,7 +205,8 @@
           </fieldset>
           <span style="align-self:center;"><div id="res-box"><output form="RSS-input"><label style="margin-block-start:1rem">Result <textarea class="CascadiaCode" name="result" placeholder="RSS result here. You can drop a .xml file or text selection here to process it" readonly></textarea></output></label>
           <button id="fileDwld" type="button">Download result as a file</button>
-          <button id="copy" type="button">Copy result to clipboard</button></div>
+          <button id="copy" type="button">Copy result to clipboard</button>
+          <button id="share" type="button">Share result</button></div>
           <div>If you don't want to use the current date, please change the &lt;pubDate&gt; and &lt;lastBuildDate&gt; tags with a RFC 2822 date. You can use <a href="https://timestampgenerator.com/" target="_blank">timestamp&shy;generator</a>.</div>
           <button style="width:49%;display:none" id="validateURL" type="button" class="blue-button">Validate the feed provided in <a href="#chaLink">"Link to the .xml file"</a> using <a href="https://podba.se/validate/" target="_blank">the podbase validator</a></button>
           <button style="width:49%;display:none" id="validate" type="button" class="blue-button">Validate the feed provided in <a href="#chaLink">"Link to the .xml file"</a> using <a href="https://www.castfeedvalidator.com/validate.php" target="_blank">Cast Feed Validator</a></button>
@@ -444,6 +500,7 @@
         [epImURL,imURL].forEach((elem)=>{elem.addEventListener('change',(e)=>{e.target.setCustomValidity("");TreatImage(e.target)})});
         const copyBtn=document.getElementById('copy');
         const fileDwld=document.getElementById('fileDwld');
+        const shareBtn=document.getElementById('share');
         copyBtn.addEventListener('click', (event)=>{if(chanCheck.checked){form.reportValidity()}else{[content,...itemFields].forEach((e)=>{e.reportValidity()});}
             navigator.clipboard.writeText(result.value).then((e)=>{console.log("copied!");event.target.innerText="Copied!";setTimeout(function(){this.innerText="Copy result to clipboard";}.bind(event.target), 3000);}).catch((error)=>{console.error(error);});});
         fileDwld.addEventListener('click', (event)=>{if(result.value==="")alert('Your results are empty!');
@@ -457,6 +514,9 @@
                 document.body.removeChild(link);
             }
         });
+        shareBtn.addEventListener('click', (event)=>{if(result.value==="")alert('Your results are empty!');
+            else{if(chanCheck.checked){form.reportValidity()}else{[content,...itemFields].forEach((e)=>{e.reportValidity()});}
+            navigator.share({title:"Feed results",text:result.value}).then((e)=>{console.log("shared!");}).catch((error)=>{console.error(error);});}});
         function validateRSSBoard(link=undefined, checker=undefined, mode=false){
           if(checker===undefined){checker=new URL("https://podba.se/validate/");}
           const params=new URLSearchParams(checker.search);
@@ -699,6 +759,8 @@
       <p><a href="#">Back to top</a></p>
     </footer>
     <script defer src="https://kbs-lucas.neocities.org/scripts/window.js"></script>
+    <script>const dialogs=document.querySelectorAll(".info");dialogs.forEach((elem)=>{const dialog=elem.nextElementSibling;
+            dialog.getElementsByClassName("close-button")[0].addEventListener("click", ()=>{dialog.close()});elem.addEventListener("click", ()=>{dialog.showModal()})});</script>
     <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
     <script>
       kofiWidgetOverlay.draw('pigamer37', {

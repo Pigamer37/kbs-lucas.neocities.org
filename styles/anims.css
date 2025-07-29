@@ -1,52 +1,49 @@
-.animate {
-  animation-duration: 0.75s;
-  animation-delay: 0.5s;
-  animation-name: animate-blur;
-  animation-timing-function: cubic-bezier(.26, .53, .74, 1.48);
-  animation-fill-mode: backwards;
-  z-index: 1;
+.over-anim{z-index:2}
+@keyframes animate-blur{
+  0% {
+    opacity:0;
+    scale:.8;
+    filter:blur(15px);
+  }
+  to{filter:blur(0px);scale:1;opacity:1}
 }
-.over-anim{
- z-index: 2; 
+@keyframes slide-l{
+  0% {opacity:0;clip-path:inset(0% 100% 0% 0%)}
+  to {opacity:1;clip-path:inset(0%)}
 }
-@supports (animation-timeline: view()) and (animation-range: entry 25% entry 80%){
-  .animate{
+@keyframes slide-r{
+  0% {opacity:0;clip-path:inset(0% 0% 0% 100%)}
+  to {opacity:1;clip-path:inset(0%)}
+}
+@keyframes slide-d{
+  0% {opacity:0;clip-path:inset(0% 0% 100% 0%)}
+  to {opacity:1;clip-path:inset(0%)}
+}
+@keyframes sword-anim{
+  0% {opacity:.25;translate:0 -1.245em}
+  to {opacity:1;translate:0}
+}
+@keyframes glow{
+  95% {filter:brightness(1.2)}
+  0%,90%,to {filter:brightness(1)}
+}
+@supports (animation-timeline: view()) and (animation-range: entry 0% entry 100%){
+  .slideDT{animation:sword-anim cubic-bezier(0.260, -0.005, 0.935, 0.020) both, glow linear both}
+  .animate {
     animation-timeline: view();
-    animation-range: entry 25% entry 80%;
+    animation-timing-function:linear;
+    animation-fill-mode:both;
+    animation-range:entry 0% entry 50%;
   }
-}
-/* Blur In */
-.animate.blur {
-  animation-name: animate-blur;
-  animation-timing-function: ease;
-}
-
-@keyframes animate-blur {
-  0% {
-    opacity: 0;
-    filter: blur(15px);
-  }
-  100% {
-    opacity: 1;
-    filter: blur(0px);
-  }
-}
-/* Slide In */
-.animate.slide { animation-name: animate-slide; }
-
-@keyframes animate-slide {
-  0% {
-    opacity: 0;
-    transform: translate(0, 20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
+  .animate.fullEntry{animation-range-end:entry 100%}
+  .blur{animation-name:animate-blur}
+  .slideL{animation-name:slide-l}
+  .slideR{animation-name:slide-r}
+  .slideD{animation-name:slide-d}
 }
 /*Respect reduced motion preference*/
 @media screen and (prefers-reduced-motion: reduce) {
   .animate {
-    animation: none !important;
+    animation:none !important;
   }
 }
