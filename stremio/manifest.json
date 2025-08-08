@@ -1,7 +1,7 @@
 {
   "id": "com.pigamer37.addon.catalog",
   "logo": "https://kbs-lucas.neocities.org/images/icon400.png",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "name": "Pigamer37's addons",
   "description": "A list of Stremio addons developed or contributed to by Pigamer37.",
   "types": [

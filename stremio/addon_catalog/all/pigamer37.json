@@ -35,7 +35,7 @@
       "transportName": "http",
       "manifest": {
         "id": "com.animeflv.stremio.addon",
-        "version": "0.2.0",
+        "version": "0.3.0",
         "name": "AnimeFLV",
         "logo": "https://play-lh.googleusercontent.com/ZIjIwO5FJe9R1rplSd4uz54OwBxQhwDcznjljSPl2MgHaCoyF3qG6R4kRMCB40f4l2A=w256",
         "description": "Node.js addon to add AnimeFLV functionallity to Stremio, not affiliated with AnimeFLV. GitHub repo: https://github.com/Pigamer37/animeflv-stremio-addon",
